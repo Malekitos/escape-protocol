@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpm7b71cq8boh"]
+
+[ext_resource type="Script" path="res://Scripts/proc_gen_world.gd" id="1_ys06r"]
+[ext_resource type="TileSet" uid="uid://vod85kyfro86" path="res://Assets/world.tres" id="2_it8ja"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_acytt"]
+seed = 123
+frequency = 0.0162
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nh36c"]
+noise = SubResource("FastNoiseLite_acytt")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wcqkt"]
+frequency = 0.35
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qvt82"]
+noise = SubResource("FastNoiseLite_wcqkt")
+
+[node name="proc_gen_world" type="Node2D"]
+script = ExtResource("1_ys06r")
+noise_height_text = SubResource("NoiseTexture2D_nh36c")
+noise_tree_text = SubResource("NoiseTexture2D_qvt82")
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("2_it8ja")
+format = 2
+layer_0/name = "water_layer"
+layer_0/z_index = -1
+layer_1/name = "ground_layer"
+layer_1/z_index = -1
+layer_2/name = "enviroment_layer"
+layer_2/y_sort_enabled = true

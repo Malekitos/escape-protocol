@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 func _input(_event):
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_pressed("click"):
 		
 		var mouse_position = get_global_mouse_position()
 		var tile_mouse_pos = tile_map.local_to_map(mouse_position)
