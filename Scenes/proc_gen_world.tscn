@@ -19,12 +19,15 @@ fractal_octaves = 1
 noise = SubResource("FastNoiseLite_wcqkt")
 
 [node name="proc_gen_world" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_ys06r")
 noise_height_text = SubResource("NoiseTexture2D_nh36c")
 noise_tree_text = SubResource("NoiseTexture2D_qvt82")
 
 [node name="Player" parent="." instance=ExtResource("3_hy3fg")]
-position = Vector2(-1, 1)
+z_index = 1
+y_sort_enabled = true
+position = Vector2(37, 46)
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -36,3 +39,4 @@ layer_1/name = "ground_layer"
 layer_1/z_index = -1
 layer_2/name = "enviroment_layer"
 layer_2/y_sort_enabled = true
+layer_2/z_index = 1

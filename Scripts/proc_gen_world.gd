@@ -58,5 +58,5 @@ func generate_world():
 	#print("lowest: ", noise_val_arr.min())
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
