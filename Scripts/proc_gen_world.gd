@@ -16,17 +16,19 @@ var tree_atlas = Vector2i(15,6)
 
 var sand_tiles_arr = []
 var grass_tiles_arr = []
+var cliff_tiles_arr = []
 
 var terrain_sand_int = 0
 var terrain_grass_int = 1
+var terrain_cliff_int = 2
 
 var water_layer = 0
 var ground_layer = 1
 var ground2_layer = 2
 var enviroment_layer = 3
-var cliff_layer_layer = 4
+var cliff_layer = 4
 
-
+var grass_atlas_arr = [Vector2i(1,0),Vector2i(2,0),Vector2i(3,0),Vector2i(4,0)]
 
 var source_id = 0
 
@@ -51,15 +53,23 @@ func generate_world():
 			if noise_val > 0.0:
 				if noise_val > 0.2:
 					grass_tiles_arr.append(Vector2i(x,y))
+					
+					if noise_val > 0.3:
+						tile_map.set_cell(ground2_layer, Vector2i(x,y), source_id, grass_atlas_arr.pick_random())
+					
+					if noise_val > 0.7:
+						cliff_tiles_arr.append(Vector2i(x,y))
 
 				sand_tiles_arr.append(Vector2i(x,y))
-				if tree_noise_val >0.9 and noise_val > 0.2:
+				if tree_noise_val >0.85 and noise_val > 0.2:
 					tile_map.set_cell(enviroment_layer, Vector2i(x,y),source_id, tree_atlas)
 				
 			tile_map.set_cell(water_layer, Vector2i(x,y),source_id, water_atlas)
 	
 	tile_map.set_cells_terrain_connect(ground_layer, sand_tiles_arr, terrain_sand_int, 0)
 	tile_map.set_cells_terrain_connect(ground_layer, grass_tiles_arr, terrain_grass_int, 0)
+	tile_map.set_cells_terrain_connect(cliff_layer, cliff_tiles_arr, terrain_cliff_int, 0)
+
 
 
 

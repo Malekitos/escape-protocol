@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 400
 @onready var _animated_sprite = $AnimatedSprite2D
+@onready var camera_2d = $Camera2D
 @onready var direction = null
 
 func get_input():
@@ -46,3 +47,11 @@ func _process(_delta: float) -> void:
 				_animated_sprite.flip_h = false
 		
 	
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("zoom_in"):
+		var zoom_val = camera_2d.zoom.x - 0.05
+		camera_2d.zoom = Vector2(zoom_val, zoom_val)
+	elif Input.is_action_just_pressed("zoom_out"):
+		var zoom_val = camera_2d.zoom.x + 0.05
+		camera_2d.zoom = Vector2(zoom_val, zoom_val)
+		
