@@ -1,0 +1,153 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxqxc27twjho7"]
+
+[ext_resource type="Texture2D" uid="uid://cidxn7jr53173" path="res://Assets/gui/GUI.png" id="1_i01bt"]
+[ext_resource type="StyleBox" uid="uid://bgq1ny0sa1grg" path="res://Assets/gui/hover_button.tres" id="1_vl0lb"]
+[ext_resource type="StyleBox" uid="uid://dkaqvw6mibtvx" path="res://Assets/gui/normal_button.tres" id="2_ehdv4"]
+[ext_resource type="Script" path="res://Scripts/new_game.gd" id="4_j8gpb"]
+[ext_resource type="StyleBox" uid="uid://bxjqcqpd3p5a8" path="res://Assets/gui/hover_start_button.tres" id="5_vrmpy"]
+[ext_resource type="StyleBox" uid="uid://bpmtyqid8dk4t" path="res://Assets/gui/normal_start_button.tres" id="6_u6ec3"]
+
+[sub_resource type="Theme" id="Theme_ban5c"]
+Button/font_sizes/font_size = 55
+Button/styles/hover = ExtResource("1_vl0lb")
+Button/styles/normal = ExtResource("2_ehdv4")
+
+[sub_resource type="Theme" id="Theme_fctmf"]
+Button/font_sizes/font_size = 40
+Button/styles/hover = ExtResource("5_vrmpy")
+Button/styles/normal = ExtResource("6_u6ec3")
+Button/styles/pressed = null
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ban5c")
+metadata/_edit_vertical_guides_ = [-186.0]
+
+[node name="Background" type="ColorRect" parent="."]
+modulate = Color(0.533037, 0.533037, 0.533037, 1)
+self_modulate = Color(0.935351, 0.00071195, 0.935345, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -1.0
+offset_right = 7.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.180392, 0.25098, 1)
+
+[node name="Menu" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -162.0
+offset_right = 173.0
+offset_bottom = 208.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_i01bt")
+region_rect = Rect2(2, 34, 44, 44)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -138.0
+offset_right = 104.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="New_Game" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+text = "New game"
+script = ExtResource("4_j8gpb")
+
+[node name="Window" type="Window" parent="Menu/VBoxContainer/New_Game"]
+title = "Enter the world name"
+position = Vector2i(433, 291)
+size = Vector2i(300, 65)
+mouse_passthrough_polygon = PackedVector2Array(0, 0)
+visible = false
+theme_override_colors/title_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/title_font_size = 26
+
+[node name="LineEdit" type="LineEdit" parent="Menu/VBoxContainer/New_Game/Window"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 25.0
+grow_horizontal = 2
+size_flags_vertical = 0
+placeholder_text = "world"
+alignment = 1
+max_length = 25
+
+[node name="start_button" type="Button" parent="Menu/VBoxContainer/New_Game/Window"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 2
+size_flags_vertical = 6
+theme = SubResource("Theme_fctmf")
+text = "Start"
+metadata/_edit_use_anchors_ = true
+
+[node name="Saves" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+text = "Saves"
+
+[node name="Settings" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Exit" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="Background2" type="ColorRect" parent="Menu"]
+visible = false
+modulate = Color(0.533037, 0.533037, 0.533037, 1)
+self_modulate = Color(0.935351, 0.00071195, 0.935345, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.180392, 0.25098, 0.513726)
+
+[connection signal="pressed" from="Menu/VBoxContainer/New_Game" to="Menu/VBoxContainer/New_Game" method="_on_pressed"]
+[connection signal="close_requested" from="Menu/VBoxContainer/New_Game/Window" to="Menu/VBoxContainer/New_Game" method="_on_window_close_requested"]
+[connection signal="pressed" from="Menu/VBoxContainer/New_Game/Window/start_button" to="Menu/VBoxContainer/New_Game" method="_on_start_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Exit" to="Menu/VBoxContainer/New_Game" method="_on_exit_pressed"]

@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Escape Protocol"
-run/main_scene="res://Scenes/proc_gen_world.tscn"
+run/main_scene="res://Scenes/ui.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[gui]
+
+theme/custom_font="res://Assets/gui/PixelGame-R9AZe.otf"
 
 [input]
 
