@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfh42at7gvdi"
-path="res://.godot/imported/Ores.png-32a8b2fa29cb9a91563913b8d62b50ae.ctex"
+uid="uid://c2kcmmoss0f73"
+path="res://.godot/imported/Spring - simplified.png-3f3af3a8f2d51c487a4ace8598c4a1e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/My_Assets/Ores.png"
-dest_files=["res://.godot/imported/Ores.png-32a8b2fa29cb9a91563913b8d62b50ae.ctex"]
+source_file="res://Assets/Hana Caraka - Topdown Tileset [sample]/Tileset/Spring - simplified.png"
+dest_files=["res://.godot/imported/Spring - simplified.png-3f3af3a8f2d51c487a4ace8598c4a1e8.ctex"]
 
 [params]
 
