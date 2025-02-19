@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b5c842aj083un" path="res://Scenes/player.tscn" id="3_hy3fg"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_acytt"]
-noise_type = 3
+frequency = 0.0043
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nh36c"]
 noise = SubResource("FastNoiseLite_acytt")

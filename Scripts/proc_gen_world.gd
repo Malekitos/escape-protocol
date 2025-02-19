@@ -7,15 +7,15 @@ extends Node2D
 var noise
 var tree_noise
 
-#var noise_val_arr = []
+var noise_val_arr = []
 
 
 #var tree_atlas = Vector2i(15,6)
 
-var fall_tilles_arr = []
-var spring_tilles_arr = []
-var summer_tilles_arr = []
-var winter_tilles_arr = []
+var fall_tiles_arr = []
+var spring_tiles_arr = []
+var summer_tiles_arr = []
+var winter_tiles_arr = []
 
 var terrain_set_ground = 0
 
@@ -26,8 +26,8 @@ var terrain_id_winter = 3
 
 @onready var fall_layer: TileMapLayer = $fall_layer
 @onready var summer_layer: TileMapLayer = $summer_layer
-@onready var spring_layer: TileMapLayer = $summer_layer
-@onready var winter_layer: TileMapLayer = $summer_layer
+@onready var spring_layer: TileMapLayer = $spring_layer
+@onready var winter_layer: TileMapLayer = $winter_layer
 
 
 @onready var ground_layer: TileMapLayer = $ground_layer
@@ -41,8 +41,8 @@ var height = 200
 
 func _ready() -> void:
 	noise = noise_height_text.noise
-	#noise.seed = randi()
-	noise.seed = 123
+	noise.seed = randi()
+	#noise.seed = 100
 	tree_noise = noise_tree_text.noise
 	generate_world()
 
@@ -53,18 +53,19 @@ func generate_world():
 	for x in range(width):
 		for y in range(height):
 			var noise_val = noise.get_noise_2d(x,y)
-			var tree_noise_val = tree_noise.get_noise_2d(x,y)
+			#var tree_noise_val = tree_noise.get_noise_2d(x,y)
 
-			#noise_val_arr.append(noise_val)
+			noise_val_arr.append(noise_val)
 			
-			if noise_val <= -0.3:
-				fall_tilles_arr.append(Vector2i(x,y))
-			if noise_val >= -0.3 && noise_val <= 0:
-				summer_tilles_arr.append(Vector2i(x,y))
-			if noise_val >= 0 && noise_val <= 0.25:
-				spring_tilles_arr.append(Vector2i(x,y))
-			#if noise_val >= 0.25:
-				#winter_tilles_arr.append(Vector2i(x,y))
+	
+			if noise_val <= -0.15:
+				fall_tiles_arr.append(Vector2i(x,y))
+			if noise_val >= -0.35 && noise_val <= 0.0:
+				summer_tiles_arr.append(Vector2i(x,y))
+			if noise_val >= -0.1 && noise_val <= 0.4:
+				spring_tiles_arr.append(Vector2i(x,y))
+			if noise_val >= 0.35:
+				winter_tiles_arr.append(Vector2i(x,y))
 				
 			
 			
@@ -88,21 +89,15 @@ func generate_world():
 	#ground_layer.set_cells_terrain_connect(grass_tiles_arr, terrain_grass_int, 0)
 	#cliffs_layer.set_cells_terrain_connect(cliff_tiles_arr, terrain_cliff_int, 0)
 
-	fall_layer.set_cells_terrain_connect(fall_tilles_arr, 0, 0)
-	summer_layer.set_cells_terrain_connect(summer_tilles_arr, 0, 1)
-	spring_layer.set_cells_terrain_connect(spring_tilles_arr, 0, 2)
-	winter_layer.set_cells_terrain_connect(winter_tilles_arr, 0, 3)
+	fall_layer.set_cells_terrain_connect(fall_tiles_arr, 0, 0)
+	summer_layer.set_cells_terrain_connect(summer_tiles_arr, 0, 1)
+	spring_layer.set_cells_terrain_connect(spring_tiles_arr, 0, 2)
+	winter_layer.set_cells_terrain_connect(winter_tiles_arr, 0, 3)
 
 
 
-
-
-
-
-
-
-	#print("Highest: ", noise_val_arr.max())
-	#print("lowest: ", noise_val_arr.min())
+	print("Highest: ", noise_val_arr.max())
+	print("lowest: ", noise_val_arr.min())
 
 
 func _process(_delta: float) -> void:
