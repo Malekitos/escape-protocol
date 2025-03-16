@@ -1,6 +1,6 @@
 [gd_scene load_steps=42 format=3 uid="uid://b5c842aj083un"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_larev"]
+[ext_resource type="Script" uid="uid://befsiiuitt7lu" path="res://Scripts/player.gd" id="1_larev"]
 [ext_resource type="Texture2D" uid="uid://csf5djvoh7ox2" path="res://Assets/hero/idle.png" id="2_iqcmt"]
 [ext_resource type="Texture2D" uid="uid://bsijw3fhsyvmt" path="res://Assets/hero/walk.png" id="3_mc5l7"]
 
@@ -290,14 +290,14 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fniay"]
-radius = 9.0
-height = 22.0
+radius = 0.115061
+height = 1.5307
 
 [node name="Player" type="Node2D"]
+y_sort_enabled = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_larev")
-speed = 500
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(-1, 2)
@@ -309,12 +309,14 @@ drag_right_margin = 0.05
 drag_bottom_margin = 0.05
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+y_sort_enabled = true
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_nyv01")
 animation = &"walk_right"
 frame_progress = 0.151273
-offset = Vector2(0, -10)
+offset = Vector2(0, -7.105)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, -11)
+position = Vector2(0, -8)
+scale = Vector2(41.96, 10.4528)
 shape = SubResource("CapsuleShape2D_fniay")
