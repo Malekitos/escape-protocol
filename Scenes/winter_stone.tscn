@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddk4yjoc6ik2f"]
+
+[ext_resource type="Texture2D" uid="uid://dm6ngsrqhcljh" path="res://Assets/Hana Caraka - Topdown Tileset [sample]/Props/Stone and Rock.png" id="1_1sfnt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2ppk"]
+atlas = ExtResource("1_1sfnt")
+region = Rect2(97, 7, 30, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sfnt"]
+size = Vector2(23.3333, 5.33333)
+
+[node name="Tree_fall" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_v2ppk")
+offset = Vector2(0, -10.375)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(1, -8.66667)
+shape = SubResource("RectangleShape2D_1sfnt")
+one_way_collision_margin = 0.0

@@ -37,12 +37,13 @@ var summer_flowers_arr = [Vector2i(9,8),Vector2i(9,9),Vector2i(9,10),Vector2i(9,
 var fall_flowers_arr = [Vector2i(11,8),Vector2i(11,9),Vector2i(11,10),Vector2i(11,11),
 							Vector2i(12,8),Vector2i(12,9),Vector2i(12,10),Vector2i(12,11)]
 
+var small_stone_arr = [Vector2i(0,4),Vector2i(1,4)]
+var small_winter_stone_arr = [Vector2i(0,6),Vector2i(1,6)]
 
 @onready var fall_layer: TileMapLayer = $fall_layer
 @onready var summer_layer: TileMapLayer = $summer_layer
 @onready var spring_layer: TileMapLayer = $spring_layer
 @onready var winter_layer: TileMapLayer = $winter_layer
-
 
 @onready var ground_layer: TileMapLayer = $ground_layer
 @onready var enviroment_layer: TileMapLayer = $enviroment_layer
@@ -53,6 +54,7 @@ var tree_winter = preload("res://Scenes/tree_winter.tscn")
 var tree_spring = preload("res://Scenes/tree_spring.tscn")
 var tree_summer = preload("res://Scenes/tree_summer.tscn")
 
+var winter_stone = preload("res://Scenes/winter_stone.tscn")
 
 var width = 200
 var height = 200
@@ -61,9 +63,10 @@ var Tile_Size = 16
 
 func _ready() -> void:
 	noise = noise_height_text.noise
+	tree_noise = noise_tree_text.noise
 	noise.seed = randi()
 	#noise.seed = 100
-	tree_noise = noise_tree_text.noise
+
 	
 	generate_world()
 
@@ -71,7 +74,6 @@ func _ready() -> void:
 
 func generate_world():
 
-	print(Tile_Size)
 
 	for x in range(width):
 		for y in range(height):
@@ -90,6 +92,8 @@ func generate_world():
 					ground_layer.set_cell(Vector2i(x,y), 0, fall_grass_arr.pick_random())
 				if tree_noise_val > 0.84 and tree_noise_val < 0.87:
 					ground_layer.set_cell(Vector2i(x,y), 0, fall_flowers_arr.pick_random())
+				if tree_noise_val > 0.87 and tree_noise_val < 0.89:
+					ground_layer.set_cell(Vector2i(x,y), 0, small_stone_arr.pick_random())
 				
 			if noise_val >= -0.30 && noise_val <= 0.0:
 				summer_tiles_arr.append(Vector2i(x,y))
@@ -101,8 +105,10 @@ func generate_world():
 					ground_layer.set_cell(Vector2i(x,y), 0, summer_grass_arr.pick_random())
 				if tree_noise_val > 0.84 and tree_noise_val < 0.87:
 					ground_layer.set_cell(Vector2i(x,y), 0, summer_flowers_arr.pick_random())
+				if tree_noise_val > 0.87 and tree_noise_val < 0.89:
+					ground_layer.set_cell(Vector2i(x,y), 0, small_stone_arr.pick_random())
 				
-			if noise_val >= -0.1 && noise_val <= 0.35:
+			if noise_val >= -0.1 && noise_val <= 0.33:
 				spring_tiles_arr.append(Vector2i(x,y))
 				if	tree_noise_val > 0.9 :
 					spawn_tree(Vector2i(x * Tile_Size ,y * Tile_Size), "spring")
@@ -112,13 +118,19 @@ func generate_world():
 					ground_layer.set_cell(Vector2i(x,y), 0, spring_grass_arr.pick_random())
 				if tree_noise_val > 0.84 and tree_noise_val < 0.87:
 					ground_layer.set_cell(Vector2i(x,y), 0, spring_flowers_arr.pick_random())
+				if tree_noise_val > 0.87 and tree_noise_val < 0.89:
+					ground_layer.set_cell(Vector2i(x,y), 0, small_stone_arr.pick_random())
 				
 			if noise_val >= 0.30:
 				winter_tiles_arr.append(Vector2i(x,y))
-				if	tree_noise_val > 0.9:
+				if	tree_noise_val > 0.92:
 					spawn_tree(Vector2i(x * Tile_Size ,y * Tile_Size), "winter")
 				if tree_noise_val > 0.79 and tree_noise_val < 0.81:
 					ground_layer.set_cell(Vector2i(x,y), 0, winter_bush_arr.pick_random())
+				if tree_noise_val > 0.87 and tree_noise_val < 0.89:
+					ground_layer.set_cell(Vector2i(x,y), 0, small_winter_stone_arr.pick_random())
+				if tree_noise_val > 0.89 and tree_noise_val < 0.90:
+					spawn_stone(Vector2i(x * Tile_Size ,y * Tile_Size))
 
 			
 				
@@ -152,7 +164,10 @@ func spawn_tree(position: Vector2i, biome):
 		"winter":
 			tree = tree_winter.instantiate()
 	
-
-
 	tree.global_position = position
 	add_child(tree)
+
+func spawn_stone(position: Vector2i):
+	var stone = winter_stone.instantiate()
+	stone.global_position = position
+	add_child(stone)
