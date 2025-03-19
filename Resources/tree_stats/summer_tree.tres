@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="tree_stats" load_steps=4 format=3 uid="uid://c4nj1lf616gco"]
+
+[ext_resource type="Script" uid="uid://tgp7gsgdw4ed" path="res://Resources/tree_stats/tree_stats.gd" id="1_0mbr4"]
+[ext_resource type="Texture2D" uid="uid://rq8si80hkg7c" path="res://Assets/Hana Caraka - Topdown Tileset [sample]/Props/Tree.png" id="2_8xeo4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quenb"]
+atlas = ExtResource("2_8xeo4")
+region = Rect2(37, 4, 22, 43)
+
+[resource]
+script = ExtResource("1_0mbr4")
+texture = SubResource("AtlasTexture_quenb")
+metadata/_custom_type_script = "uid://tgp7gsgdw4ed"

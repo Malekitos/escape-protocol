@@ -49,12 +49,14 @@ var small_winter_stone_arr = [Vector2i(0,6),Vector2i(1,6)]
 @onready var enviroment_layer: TileMapLayer = $enviroment_layer
 
 
-var tree_fall = preload("res://Scenes/tree_fall.tscn")
-var tree_winter = preload("res://Scenes/tree_winter.tscn")
-var tree_spring = preload("res://Scenes/tree_spring.tscn")
-var tree_summer = preload("res://Scenes/tree_summer.tscn")
+var tree_scene = preload("res://Resources/tree_stats/tree.tscn")
 
-var winter_stone = preload("res://Scenes/winter_stone.tscn")
+var tree_tipes = {
+	"winter" = preload("res://Resources/tree_stats/winter_tree.tres"),
+	"summer" = preload("res://Resources/tree_stats/summer_tree.tres"),
+	"spring" = preload("res://Resources/tree_stats/spring_tree.tres"),
+	"fall" = preload("res://Resources/tree_stats/fall_tree.tres")
+}
 
 var width = 200
 var height = 200
@@ -130,15 +132,8 @@ func generate_world():
 				if tree_noise_val > 0.87 and tree_noise_val < 0.89:
 					ground_layer.set_cell(Vector2i(x,y), 0, small_winter_stone_arr.pick_random())
 				if tree_noise_val > 0.89 and tree_noise_val < 0.90:
-					spawn_stone(Vector2i(x * Tile_Size ,y * Tile_Size))
-
-			
-				
-				
-			
-				#if tree_noise_val >0.85 and noise_val > -0.3:
-					#enviroment_layer.set_cell(Vector2i(x,y),source_id, tree_atlas)
-					#
+					#spawn_stone(Vector2i(x * Tile_Size ,y * Tile_Size))
+					pass
 
 	fall_layer.set_cells_terrain_connect(fall_tiles_arr, 0, 0)
 	summer_layer.set_cells_terrain_connect(summer_tiles_arr, 0, 1)
@@ -152,22 +147,13 @@ func generate_world():
 
 func spawn_tree(position: Vector2i, biome):
 	
-	var tree = null
-	
-	match biome:
-		"fall":
-			tree = tree_fall.instantiate()
-		"summer":
-			tree = tree_summer.instantiate()
-		"spring":
-			tree = tree_spring.instantiate()
-		"winter":
-			tree = tree_winter.instantiate()
+	var tree = tree_scene.instantiate()
+	tree.stats = tree_tipes[biome]
 	
 	tree.global_position = position
 	add_child(tree)
 
-func spawn_stone(position: Vector2i):
-	var stone = winter_stone.instantiate()
-	stone.global_position = position
-	add_child(stone)
+#func spawn_stone(position: Vector2i):
+	#var stone = winter_stone.instantiate()
+	#stone.global_position = position
+	#add_child(stone)
