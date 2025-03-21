@@ -1,10 +1,15 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=2 format=3 uid="uid://j7nhj7yp5o5p"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://j7nhj7yp5o5p"]
 
+[ext_resource type="Texture2D" uid="uid://c1efv1d3yopei" path="res://Assets/icons/#2 - Transparent Icons & Drop Shadow.png" id="1_8jsn1"]
 [ext_resource type="Script" uid="uid://jvtu1xcoge5t" path="res://Scripts/item_resource.gd" id="1_45muq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymku5"]
+atlas = ExtResource("1_8jsn1")
+region = Rect2(35, 548, 27, 27)
 
 [resource]
 script = ExtResource("1_45muq")
 item_name = "stone"
+item_icon = SubResource("AtlasTexture_ymku5")
 item_description = "desc"
-item_max_stack = 0
 metadata/_custom_type_script = "uid://jvtu1xcoge5t"

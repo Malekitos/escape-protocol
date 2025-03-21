@@ -1,7 +1,6 @@
 extends AnimationPlayer
 
 @onready var animation_player: AnimationPlayer = $"."
-@onready var inventory: Inventory = $Inventory
 @onready var color_rect: ColorRect = $"../ColorRect"
 
 

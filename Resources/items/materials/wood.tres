@@ -12,5 +12,4 @@ script = ExtResource("2_bx3y0")
 item_name = "wood"
 item_icon = SubResource("AtlasTexture_2neiv")
 item_description = "desc"
-item_max_stack = 0
 metadata/_custom_type_script = "uid://jvtu1xcoge5t"

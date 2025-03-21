@@ -55,4 +55,15 @@ func _input(event: InputEvent) -> void:
 	elif Input.is_action_just_pressed("zoom_out"):
 		var zoom_val = camera_2d.zoom.x + 0.05
 		camera_2d.zoom = Vector2(zoom_val, zoom_val)
-		
+	
+@onready var inventory: inventory = $UI/CanvasLayer/AnimationPlayer/Inventory
+
+
+func _ready():
+	
+	var items = {
+		"wood" = preload("res://Resources/items/materials/wood.tres"),
+		"stone" = preload("res://Resources/items/materials/stone.tres")
+	}
+	
+	inventory.add_item(items["wood"])
