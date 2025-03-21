@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dx5371y3ho2t2"]
+
+[node name="CraftSlot" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0

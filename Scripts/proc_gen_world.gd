@@ -49,13 +49,13 @@ var small_winter_stone_arr = [Vector2i(0,6),Vector2i(1,6)]
 @onready var enviroment_layer: TileMapLayer = $enviroment_layer
 
 
-var tree_scene = preload("res://Resources/tree_stats/tree.tscn")
+var tree_scene = preload("res://Resources/tree/tree.tscn")
 
 var tree_tipes = {
-	"winter" = preload("res://Resources/tree_stats/winter_tree.tres"),
-	"summer" = preload("res://Resources/tree_stats/summer_tree.tres"),
-	"spring" = preload("res://Resources/tree_stats/spring_tree.tres"),
-	"fall" = preload("res://Resources/tree_stats/fall_tree.tres")
+	"winter" = preload("res://Resources/tree/winter_tree.tres"),
+	"summer" = preload("res://Resources/tree/summer_tree.tres"),
+	"spring" = preload("res://Resources/tree/spring_tree.tres"),
+	"fall" = preload("res://Resources/tree/fall_tree.tres")
 }
 
 var width = 200

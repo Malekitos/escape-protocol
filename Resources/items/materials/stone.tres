@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=2 format=3 uid="uid://j7nhj7yp5o5p"]
+
+[ext_resource type="Script" uid="uid://jvtu1xcoge5t" path="res://Scripts/item_resource.gd" id="1_45muq"]
+
+[resource]
+script = ExtResource("1_45muq")
+item_name = "stone"
+item_description = "desc"
+item_max_stack = 0
+metadata/_custom_type_script = "uid://jvtu1xcoge5t"

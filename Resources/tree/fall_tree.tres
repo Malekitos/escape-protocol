@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="tree_stats" load_steps=4 format=3 uid="uid://bvvxxnbdai5fx"]
 
-[ext_resource type="Script" uid="uid://tgp7gsgdw4ed" path="res://Resources/tree_stats/tree_stats.gd" id="1_hvtio"]
+[ext_resource type="Script" uid="uid://tgp7gsgdw4ed" path="res://Resources/tree/tree_stats.gd" id="1_hvtio"]
 [ext_resource type="Texture2D" uid="uid://rq8si80hkg7c" path="res://Assets/Hana Caraka - Topdown Tileset [sample]/Props/Tree.png" id="2_q71vi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ib4sr"]

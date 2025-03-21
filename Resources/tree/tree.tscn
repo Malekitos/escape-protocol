@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ciay6rc32nmsl"]
 
 [ext_resource type="Script" uid="uid://thsu8fcd3ejl" path="res://Scripts/tree.gd" id="1_12b6e"]
-[ext_resource type="Script" uid="uid://tgp7gsgdw4ed" path="res://Resources/tree_stats/tree_stats.gd" id="2_72bfl"]
+[ext_resource type="Script" uid="uid://tgp7gsgdw4ed" path="res://Resources/tree/tree_stats.gd" id="2_72bfl"]
 
 [sub_resource type="Resource" id="Resource_l7sa7"]
 script = ExtResource("2_72bfl")

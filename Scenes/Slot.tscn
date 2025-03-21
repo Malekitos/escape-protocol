@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://byyapcv258som"]
+
+[ext_resource type="Script" uid="uid://bft65pmf7ri81" path="res://Scripts/slot.gd" id="1_4h18v"]
+[ext_resource type="Texture2D" uid="uid://b47wkg5ccxbtd" path="res://Assets/gui/GUI.png" id="1_vqo0j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h18v"]
+atlas = ExtResource("1_vqo0j")
+region = Rect2(48, 96, 32, 32)
+
+[node name="Slot" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_4h18v")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4h18v")
+
+[node name="ICON" type="TextureRect" parent="."]
+layout_mode = 2
