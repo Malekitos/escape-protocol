@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var camera_2d = $Camera2D
 @onready var direction = null
 
+
+
 func get_input():
 	var input_direction = Input.get_vector("left","right","up","down")
 	velocity = input_direction * speed
@@ -67,3 +69,4 @@ func _ready():
 	}
 	
 	inventory.add_item(items["wood"])
+	inventory.add_item(items["stone"])

@@ -15,11 +15,20 @@ run/main_scene="uid://dxgg7qblmf35q"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+gdscript/warnings/inferred_declaration=1
+
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
 window/stretch/mode="canvas_items"
+
+[editor]
+
+movie_writer/fps=240
 
 [gui]
 

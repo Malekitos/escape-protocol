@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bpm7b71cq8boh"]
 
-[ext_resource type="Script" uid="uid://c1oo5qwt35wci" path="res://Scripts/proc_gen_world.gd" id="1_ys06r"]
+[ext_resource type="Script" uid="uid://c1oo5qwt35wci" path="res://Scripts/Generation_System/proc_gen_world.gd" id="1_ys06r"]
 [ext_resource type="TileSet" uid="uid://vod85kyfro86" path="res://tileSets/world.tres" id="2_it8ja"]
 [ext_resource type="PackedScene" uid="uid://b5c842aj083un" path="res://Scenes/player.tscn" id="3_hy3fg"]
 [ext_resource type="TileSet" uid="uid://bpehb7vl424hv" path="res://tileSets/props.tres" id="4_ighaj"]

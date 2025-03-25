@@ -1,14 +1,60 @@
-[gd_scene load_steps=5 format=3 uid="uid://ciay6rc32nmsl"]
+[gd_scene load_steps=11 format=3 uid="uid://ciay6rc32nmsl"]
 
-[ext_resource type="Script" uid="uid://thsu8fcd3ejl" path="res://Scripts/tree.gd" id="1_12b6e"]
+[ext_resource type="Script" uid="uid://thsu8fcd3ejl" path="res://Scripts/Generation_System/tree.gd" id="1_12b6e"]
 [ext_resource type="Script" uid="uid://tgp7gsgdw4ed" path="res://Resources/tree/tree_stats.gd" id="2_72bfl"]
+[ext_resource type="Texture2D" uid="uid://rq8si80hkg7c" path="res://Assets/Hana Caraka - Topdown Tileset [sample]/Props/Tree.png" id="3_twf5q"]
 
 [sub_resource type="Resource" id="Resource_l7sa7"]
 script = ExtResource("2_72bfl")
 metadata/_custom_type_script = "uid://tgp7gsgdw4ed"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_edx2q"]
+atlas = ExtResource("3_twf5q")
+region = Rect2(101, 4, 22, 43)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_s0oiu"]
 radius = 3.0
+
+[sub_resource type="Animation" id="Animation_twf5q"]
+resource_name = "hit_flash"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.233333),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(91.161, 100, 97.79, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_edx2q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7geaf"]
+_data = {
+&"RESET": SubResource("Animation_edx2q"),
+&"hit_flash": SubResource("Animation_twf5q")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_twf5q"]
+radius = 24.0
+height = 88.0
 
 [node name="Tree" type="Node2D"]
 z_index = 1
@@ -19,6 +65,7 @@ stats = SubResource("Resource_l7sa7")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
 scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_edx2q")
 offset = Vector2(0, -18.72)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
@@ -26,3 +73,16 @@ offset = Vector2(0, -18.72)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_s0oiu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7geaf")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -40)
+shape = SubResource("CapsuleShape2D_twf5q")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b17s03ll3fe53" path="res://Scenes/animateInventory.gd" id="1_hfhsn"]
 [ext_resource type="Texture2D" uid="uid://b47wkg5ccxbtd" path="res://Assets/gui/GUI.png" id="1_w371h"]
-[ext_resource type="Script" uid="uid://bfvrhl48d5j74" path="res://Scripts/inventory.gd" id="2_dewlx"]
+[ext_resource type="Script" uid="uid://bfvrhl48d5j74" path="res://Scripts/Inventory_System/inventory.gd" id="2_dewlx"]
 [ext_resource type="PackedScene" uid="uid://byyapcv258som" path="res://Scenes/Slot.tscn" id="2_nxvpl"]
 
 [sub_resource type="Animation" id="Animation_hfhsn"]

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://ctndptqtjndxa"]
 
 [ext_resource type="Texture2D" uid="uid://c1efv1d3yopei" path="res://Assets/icons/#2 - Transparent Icons & Drop Shadow.png" id="1_lc6fv"]
-[ext_resource type="Script" uid="uid://jvtu1xcoge5t" path="res://Scripts/item_resource.gd" id="2_bx3y0"]
+[ext_resource type="Script" uid="uid://jvtu1xcoge5t" path="res://Scripts/Inventory_System/item_resource.gd" id="2_bx3y0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2neiv"]
 atlas = ExtResource("1_lc6fv")
