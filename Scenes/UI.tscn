@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b17s03ll3fe53" path="res://Scenes/animateInventory.gd" id="1_hfhsn"]
 [ext_resource type="Texture2D" uid="uid://b47wkg5ccxbtd" path="res://Assets/gui/GUI.png" id="1_w371h"]
-[ext_resource type="Script" uid="uid://bfvrhl48d5j74" path="res://Scripts/Inventory_System/inventory.gd" id="2_dewlx"]
 [ext_resource type="PackedScene" uid="uid://byyapcv258som" path="res://Scenes/Slot.tscn" id="2_nxvpl"]
+[ext_resource type="Script" uid="uid://bfvrhl48d5j74" path="res://Scripts/Inventory_System/inventory.gd" id="3_hfhsn"]
 
 [sub_resource type="Animation" id="Animation_hfhsn"]
 length = 0.001
@@ -148,7 +148,7 @@ patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 5
-script = ExtResource("2_dewlx")
+script = ExtResource("3_hfhsn")
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/AnimationPlayer/Inventory"]
 layout_mode = 1

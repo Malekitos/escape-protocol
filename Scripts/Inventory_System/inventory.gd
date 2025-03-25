@@ -1,9 +1,12 @@
 extends Node
-class_name inventory
+class_name Inventory
 
-@onready var slots:= $GridContainer.get_children()
+@onready var slots = get_tree().get_nodes_in_group("slot")
 
-func add_item(item: ItemResource) -> bool:
+
+
+func add_item(item: ItemResource) -> bool :
+	print(item.item_name)
 	for slot in slots:
 		if slot.item == null:
 			slot.set_item(item)

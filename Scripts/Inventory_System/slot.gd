@@ -5,6 +5,9 @@ var item : ItemResource = null
 
 @onready var icon = $ICON
 
+func _ready() -> void:
+	add_to_group("slot")
+
 func set_item(new_item: ItemResource):
 	item = new_item
 	if item:

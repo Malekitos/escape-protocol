@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 
 @export var speed = 150
 @onready var _animated_sprite = $AnimatedSprite2D
@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var direction = null
 
 
+var attack_damage : int = 5
 
 func get_input():
 	var input_direction = Input.get_vector("left","right","up","down")
@@ -58,15 +59,4 @@ func _input(event: InputEvent) -> void:
 		var zoom_val = camera_2d.zoom.x + 0.05
 		camera_2d.zoom = Vector2(zoom_val, zoom_val)
 	
-@onready var inventory: inventory = $UI/CanvasLayer/AnimationPlayer/Inventory
-
-
-func _ready():
 	
-	var items = {
-		"wood" = preload("res://Resources/items/materials/wood.tres"),
-		"stone" = preload("res://Resources/items/materials/stone.tres")
-	}
-	
-	inventory.add_item(items["wood"])
-	inventory.add_item(items["stone"])

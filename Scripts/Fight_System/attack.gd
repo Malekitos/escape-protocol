@@ -1,8 +1,6 @@
 extends Node
-class_name Attacker
+class_name Attack
 
-var damage : int
-
-func attack(target: Node):
-	if target.has_method("take_damage"):
-		target.take_damage(damage)
+var attack_damage : int
+var knockback_force : float
+var attack_position: Vector2
