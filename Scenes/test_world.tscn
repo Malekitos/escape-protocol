@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=4 uid="uid://dxgg7qblmf35q"]
+[gd_scene load_steps=5 format=4 uid="uid://dxgg7qblmf35q"]
 
 [ext_resource type="Script" uid="uid://ccijpg8p8qaun" path="res://Scenes/test_world.gd" id="1_707cn"]
 [ext_resource type="TileSet" uid="uid://vod85kyfro86" path="res://tileSets/world.tres" id="1_p7j4p"]
+[ext_resource type="PackedScene" uid="uid://bmp0kmg1djmqt" path="res://Resources/Rocks/rock.tscn" id="4_mq1bj"]
 [ext_resource type="PackedScene" uid="uid://b5c842aj083un" path="res://Scenes/player.tscn" id="7_dftws"]
 
 [node name="TestWorld" type="Node2D"]
@@ -15,3 +16,6 @@ tile_set = ExtResource("1_p7j4p")
 [node name="Player" parent="." instance=ExtResource("7_dftws")]
 z_index = 1
 position = Vector2(194, 48)
+
+[node name="Rock" parent="." instance=ExtResource("4_mq1bj")]
+position = Vector2(331, 414)

@@ -1,12 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://ciay6rc32nmsl"]
+[gd_scene load_steps=9 format=3 uid="uid://ciay6rc32nmsl"]
 
-[ext_resource type="Script" uid="uid://thsu8fcd3ejl" path="res://Scripts/Generation_System/tree.gd" id="1_12b6e"]
-[ext_resource type="Script" uid="uid://tgp7gsgdw4ed" path="res://Resources/tree/tree_stats.gd" id="2_72bfl"]
+[ext_resource type="Script" uid="uid://thsu8fcd3ejl" path="res://Resources/tree/tree.gd" id="1_12b6e"]
 [ext_resource type="Texture2D" uid="uid://rq8si80hkg7c" path="res://Assets/Hana Caraka - Topdown Tileset [sample]/Props/Tree.png" id="3_twf5q"]
-
-[sub_resource type="Resource" id="Resource_l7sa7"]
-script = ExtResource("2_72bfl")
-metadata/_custom_type_script = "uid://tgp7gsgdw4ed"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_edx2q"]
 atlas = ExtResource("3_twf5q")
@@ -40,10 +35,10 @@ tracks/0/path = NodePath("Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.233333),
-"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"times": PackedFloat32Array(0, 0.1, 0.248921),
+"transitions": PackedFloat32Array(0.6, 0.6, 0.6),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(91.161, 100, 97.79, 1), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(99.448, 100, 100, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7geaf"]
@@ -60,7 +55,6 @@ height = 88.0
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_12b6e")
-stats = SubResource("Resource_l7sa7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true

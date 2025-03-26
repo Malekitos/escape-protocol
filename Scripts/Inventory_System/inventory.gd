@@ -6,7 +6,6 @@ class_name Inventory
 
 
 func add_item(item: ItemResource) -> bool :
-	print(item.item_name)
 	for slot in slots:
 		if slot.item == null:
 			slot.set_item(item)

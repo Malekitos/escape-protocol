@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Rock_stats" load_steps=5 format=3 uid="uid://c0er4cj1hhko2"]
+
+[ext_resource type="Resource" uid="uid://j7nhj7yp5o5p" path="res://Resources/items/materials/stone.tres" id="1_5f0wx"]
+[ext_resource type="Script" uid="uid://bjixy4k781ewm" path="res://Resources/Rocks/rock_stats.gd" id="1_k1iqv"]
+[ext_resource type="Texture2D" uid="uid://dm6ngsrqhcljh" path="res://Assets/Hana Caraka - Topdown Tileset [sample]/Props/Stone and Rock.png" id="3_r35gn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f0wx"]
+atlas = ExtResource("3_r35gn")
+region = Rect2(97, 7, 30, 21)
+
+[resource]
+script = ExtResource("1_k1iqv")
+texture = SubResource("AtlasTexture_5f0wx")
+output = ExtResource("1_5f0wx")
+metadata/_custom_type_script = "uid://bjixy4k781ewm"
