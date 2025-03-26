@@ -76,9 +76,7 @@ func _ready() -> void:
 	noise.seed = randi()
 	#noise.seed = 100
 	player.set_global_position(Vector2i(100 * Tile_Size,100 * Tile_Size))
-	
 
-	
 	generate_world()
 
 
