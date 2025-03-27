@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://bjvpql67pkujf"]
+
+[ext_resource type="Texture2D" uid="uid://by7akr6tv0o4c" path="res://Assets/ores/ores.png" id="1_n8wcc"]
+[ext_resource type="Script" uid="uid://jvtu1xcoge5t" path="res://Scripts/Inventory_System/item_resource.gd" id="2_sshyo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymku5"]
+atlas = ExtResource("1_n8wcc")
+region = Rect2(50, 19, 12, 11)
+
+[resource]
+script = ExtResource("2_sshyo")
+item_name = "iron_ingot"
+item_icon = SubResource("AtlasTexture_ymku5")
+item_description = "desc"
+metadata/_custom_type_script = "uid://jvtu1xcoge5t"

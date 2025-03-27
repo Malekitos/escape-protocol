@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Rock_stats" load_steps=5 format=3 uid="uid://cpxohrm4vqv"]
+
+[ext_resource type="Resource" uid="uid://ddyq4aejwdx8b" path="res://Resources/items/materials/iron_dirty.tres" id="1_4vpmq"]
+[ext_resource type="Script" uid="uid://bjixy4k781ewm" path="res://Resources/Rocks/rock_stats.gd" id="1_q615l"]
+[ext_resource type="Texture2D" uid="uid://by7akr6tv0o4c" path="res://Assets/ores/ores.png" id="3_512qi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sdu7"]
+atlas = ExtResource("3_512qi")
+region = Rect2(2, 18, 12, 12)
+
+[resource]
+script = ExtResource("1_q615l")
+texture = SubResource("AtlasTexture_8sdu7")
+output = ExtResource("1_4vpmq")
+metadata/_custom_type_script = "uid://bjixy4k781ewm"

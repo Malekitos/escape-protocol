@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Rock_stats" load_steps=5 format=3 uid="uid://cbirbj7qdi4y1"]
+
+[ext_resource type="Resource" uid="uid://bns7si8mci0a0" path="res://Resources/items/materials/cooper_dirty.tres" id="1_3b3db"]
+[ext_resource type="Script" uid="uid://bjixy4k781ewm" path="res://Resources/Rocks/rock_stats.gd" id="1_03t1l"]
+[ext_resource type="Texture2D" uid="uid://by7akr6tv0o4c" path="res://Assets/ores/ores.png" id="3_4015l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6635"]
+atlas = ExtResource("3_4015l")
+region = Rect2(2, 34, 12, 12)
+
+[resource]
+script = ExtResource("1_03t1l")
+texture = SubResource("AtlasTexture_t6635")
+output = ExtResource("1_3b3db")
+metadata/_custom_type_script = "uid://bjixy4k781ewm"

@@ -1,11 +1,13 @@
 extends Node2D
 
 @export var noise_height_text : NoiseTexture2D
+@export var ore_noise_height_text : NoiseTexture2D
 
 @onready var player: Node2D = $Player
 
 
 var noise : Noise
+var ore_noise : Noise
 
 var noise_val_arr : Array[float] = []
 
@@ -26,8 +28,12 @@ var player_cords : Vector2
 func _ready() -> void:
 	noise = noise_height_text.noise
 	noise.seed = randi()
+	
+	ore_noise = ore_noise_height_text.noise
+	ore_noise.seed = randi()
+	
 	generateMine()
-	spawnPlayer(player_cords)
+	
 
 func spawnPlayer(position : Vector2) -> void:
 
@@ -39,23 +45,45 @@ func generateMine() -> void:
 		for y : int in range(height):
 			
 			var noise_val : float = noise.get_noise_2d(x,y)
-			
-			noise_val_arr.append(noise_val)
+			var ore_noise_val : float = ore_noise.get_noise_2d(x,y)
 			
 			var normalized = remap(noise_val, -1.0, 1.0, 0.0, 1.0)
+			var ore_normalized = remap(ore_noise_val, -1.0, 1.0, 0.0, 1.0)
 			
 			if normalized > 0.2:
-				down_tiles_arr.append(Vector2i(x,y))
-				
+				down_tiles_arr.append(Vector2i(x, y))
+				if ore_normalized > 0.8 and normalized > 0.35:
+					spawn_stone(Vector2i(x * 16, y * 16))
+					if !player_spawned and normalized > 0.4 :
+						spawnPlayer(Vector2i(x,y))
+						player_spawned = true
+						print(Vector2i(x,y))
+						
 			void_tiles_arr.append(Vector2i(x,y))
-				
-		
-
-
+			
 
 	down_mine.set_cells_terrain_connect(down_tiles_arr, 0, 1)
 	void_mine.set_cells_terrain_connect(void_tiles_arr, 0, 2)
 
+
+var stone_scene = preload("res://Resources/Rocks/rock.tscn")			
+
+var rock_types = [
+	preload("res://Resources/Rocks/ore_coal.tres"),
+	preload("res://Resources/Rocks/ore_cooper.tres"),
+	preload("res://Resources/Rocks/ore_iron.tres")
+]
+		
+func spawn_stone(position: Vector2i):
 	
-	print("Highest: ", noise_val_arr.max())
-	print("lowest: ", noise_val_arr.min())
+	var stone = stone_scene.instantiate()
+	stone.stats = rock_types[randi_range(0,2)]
+	
+	var colider = stone.get_node('Sprite2D/StaticBody2D/CollisionShape2D')
+	colider.disabled = true
+	
+	player.z_index = 2
+	
+	
+	stone.global_position = position
+	add_child(stone)
