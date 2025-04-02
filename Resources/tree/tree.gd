@@ -15,7 +15,7 @@ func _ready():
 func damage(attack: Attack):
 	health -= attack.attack_damage
 	animation_player.play("hit_flash")
-	if health <= 0:
+	if health < 0:
 		add_child(inventory)
 		inventory.add_item(preload("res://Resources/items/materials/wood.tres"))
 		queue_free()

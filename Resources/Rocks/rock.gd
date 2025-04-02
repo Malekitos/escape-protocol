@@ -16,7 +16,7 @@ func damage(attack: Attack):
 
 	health -= attack.attack_damage
 	animation_player.play("hit_flash")
-	if health <= 0:
+	if health < 0:
 		add_child(inventory)
 		inventory.add_item(stats.output)
 		queue_free()
