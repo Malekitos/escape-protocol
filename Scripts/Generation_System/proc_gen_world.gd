@@ -77,11 +77,9 @@ func _ready() -> void:
 	tree_noise = noise_tree_text.noise
 	noise.seed = randi()
 	#noise.seed = 100
-	player.set_global_position(Vector2i(50 * Tile_Size,50 * Tile_Size))
+
 
 	generate_world()
-
-	Global.inventory.slots = get_tree().get_nodes_in_group("slot")
 
 
 func generate_world():
@@ -187,7 +185,7 @@ func spawn_stone(position: Vector2i, type):
 	add_child(stone)
 	
 func spawn_mine(position: Vector2i):
-	
+	pass
 	var Mineenter = mineEnter.instantiate()
 	Mineenter.global_position = position
-	$Mines.add_child(Mineenter)
+	add_child(Mineenter)

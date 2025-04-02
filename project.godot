@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Escape Protocol"
-run/main_scene="uid://bpm7b71cq8boh"
+run/main_scene="uid://46mhvc800v4k"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://Scripts/global.gd"
+SceneManager="*res://Scripts/SceneManager.gd"
 
 [debug]
 

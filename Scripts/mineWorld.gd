@@ -3,11 +3,6 @@ extends Node2D
 @export var noise_height_text : NoiseTexture2D
 @export var ore_noise_height_text : NoiseTexture2D
 
-var player_scene = preload("res://Scenes/player.tscn")
-var player = player_scene.instantiate()
-
-#@onready var player: Node2D = $Player
-
 
 var noise : Noise
 var ore_noise : Noise
@@ -28,13 +23,12 @@ var height : int = 50
 var player_spawned : bool = false
 var player_cords : Vector2
 
+#@onready var player = get_tree().get_nodes_in_group('player')[0]
 
 func _ready() -> void:
 	
 	
-	add_child(player)
-	
-	
+
 	noise = noise_height_text.noise
 	noise.seed = randi()
 	
@@ -44,9 +38,9 @@ func _ready() -> void:
 	generateMine()
 	
 
-func spawnPlayer(position : Vector2) -> void:
-	
-	player.global_position = position
+#func spawnPlayer(position : Vector2) -> void:
+	#
+	#player.global_position = position
 	
 func generateMine() -> void:
 	
@@ -63,9 +57,9 @@ func generateMine() -> void:
 				down_tiles_arr.append(Vector2i(x, y))
 				if ore_normalized > 0.8 and normalized > 0.35:
 					spawn_stone(Vector2i(x * 16, y * 16))
-					if !player_spawned and normalized > 0.4 :
-						spawnPlayer(Vector2i(x,y))
-						player_spawned = true
+					#if !player_spawned and normalized > 0.4 :
+						#spawnPlayer(Vector2i(x,y))
+						#player_spawned = true
 					
 						
 			void_tiles_arr.append(Vector2i(x,y))
@@ -91,7 +85,7 @@ func spawn_stone(position: Vector2i):
 	var colider = stone.get_node('Sprite2D/StaticBody2D/CollisionShape2D')
 	colider.disabled = true
 	
-	player.z_index = 2
+	#player.z_index = 2
 	
 	
 	stone.global_position = position

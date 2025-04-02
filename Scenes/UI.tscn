@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bf7llj7g65pjw"]
+[gd_scene load_steps=12 format=3 uid="uid://bf7llj7g65pjw"]
 
 [ext_resource type="Script" uid="uid://b17s03ll3fe53" path="res://Scripts/animateInventory.gd" id="1_hfhsn"]
+[ext_resource type="Script" uid="uid://cj8q42oa4kier" path="res://Scripts/ui.gd" id="1_qwshj"]
 [ext_resource type="Texture2D" uid="uid://b47wkg5ccxbtd" path="res://Assets/gui/GUI.png" id="1_w371h"]
 [ext_resource type="PackedScene" uid="uid://byyapcv258som" path="res://Scenes/Slot.tscn" id="2_nxvpl"]
 [ext_resource type="Script" uid="uid://bfvrhl48d5j74" path="res://Scripts/Inventory_System/inventory.gd" id="3_hfhsn"]
@@ -118,6 +119,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+script = ExtResource("1_qwshj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

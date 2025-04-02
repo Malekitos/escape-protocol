@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://46mhvc800v4k"]
+
+[node name="Main" type="Node2D"]
+y_sort_enabled = true
+
+[node name="playerPlace" type="Node2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="worldPlace" type="Node2D" parent="."]
+y_sort_enabled = true

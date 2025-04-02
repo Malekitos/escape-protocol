@@ -1,20 +1,23 @@
 extends CharacterBody2D
-class_name Player
 
 @export var speed = 150
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var camera_2d = $Camera2D
 @onready var direction = null
 
+@onready var ui_scene = preload("res://Scenes/UI.tscn")
+
+
 func _ready() -> void:
-	add_to_group("player")
-
+	add_to_group('player')
+	var ui = ui_scene.instantiate()
+	add_child(ui)
+	
+	
 func teleport_to_mine():
+	SceneManager.clear_level()
+	SceneManager.set_level(preload("res://Scenes/mine.tscn"))
 	
-	
-	var mineScene = load("res://Scenes/mine.tscn").instantiate()
-
-	get_tree().change_scene_to_file("res://Scenes/mine.tscn")
 
 var attack_damage : int = 5
 
