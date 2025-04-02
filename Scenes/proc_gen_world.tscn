@@ -27,6 +27,9 @@ script = ExtResource("1_ys06r")
 noise_height_text = SubResource("NoiseTexture2D_nh36c")
 noise_tree_text = SubResource("NoiseTexture2D_qvt82")
 
+[node name="Mines" type="Node2D" parent="."]
+z_index = -1
+
 [node name="Player" parent="." instance=ExtResource("3_hy3fg")]
 z_index = 1
 position = Vector2(250, 250)

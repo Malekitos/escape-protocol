@@ -6,12 +6,23 @@ class_name Player
 @onready var camera_2d = $Camera2D
 @onready var direction = null
 
+func _ready() -> void:
+	add_to_group("player")
+
+func teleport_to_mine():
+	
+	
+	var mineScene = load("res://Scenes/mine.tscn").instantiate()
+
+	get_tree().change_scene_to_file("res://Scenes/mine.tscn")
 
 var attack_damage : int = 5
 
 func get_input():
 	var input_direction = Input.get_vector("left","right","up","down")
 	velocity = input_direction * speed
+	
+
 	
 func _physics_process(_delta: float) -> void:
 	get_input()

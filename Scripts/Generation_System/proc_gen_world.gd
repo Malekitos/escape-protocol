@@ -65,8 +65,10 @@ var rock_types = {
 	"winter_stone" = preload("res://Resources/Rocks/winter_stone.tres")
 }
 
-var width = 200
-var height = 200
+var mineEnter = preload("res://Scenes/entry_mine.tscn")
+
+var width = 100
+var height = 100
 
 var Tile_Size = 16 
 
@@ -75,10 +77,11 @@ func _ready() -> void:
 	tree_noise = noise_tree_text.noise
 	noise.seed = randi()
 	#noise.seed = 100
-	player.set_global_position(Vector2i(100 * Tile_Size,100 * Tile_Size))
+	player.set_global_position(Vector2i(50 * Tile_Size,50 * Tile_Size))
 
 	generate_world()
 
+	Global.inventory.slots = get_tree().get_nodes_in_group("slot")
 
 
 func generate_world():
@@ -93,7 +96,7 @@ func generate_world():
 		
 			if noise_val <= -0.10:
 				fall_tiles_arr.append(Vector2i(x,y))
-				if	tree_noise_val > 0.9:
+				if	tree_noise_val > 0.90:
 					spawn_tree(Vector2i(x * Tile_Size ,y * Tile_Size), "fall")
 				if tree_noise_val > 0.79 and tree_noise_val < 0.81:
 					ground_layer.set_cell(Vector2i(x,y), 0, fall_bush_arr.pick_random())
@@ -105,6 +108,8 @@ func generate_world():
 					ground_layer.set_cell(Vector2i(x,y), 0, small_stone_arr.pick_random())
 				if tree_noise_val > 0.895 and tree_noise_val < 0.90:
 					spawn_stone(Vector2i(x * Tile_Size ,y * Tile_Size), "stone")
+				if tree_noise_val > 0.503 and tree_noise_val < 0.505:
+					spawn_mine(Vector2i(x * Tile_Size ,y * Tile_Size))
 				
 			if noise_val >= -0.30 && noise_val <= 0.0:
 				summer_tiles_arr.append(Vector2i(x,y))
@@ -120,6 +125,8 @@ func generate_world():
 					ground_layer.set_cell(Vector2i(x,y), 0, small_stone_arr.pick_random())
 				if tree_noise_val > 0.895 and tree_noise_val < 0.90:
 					spawn_stone(Vector2i(x * Tile_Size ,y * Tile_Size), "stone")
+				if tree_noise_val > 0.503 and tree_noise_val < 0.505:
+					spawn_mine(Vector2i(x * Tile_Size ,y * Tile_Size))
 					
 			if noise_val >= -0.1 && noise_val <= 0.33:
 				spring_tiles_arr.append(Vector2i(x,y))
@@ -135,6 +142,8 @@ func generate_world():
 					ground_layer.set_cell(Vector2i(x,y), 0, small_stone_arr.pick_random())
 				if tree_noise_val > 0.895 and tree_noise_val < 0.90:
 					spawn_stone(Vector2i(x * Tile_Size ,y * Tile_Size), "stone")
+				if tree_noise_val > 0.503 and tree_noise_val < 0.505:
+					spawn_mine(Vector2i(x * Tile_Size ,y * Tile_Size))
 					
 				
 			if noise_val >= 0.28:
@@ -147,6 +156,8 @@ func generate_world():
 					ground_layer.set_cell(Vector2i(x,y), 0, small_winter_stone_arr.pick_random())
 				if tree_noise_val > 0.89 and tree_noise_val < 0.90:
 					spawn_stone(Vector2i(x * Tile_Size ,y * Tile_Size), "winter_stone")
+				if tree_noise_val > 0.503 and tree_noise_val < 0.505:
+					spawn_mine(Vector2i(x * Tile_Size ,y * Tile_Size))
 					
 
 	fall_layer.set_cells_terrain_connect(fall_tiles_arr, 0, 0)
@@ -174,3 +185,9 @@ func spawn_stone(position: Vector2i, type):
 	
 	stone.global_position = position
 	add_child(stone)
+	
+func spawn_mine(position: Vector2i):
+	
+	var Mineenter = mineEnter.instantiate()
+	Mineenter.global_position = position
+	$Mines.add_child(Mineenter)

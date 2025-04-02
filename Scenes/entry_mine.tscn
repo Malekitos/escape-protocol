@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://btw46n313l4xg"]
+
+[ext_resource type="Script" uid="uid://c6tr430m8t6a1" path="res://Scripts/entry_mine.gd" id="1_nx1nn"]
+[ext_resource type="Texture2D" uid="uid://smqn2c6gur8h" path="res://Assets/cave_entrance_48x48-export.png" id="2_nx1nn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ckve0"]
+radius = 25.02
+
+[node name="EntryMine" type="Node2D"]
+z_index = 2
+script = ExtResource("1_nx1nn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -13)
+texture = ExtResource("2_nx1nn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -13)
+shape = SubResource("CircleShape2D_ckve0")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
