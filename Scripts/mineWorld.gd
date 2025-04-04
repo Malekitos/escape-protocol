@@ -63,7 +63,8 @@ func generateMine() -> void:
 	down_mine.set_cells_terrain_connect(down_tiles_arr, 0, 1)
 	void_mine.set_cells_terrain_connect(void_tiles_arr, 0, 2)
 	
-	spawn_exit()
+	for i in range(10):
+		spawn_exit()
 
 	for tile in down_tiles_arr:	
 		var current_tail = down_mine.get_cell_tile_data(tile)
@@ -104,4 +105,3 @@ func spawn_exit():
 	exit_mine.global_position = exit_cords
 	exit_mine.z_index = 5
 	
-	print("Exit at:", exit_mine.global_position)
