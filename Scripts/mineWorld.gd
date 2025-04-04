@@ -95,12 +95,12 @@ func spawn_stone(position: Vector2i):
 	add_child(stone)
 	
 func spawn_exit():
-	var exit_x : int = randf_range(0, width - 1)
-	var exit_y : int = randf_range(0,height - 1)
+	var exit_x : int = randf_range(0, width * 16 - 1)
+	var exit_y : int = randf_range(0, height * 16 - 1)
 	var exit_cords : Vector2i = Vector2i(exit_x, exit_y)
 	
 	var exit_mine = ENTRY_MINE.instantiate()
-	exit.add_child(exit_mine)
+	down_mine.add_child(exit_mine)
 	exit_mine.global_position = exit_cords
 	exit_mine.z_index = 5
 	
