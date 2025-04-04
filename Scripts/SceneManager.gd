@@ -23,20 +23,16 @@ func _ready():
 func set_level(world, save : bool):
 	if save:
 		world_place.add_child(saved_level)
-		print("load save")
 	else:
 		var new_level = world.instantiate()
 		world_place.add_child(new_level)
-		print("load new")
 
 		
 func clear_level(save : bool):
 	for child in world_place.get_children():
 		if save:
 			saved_level = child
-			print("save")
 		world_place.remove_child(child)
-		print("clear")
 			
 			
 

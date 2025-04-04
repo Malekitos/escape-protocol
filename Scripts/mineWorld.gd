@@ -16,6 +16,7 @@ var up_tiles_arr : Array[Vector2i] = []
 @onready var void_mine: TileMapLayer = $voidMine
 @onready var down_mine: TileMapLayer = $downMine
 @onready var up_mine: TileMapLayer = $upMine
+@onready var exit: Node2D = $Exit
 
 const ENTRY_MINE = preload("res://Scenes/entry_mine.tscn")
 
@@ -43,13 +44,6 @@ func _ready() -> void:
 
 func generateMine() -> void:
 	
-	var exit_x : int = randf_range(0,50)
-	var exit_y : int = randf_range(0,50)
-	var exit_cords : Vector2i = Vector2i(exit_x * 16, exit_y * 16)
-	
-	var exit = ENTRY_MINE.instantiate()
-	add_child(exit)
-	exit.global_position = exit_cords
 	
 	for x : int in range(width):
 		for y : int in range(height):
@@ -64,22 +58,19 @@ func generateMine() -> void:
 				down_tiles_arr.append(Vector2i(x, y))
 				if ore_normalized > 0.8 and normalized > 0.35:
 					spawn_stone(Vector2i(x * 16, y * 16))
-
-
-			void_tiles_arr.append(Vector2i(x,y))
 			
 
 	down_mine.set_cells_terrain_connect(down_tiles_arr, 0, 1)
 	void_mine.set_cells_terrain_connect(void_tiles_arr, 0, 2)
+	
+	spawn_exit()
 
 	for tile in down_tiles_arr:	
 		var current_tail = down_mine.get_cell_tile_data(tile)
 		if current_tail:
 			var tile_data = current_tail.get_custom_data('spawnable')
 			if tile_data:
-				print(tile)
 				player.global_position = down_mine.map_to_local(tile)
-				print(player.global_position)
 				break
 		
 
@@ -93,15 +84,24 @@ var rock_types = [
 ]
 		
 func spawn_stone(position: Vector2i):
-	
+
 	var stone = stone_scene.instantiate()
 	stone.stats = rock_types[randi_range(0,2)]
 	
 	var colider = stone.get_node('Sprite2D/StaticBody2D/CollisionShape2D')
 	colider.disabled = true
-	
-	#player.z_index = 2
-	
-	
+
 	stone.global_position = position
 	add_child(stone)
+	
+func spawn_exit():
+	var exit_x : int = randf_range(0, width - 1)
+	var exit_y : int = randf_range(0,height - 1)
+	var exit_cords : Vector2i = Vector2i(exit_x, exit_y)
+	
+	var exit_mine = ENTRY_MINE.instantiate()
+	exit.add_child(exit_mine)
+	exit_mine.global_position = exit_cords
+	exit_mine.z_index = 5
+	
+	print("Exit at:", exit_mine.global_position)

@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://bpehb7vl424hv" path="res://tileSets/props.tres" id="4_ighaj"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_acytt"]
-frequency = 0.0043
+frequency = 0.0107
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nh36c"]
 noise = SubResource("FastNoiseLite_acytt")
@@ -32,28 +32,20 @@ tile_set = ExtResource("2_it8ja")
 
 [node name="summer_layer" type="TileMapLayer" parent="."]
 z_index = -1
-position = Vector2(113, 49)
 tile_set = ExtResource("2_it8ja")
 
 [node name="spring_layer" type="TileMapLayer" parent="."]
-light_mask = 2
-visibility_layer = 2
 z_index = -1
-position = Vector2(113, 49)
 tile_set = ExtResource("2_it8ja")
 
 [node name="winter_layer" type="TileMapLayer" parent="."]
-light_mask = 2
-visibility_layer = 2
 z_index = -1
-position = Vector2(113, 49)
 tile_set = ExtResource("2_it8ja")
 
 [node name="ground_layer" type="TileMapLayer" parent="."]
 z_index = 1
 y_sort_enabled = true
 use_parent_material = true
-position = Vector2(15, -1)
 tile_set = ExtResource("4_ighaj")
 
 [node name="enviroment_layer" type="TileMapLayer" parent="."]

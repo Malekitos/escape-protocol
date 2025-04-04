@@ -89,10 +89,10 @@ func generate_world():
 		for y in range(height):
 			var noise_val = noise.get_noise_2d(x,y)
 			var tree_noise_val = tree_noise.get_noise_2d(x,y)
-
-			#noise_val_arr.append(noise_val)
+			
+			var normalized = remap(noise_val, -1.0, 1.0, 0.0, 1.0)
 		
-			if noise_val <= -0.10:
+			if normalized >= 0 and normalized <= 0.45:
 				fall_tiles_arr.append(Vector2i(x,y))
 				if	tree_noise_val > 0.90:
 					spawn_tree(Vector2i(x * Tile_Size ,y * Tile_Size), "fall")
@@ -109,7 +109,7 @@ func generate_world():
 				if tree_noise_val > 0.503 and tree_noise_val < 0.505:
 					spawn_mine(Vector2i(x * Tile_Size ,y * Tile_Size))
 				
-			if noise_val >= -0.30 && noise_val <= 0.0:
+			if normalized >= 0.40 and normalized <= 0.55:
 				summer_tiles_arr.append(Vector2i(x,y))
 				if	tree_noise_val > 0.9 :
 					spawn_tree(Vector2i(x * Tile_Size ,y * Tile_Size), "summer")
@@ -126,7 +126,7 @@ func generate_world():
 				if tree_noise_val > 0.503 and tree_noise_val < 0.505:
 					spawn_mine(Vector2i(x * Tile_Size ,y * Tile_Size))
 					
-			if noise_val >= -0.1 && noise_val <= 0.33:
+			if normalized >= 0.50 and normalized <= 0.70:
 				spring_tiles_arr.append(Vector2i(x,y))
 				if	tree_noise_val > 0.9 :
 					spawn_tree(Vector2i(x * Tile_Size ,y * Tile_Size), "spring")
@@ -144,7 +144,7 @@ func generate_world():
 					spawn_mine(Vector2i(x * Tile_Size ,y * Tile_Size))
 					
 				
-			if noise_val >= 0.28:
+			if normalized >= 0.65:
 				winter_tiles_arr.append(Vector2i(x,y))
 				if	tree_noise_val > 0.92:
 					spawn_tree(Vector2i(x * Tile_Size ,y * Tile_Size), "winter")
