@@ -9,21 +9,35 @@ extends Node
 @onready var player_place = main_scene.get_node("playerPlace")
 @onready var world_place = main_scene.get_node("worldPlace")
 
+var saved_level : Node2D
 
 func _ready():
 	
 	var new_level = preload("res://Scenes/proc_gen_world.tscn").instantiate()
 	
-	set_level(preload("res://Scenes/proc_gen_world.tscn"))
+	set_level(preload("res://Scenes/proc_gen_world.tscn"), false)
 	
 	player_place.add_child(player)
 
 
-func set_level(world):
-
+func set_level(world, save : bool):
+	if save:
+		world_place.add_child(saved_level)
+		print("load save")
+	else:
 		var new_level = world.instantiate()
 		world_place.add_child(new_level)
+		print("load new")
+
 		
-func clear_level():
+func clear_level(save : bool):
 	for child in world_place.get_children():
-			world_place.remove_child(child)
+		if save:
+			saved_level = child
+			print("save")
+		world_place.remove_child(child)
+		print("clear")
+			
+			
+
+	

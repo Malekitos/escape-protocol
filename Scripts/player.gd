@@ -7,6 +7,8 @@ extends CharacterBody2D
 
 @onready var ui_scene = preload("res://Scenes/UI.tscn")
 
+var in_mine : bool = false
+var player_position : Vector2i
 
 func _ready() -> void:
 	add_to_group('player')
@@ -15,10 +17,17 @@ func _ready() -> void:
 	
 	
 func teleport_to_mine():
-	SceneManager.clear_level()
-	SceneManager.set_level(preload("res://Scenes/mine.tscn"))
+	if !in_mine:
+		player_position = (global_position + Vector2(80,0))
+		SceneManager.clear_level(true)
+		SceneManager.set_level(preload("res://Scenes/mine.tscn"), false)
+		in_mine = true
+	else:
+		global_position = player_position
+		SceneManager.clear_level(false)
+		SceneManager.set_level(preload("res://Scenes/proc_gen_world.tscn"), true)
+		in_mine = false
 	
-
 var attack_damage : int = 5
 
 func get_input():
