@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="enemy_stats" load_steps=3 format=3 uid="uid://c8ott1sk60ukc"]
+
+[ext_resource type="Script" uid="uid://dhqfhnk7vjjxg" path="res://Resources/Enemys/enemy_stats.gd" id="1_yxphe"]
+[ext_resource type="SpriteFrames" uid="uid://cwmnw0a0nrbwx" path="res://Resources/Enemys/player-animation.tres" id="2_0xgkc"]
+
+[resource]
+script = ExtResource("1_yxphe")
+name = "Red"
+health = 100
+death_point = 1
+speed = 50
+texture = ExtResource("2_0xgkc")
+modulate = Color(0.998288, 0.550568, 0.481928, 1)
+metadata/_custom_type_script = "uid://dhqfhnk7vjjxg"

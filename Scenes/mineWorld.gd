@@ -25,6 +25,8 @@ var height : int = 50
 var player_spawned : bool = false
 var player_cords : Vector2
 
+@onready var enemy_scene = preload("res://Resources/Enemys/enemy.tscn")
+
 func _ready() -> void:
 	noise = noise_height_text.noise
 	noise.seed = randi()
@@ -36,6 +38,7 @@ func _ready() -> void:
 	
 
 func spawnPlayer(position : Vector2) -> void:
+
 
 	player.global_position = position
 	

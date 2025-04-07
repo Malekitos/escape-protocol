@@ -13,10 +13,12 @@ var saved_level : Node2D
 
 func _ready():
 	
-	var new_level = preload("res://Scenes/proc_gen_world.tscn").instantiate()
 	
-	set_level(preload("res://Scenes/proc_gen_world.tscn"), false)
+
 	
+	#set_level(preload("res://Scenes/proc_gen_world.tscn"), false)
+	set_level(preload("res://Scenes/test_world.tscn"), false)
+
 	player_place.add_child(player)
 
 
