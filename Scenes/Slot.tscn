@@ -1,11 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://byyapcv258som"]
+[gd_scene load_steps=6 format=3 uid="uid://byyapcv258som"]
 
 [ext_resource type="Script" uid="uid://bft65pmf7ri81" path="res://Scripts/Inventory_System/slot.gd" id="1_4h18v"]
 [ext_resource type="Texture2D" uid="uid://b47wkg5ccxbtd" path="res://Assets/gui/GUI.png" id="1_vqo0j"]
+[ext_resource type="FontFile" uid="uid://crn1g1vy63ifi" path="res://Assets/gui/PixelPowerline-9xOK.ttf" id="3_ncnge"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4h18v"]
 atlas = ExtResource("1_vqo0j")
 region = Rect2(48, 96, 32, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4h18v"]
+font = ExtResource("3_ncnge")
+font_size = 6
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.552)
 
 [node name="Slot" type="PanelContainer"]
 offset_right = 40.0
@@ -18,3 +27,17 @@ texture = SubResource("AtlasTexture_4h18v")
 
 [node name="ICON" type="TextureRect" parent="."]
 layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 3
+
+[node name="count" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+label_settings = SubResource("LabelSettings_4h18v")
+horizontal_alignment = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
