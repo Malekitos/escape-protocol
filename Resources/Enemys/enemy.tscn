@@ -32,13 +32,14 @@ debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0.133368, 0.339029, 0.619599, 1)
 
-[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+[node name="DamagesArea" type="Area2D" parent="CharacterBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/DamagesArea"]
 shape = SubResource("CircleShape2D_8e3lb")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="PathTimer" type="Timer" parent="."]
 autostart = true
 ignore_time_scale = true
 
-[connection signal="timeout" from="Timer" to="CharacterBody2D" method="_on_timer_timeout"]
+[connection signal="input_event" from="CharacterBody2D/DamagesArea" to="." method="_on_damages_area_input_event"]
+[connection signal="timeout" from="PathTimer" to="CharacterBody2D" method="_on_timer_timeout"]
