@@ -16,8 +16,8 @@ func _ready():
 	
 
 	
-	#set_level(preload("res://Scenes/proc_gen_world.tscn"), false)
-	set_level(preload("res://Scenes/test_world.tscn"), false)
+	set_level(preload("res://Scenes/proc_gen_world.tscn"), false)
+	#set_level(preload("res://Scenes/test_world.tscn"), false)
 
 	player_place.add_child(player)
 

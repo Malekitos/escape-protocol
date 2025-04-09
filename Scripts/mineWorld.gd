@@ -18,7 +18,6 @@ var up_tiles_arr : Array[Vector2i] = []
 @onready var up_mine: TileMapLayer = $upMine
 @onready var exit: Node2D = $Exit
 
-const ENTRY_MINE = preload("res://Scenes/entry_mine.tscn")
 
 var width : int = 50
 var height : int = 50
@@ -96,12 +95,31 @@ func spawn_stone(position: Vector2i):
 	add_child(stone)
 	
 func spawn_exit():
-	var exit_x : int = randf_range(0, width * 16 - 1)
-	var exit_y : int = randf_range(0, height * 16 - 1)
+	var exit_x : int = randf_range(0, width - 1)
+	var exit_y : int = randf_range(0, height - 1)
 	var exit_cords : Vector2i = Vector2i(exit_x, exit_y)
 	
-	var exit_mine = ENTRY_MINE.instantiate()
-	down_mine.add_child(exit_mine)
-	exit_mine.global_position = exit_cords
-	exit_mine.z_index = 5
+	var current_tail = down_mine.get_cell_tile_data(Vector2i(exit_x, exit_y))
+	if current_tail:
+		var tile_data = current_tail.get_custom_data('spawnable')
+		if tile_data:
+			
+			var world_pos = down_mine.map_to_local(exit_cords)
+			
+			var enemy_scene = preload("res://Resources/Enemys/enemy.tscn")
+			var enemy = enemy_scene.instantiate()
+			enemy.stats = preload("res://Resources/Enemys/red_enemy.tres")
+			enemy.global_position = world_pos
+			add_child(enemy)
+			print("spawn")
+			
+			var ENTRY_MINE = preload("res://Scenes/entry_mine.tscn")
+			var exit_mine = ENTRY_MINE.instantiate()
+			add_child(exit_mine)
+			exit_mine.global_position = world_pos
+			exit_mine.z_index = 10
+	
+
+	
+
 	
