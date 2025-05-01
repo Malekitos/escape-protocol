@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://u8snkie0uuju"]
+
+[ext_resource type="StyleBox" uid="uid://c84c3q25b2vo3" path="res://Themes/hover_button.tres" id="1_cwbke"]
+[ext_resource type="StyleBox" uid="uid://blmm4ii14xlj" path="res://Themes/normal_button.tres" id="2_t5sdv"]
+[ext_resource type="Texture2D" uid="uid://b47wkg5ccxbtd" path="res://Assets/gui/GUI.png" id="3_617xh"]
+[ext_resource type="Script" uid="uid://cwokvpausidrl" path="res://Scripts/Menu/new_game.gd" id="3_t5sdv"]
+[ext_resource type="Texture2D" uid="uid://crtr0l7r46qhp" path="res://Assets/game_menu_background.png" id="4_b5mf2"]
+
+[sub_resource type="Theme" id="Theme_1rerr"]
+Button/font_sizes/font_size = 20
+Button/styles/focus = null
+Button/styles/hover = ExtResource("1_cwbke")
+Button/styles/normal = ExtResource("2_t5sdv")
+Button/styles/pressed = null
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rerr"]
+atlas = ExtResource("3_617xh")
+region = Rect2(2, 34, 44, 44)
+
+[node name="New_game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_1rerr")
+script = ExtResource("3_t5sdv")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.5
+offset_top = -99.5
+offset_right = 70.5
+offset_bottom = 99.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_1rerr")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -56.5
+offset_bottom = 56.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00983, 1)
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "New Game Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "World Name"
+
+[node name="Create" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Create
+"
+
+[node name="Back" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back
+"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+light_mask = 0
+z_index = -20
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -336.0
+offset_top = -195.0
+offset_right = 418.0
+offset_bottom = 229.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_b5mf2")
+expand_mode = 2
+
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
