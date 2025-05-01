@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Escape Protocol"
-run/main_scene="uid://46mhvc800v4k"
+run/main_scene="uid://cknrdqeb7yg87"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -37,7 +37,7 @@ movie_writer/fps=240
 
 [gui]
 
-theme/custom_font="res://Assets/gui/PixelGame-R9AZe.otf"
+theme/custom_font="uid://c158yj7u6pjvh"
 
 [input]
 

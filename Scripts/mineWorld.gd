@@ -117,7 +117,7 @@ func spawn_exit():
 			var exit_mine = ENTRY_MINE.instantiate()
 			add_child(exit_mine)
 			exit_mine.global_position = world_pos
-			exit_mine.z_index = 10
+			exit_mine.z_index = 101
 	
 
 	

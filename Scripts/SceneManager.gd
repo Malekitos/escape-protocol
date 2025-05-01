@@ -11,15 +11,13 @@ extends Node
 
 var saved_level : Node2D
 
-func _ready():
-	
-	
-
-	
-	set_level(preload("res://Scenes/proc_gen_world.tscn"), false)
-	#set_level(preload("res://Scenes/test_world.tscn"), false)
-
-	player_place.add_child(player)
+#func _ready():
+	#
+#
+	#set_level(preload("res://Scenes/proc_gen_world.tscn"), false)
+	##set_level(preload("res://Scenes/test_world.tscn"), false)
+#
+	#player_place.add_child(player)
 
 
 func set_level(world, save : bool):
