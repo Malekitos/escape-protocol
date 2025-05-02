@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpm7b71cq8boh"]
+[gd_scene load_steps=10 format=3 uid="uid://bpm7b71cq8boh"]
 
 [ext_resource type="Script" uid="uid://c1oo5qwt35wci" path="res://Scripts/Generation_System/proc_gen_world.gd" id="1_ys06r"]
+[ext_resource type="Script" uid="uid://1sveywpi2txs" path="res://Scripts/daynightcycle.gd" id="2_ighaj"]
 [ext_resource type="TileSet" uid="uid://vod85kyfro86" path="res://tileSets/world.tres" id="2_it8ja"]
 [ext_resource type="TileSet" uid="uid://bpehb7vl424hv" path="res://tileSets/props.tres" id="4_ighaj"]
 
@@ -20,11 +21,32 @@ seamless_blend_skirt = 0.215
 bump_strength = 36.5
 noise = SubResource("FastNoiseLite_wcqkt")
 
+[sub_resource type="LabelSettings" id="LabelSettings_ighaj"]
+font_size = 20
+font_color = Color(0.859799, 0.652971, 0.254611, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.176471)
+
 [node name="proc_gen_world" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ys06r")
 noise_height_text = SubResource("NoiseTexture2D_nh36c")
 noise_tree_text = SubResource("NoiseTexture2D_qvt82")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.484128, 0.0141682, 0.00794352, 1)
+script = ExtResource("2_ighaj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasModulate"]
+
+[node name="time_label" type="Label" parent="CanvasModulate/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 17.0
+text = "Label
+"
+label_settings = SubResource("LabelSettings_ighaj")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="fall_layer" type="TileMapLayer" parent="."]
 z_index = -1
