@@ -1,7 +1,7 @@
 extends CanvasModulate
 
 @onready var sky_gradient: GradientTexture1D = preload("res://Assets/daynightcycle-gradient-texture.tres")
-@onready var time_label: Label = $CanvasLayer/time_label
+@onready var time_label: Label = $CanvasLayer/MarginContainer/time_label
 
 signal time_tick(day: int, hour: int, minute: int)
 

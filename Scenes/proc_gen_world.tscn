@@ -23,8 +23,10 @@ noise = SubResource("FastNoiseLite_wcqkt")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ighaj"]
 font_size = 20
-font_color = Color(0.859799, 0.652971, 0.254611, 1)
-shadow_size = 10
+font_color = Color(0.858824, 0.654902, 0.254902, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
 shadow_color = Color(0, 0, 0, 0.176471)
 
 [node name="proc_gen_world" type="Node2D"]
@@ -39,11 +41,15 @@ script = ExtResource("2_ighaj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="CanvasModulate"]
 
-[node name="time_label" type="Label" parent="CanvasModulate/CanvasLayer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasModulate/CanvasLayer"]
 offset_right = 40.0
-offset_bottom = 17.0
-text = "Label
-"
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+
+[node name="time_label" type="Label" parent="CanvasModulate/CanvasLayer/MarginContainer"]
+layout_mode = 2
+text = "Label"
 label_settings = SubResource("LabelSettings_ighaj")
 horizontal_alignment = 1
 vertical_alignment = 1
