@@ -1,23 +1,27 @@
 extends Node
 
-@onready var player_scene: PackedScene = preload("res://Scenes/player.tscn")
-@onready var player = player_scene.instantiate()
+var player_scene: PackedScene = preload("res://Scenes/player.tscn")
+var player: Node2D
+var main_scene: Node
+var player_place: Node
+var world_place: Node
+var saved_level: Node2D
 
 
+func create_game():
+	var new_scene = preload("res://Scenes/main.tscn").instantiate()
+	get_tree().get_root().add_child(new_scene)
+	get_tree().current_scene.queue_free()
+	get_tree().current_scene = new_scene
 
-@onready var main_scene = get_tree().current_scene
-@onready var player_place = main_scene.get_node("playerPlace")
-@onready var world_place = main_scene.get_node("worldPlace")
+	main_scene = new_scene
+	player_place = main_scene.get_node("playerPlace")
+	world_place = main_scene.get_node("worldPlace")
 
-var saved_level : Node2D
+	player = player_scene.instantiate()
+	player_place.add_child(player)
 
-#func _ready():
-	#
-#
-	#set_level(preload("res://Scenes/proc_gen_world.tscn"), false)
-	##set_level(preload("res://Scenes/test_world.tscn"), false)
-#
-	#player_place.add_child(player)
+	set_level(preload("res://Scenes/proc_gen_world.tscn"), false)
 
 
 func set_level(world, save : bool):
