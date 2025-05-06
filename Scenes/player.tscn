@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5c842aj083un"]
+[gd_scene load_steps=5 format=3 uid="uid://b5c842aj083un"]
 
 [ext_resource type="Script" uid="uid://befsiiuitt7lu" path="res://Scripts/player.gd" id="1_larev"]
 [ext_resource type="SpriteFrames" uid="uid://cwmnw0a0nrbwx" path="res://Resources/Enemys/player-animation.tres" id="2_cvnsp"]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fniay"]
 radius = 0.115061
 height = 1.5307
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
+radius = 12.45
 
 [node name="Player" type="Node2D"]
 y_sort_enabled = true
@@ -33,3 +36,11 @@ offset = Vector2(0, -7.105)
 position = Vector2(0, -8)
 scale = Vector2(41.96, 10.4528)
 shape = SubResource("CapsuleShape2D_fniay")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(320, 173)
+shape = SubResource("CapsuleShape2D_cvnsp")
+
+[connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]

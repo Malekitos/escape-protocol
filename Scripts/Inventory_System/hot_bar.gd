@@ -1,5 +1,6 @@
 extends HBoxContainer
 
+@onready var item_drop_scene = preload("res://Scenes/Menu_Scenes/item_drop.tscn")
 @onready var slots = $".".get_children()
 var active_index: int = 0
 
@@ -27,3 +28,22 @@ func _input(event):
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
 			active_index = (active_index + 1) % slots.size()
 			highlight_active_slot()
+			
+	if event.is_action_pressed("drop_item"):
+		drop_active_item()
+
+
+func drop_active_item():
+	var player = get_tree().get_first_node_in_group("player")
+	var active_slot = slots[active_index]
+	if active_slot.item:
+	
+		var dropped_item = item_drop_scene.instantiate()
+		dropped_item.item = active_slot.item
+		dropped_item.global_position = player.global_position
+		get_tree().current_scene.add_child(dropped_item)
+	
+		active_slot.clear_item()
+		print("Предмет выброшен:", dropped_item.item.item_name)
+	else:
+		print("Активный слот пуст")

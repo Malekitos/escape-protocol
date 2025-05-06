@@ -135,7 +135,7 @@ libraries = {
 }
 script = ExtResource("1_hfhsn")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/AnimationPlayer"]
+[node name="HotBarContainer" type="MarginContainer" parent="CanvasLayer/AnimationPlayer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -149,7 +149,7 @@ grow_vertical = 0
 size_flags_horizontal = 4
 theme_override_constants/margin_bottom = 3
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/AnimationPlayer/MarginContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/AnimationPlayer/HotBarContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_qwshj")
 patch_margin_left = 6
@@ -159,7 +159,7 @@ patch_margin_bottom = 5
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
-[node name="HotBar" type="HBoxContainer" parent="CanvasLayer/AnimationPlayer/MarginContainer/NinePatchRect"]
+[node name="HotBar" type="HBoxContainer" parent="CanvasLayer/AnimationPlayer/HotBarContainer/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -175,28 +175,28 @@ grow_vertical = 2
 theme_override_constants/separation = 2
 script = ExtResource("6_48q88")
 
-[node name="Slot" parent="CanvasLayer/AnimationPlayer/MarginContainer/NinePatchRect/HotBar" instance=ExtResource("2_nxvpl")]
+[node name="Slot" parent="CanvasLayer/AnimationPlayer/HotBarContainer/NinePatchRect/HotBar" instance=ExtResource("2_nxvpl")]
 layout_mode = 2
 
-[node name="Slot2" parent="CanvasLayer/AnimationPlayer/MarginContainer/NinePatchRect/HotBar" instance=ExtResource("2_nxvpl")]
+[node name="Slot2" parent="CanvasLayer/AnimationPlayer/HotBarContainer/NinePatchRect/HotBar" instance=ExtResource("2_nxvpl")]
 layout_mode = 2
 
-[node name="Slot3" parent="CanvasLayer/AnimationPlayer/MarginContainer/NinePatchRect/HotBar" instance=ExtResource("2_nxvpl")]
+[node name="Slot3" parent="CanvasLayer/AnimationPlayer/HotBarContainer/NinePatchRect/HotBar" instance=ExtResource("2_nxvpl")]
 layout_mode = 2
 
-[node name="Slot4" parent="CanvasLayer/AnimationPlayer/MarginContainer/NinePatchRect/HotBar" instance=ExtResource("2_nxvpl")]
+[node name="Slot4" parent="CanvasLayer/AnimationPlayer/HotBarContainer/NinePatchRect/HotBar" instance=ExtResource("2_nxvpl")]
 layout_mode = 2
 
-[node name="Slot5" parent="CanvasLayer/AnimationPlayer/MarginContainer/NinePatchRect/HotBar" instance=ExtResource("2_nxvpl")]
+[node name="Slot5" parent="CanvasLayer/AnimationPlayer/HotBarContainer/NinePatchRect/HotBar" instance=ExtResource("2_nxvpl")]
 layout_mode = 2
 
-[node name="Slot6" parent="CanvasLayer/AnimationPlayer/MarginContainer/NinePatchRect/HotBar" instance=ExtResource("2_nxvpl")]
+[node name="Slot6" parent="CanvasLayer/AnimationPlayer/HotBarContainer/NinePatchRect/HotBar" instance=ExtResource("2_nxvpl")]
 layout_mode = 2
 
-[node name="Slot7" parent="CanvasLayer/AnimationPlayer/MarginContainer/NinePatchRect/HotBar" instance=ExtResource("2_nxvpl")]
+[node name="Slot7" parent="CanvasLayer/AnimationPlayer/HotBarContainer/NinePatchRect/HotBar" instance=ExtResource("2_nxvpl")]
 layout_mode = 2
 
-[node name="Slot8" parent="CanvasLayer/AnimationPlayer/MarginContainer/NinePatchRect/HotBar" instance=ExtResource("2_nxvpl")]
+[node name="Slot8" parent="CanvasLayer/AnimationPlayer/HotBarContainer/NinePatchRect/HotBar" instance=ExtResource("2_nxvpl")]
 layout_mode = 2
 
 [node name="Inventory" type="NinePatchRect" parent="CanvasLayer/AnimationPlayer"]

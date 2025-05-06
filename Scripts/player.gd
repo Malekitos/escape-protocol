@@ -81,5 +81,5 @@ func _input(event: InputEvent) -> void:
 	elif Input.is_action_just_pressed("zoom_out"):
 		var zoom_val = camera_2d.zoom.x + 0.05
 		camera_2d.zoom = Vector2(zoom_val, zoom_val)
-	
-	
+			
+			
