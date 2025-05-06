@@ -5,7 +5,7 @@ extends CanvasModulate
 
 signal time_tick(day: int, hour: int, minute: int)
 
-var internal_time: float = 0.0
+var internal_time: float = 2.0
 var last_checked_minute: int = -1
 
 var current_day: int = 0
@@ -17,7 +17,7 @@ const HOUR_MINUTES = 60
 const TIME_SCALE = TAU / DAY_MINUTES  # TAU = 2 * PI
 
 func _process(delta: float) -> void:
-	internal_time += delta
+	#internal_time += delta / 10
 	var normalized_time = (sin(internal_time - PI / 2.0) + 1.0) * 0.5
 	self.color = sky_gradient.gradient.sample(normalized_time)
 	_update_clock()

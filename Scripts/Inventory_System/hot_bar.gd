@@ -1,0 +1,29 @@
+extends HBoxContainer
+
+@onready var slots = $".".get_children()
+var active_index: int = 0
+
+func _ready():
+	highlight_active_slot()
+
+func _unhighlight_all_slots():
+	for slot in slots:
+		slot.modulate = Color(1, 1, 1, 1)  
+
+func highlight_active_slot():
+	_unhighlight_all_slots()
+	var active_slot = slots[active_index]
+	active_slot.modulate = Color(0.8, 0.8, 0.8, 1)
+	if active_slot.item:
+		print("Активный предмет: ", active_slot.item.item_name)
+	else:
+		print("Активный слот пуст")
+
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
+			active_index = (active_index - 1 + slots.size()) % slots.size()
+			highlight_active_slot()
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
+			active_index = (active_index + 1) % slots.size()
+			highlight_active_slot()

@@ -9,7 +9,7 @@ var is_open = false
 
 
 func _ready() -> void:
-	inventory.hide()
+	#inventory.hide()
 	color_rect.hide()
 
 func toggle():
@@ -20,17 +20,17 @@ func toggle():
 		
 func open():
 	is_open = true
-	inventory.show()
+	#inventory.show()
 	color_rect.show()
-	#get_tree().paused = true
+	get_tree().paused = true
 	animation_player.play("show_inventory")
 
 func close():
 	is_open = false
-	#get_tree().paused = false
+	get_tree().paused = false
 	animation_player.play("hide_inventory")
 	await animation_player.animation_finished
-	inventory.hide()
+	#inventory.hide()w
 	color_rect.hide()
 
 func _unhandled_input(event):
