@@ -1,5 +1,63 @@
-[gd_scene format=3 uid="uid://dx5371y3ho2t2"]
+[gd_scene load_steps=5 format=3 uid="uid://dx5371y3ho2t2"]
+
+[ext_resource type="Texture2D" uid="uid://b47wkg5ccxbtd" path="res://Assets/gui/GUI.png" id="1_out2b"]
+[ext_resource type="PackedScene" uid="uid://bejsw2k7isfcx" path="res://Scenes/Inventory_scenes/crafting_item.tscn" id="2_auip8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_out2b"]
+atlas = ExtResource("1_out2b")
+region = Rect2(49, 97, 30, 30)
+
+[sub_resource type="LabelSettings" id="LabelSettings_out2b"]
+outline_size = 1
+outline_color = Color(0.121569, 0.109804, 0.109804, 0.4)
+shadow_color = Color(0, 0, 0, 0.509804)
 
 [node name="CraftSlot" type="PanelContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 90.0
+offset_bottom = 140.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_out2b")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Recepts"
+label_settings = SubResource("LabelSettings_out2b")
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/VBoxContainer/Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 19.0
+offset_right = 98.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.455456, 0.443102)
+horizontal_scroll_mode = 0
+
+[node name="Recipies_list" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/Label/ScrollContainer"]
+layout_mode = 2
+
+[node name="CraftingItem" parent="NinePatchRect/VBoxContainer/Label/ScrollContainer/Recipies_list" instance=ExtResource("2_auip8")]
+layout_mode = 2
