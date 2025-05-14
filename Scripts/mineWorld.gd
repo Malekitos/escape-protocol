@@ -103,23 +103,27 @@ func spawn_exit():
 	if current_tail:
 		var tile_data = current_tail.get_custom_data('spawnable')
 		if tile_data:
-			
 			var world_pos = down_mine.map_to_local(exit_cords)
 			
-			var enemy_scene = preload("res://Resources/Enemys/enemy.tscn")
-			var enemy = enemy_scene.instantiate()
-			enemy.stats = preload("res://Resources/Enemys/red_enemy.tres")
-			enemy.global_position = world_pos
-			add_child(enemy)
-			print("spawn")
+			#spawn_enemy(world_pos)
+			spawn_mine(world_pos)
+		
+		
+	
+func spawn_mine(world_pos) -> void:
+		
+		var ENTRY_MINE = preload("res://Scenes/entry_mine.tscn")
+		var exit_mine = ENTRY_MINE.instantiate()
+		add_child(exit_mine)
+		exit_mine.global_position = world_pos
+		exit_mine.z_index = 101
+	
+func spawn_enemy(world_pos) -> void:
+		var enemy_scene = preload("res://Resources/Enemys/enemy.tscn")
+		var enemy = enemy_scene.instantiate()
+		enemy.stats = preload("res://Resources/Enemys/red_enemy.tres")
+		enemy.global_position = world_pos
+		add_child(enemy)
 			
-			var ENTRY_MINE = preload("res://Scenes/entry_mine.tscn")
-			var exit_mine = ENTRY_MINE.instantiate()
-			add_child(exit_mine)
-			exit_mine.global_position = world_pos
-			exit_mine.z_index = 101
-	
-
-	
 
 	

@@ -17,8 +17,8 @@ func highlight_active_slot():
 	active_slot.modulate = Color(0.8, 0.8, 0.8, 1)
 	if active_slot.item:
 		print("Активный предмет: ", active_slot.item.item_name)
-	else:
-		print("Активный слот пуст")
+	##else:
+		###print("Активный слот пуст")
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -35,15 +35,16 @@ func _input(event):
 
 func drop_active_item():
 	var player = get_tree().get_first_node_in_group("player")
+	var inventory = player.get_node('UI/CanvasLayer/AnimationPlayer/Inventory')
 	var active_slot = slots[active_index]
 	if active_slot.item:
 	
+		
 		var dropped_item = item_drop_scene.instantiate()
 		dropped_item.item = active_slot.item
 		dropped_item.global_position = player.global_position
 		get_tree().current_scene.add_child(dropped_item)
 	
+		inventory.remove_item(active_slot.item)
 		active_slot.clear_item()
-		print("Предмет выброшен:", dropped_item.item.item_name)
-	else:
-		print("Активный слот пуст")
+		

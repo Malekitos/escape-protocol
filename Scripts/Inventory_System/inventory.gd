@@ -6,19 +6,27 @@ class_name Inventory
 var items : Array[ItemResource] = []
 
 func add_item(item: ItemResource) -> bool :
+	
 	for slot in slots:
 		if slot.item == null:
 			slot.set_item(item)
 			items.append(item)
-			print(items)
 			return true
 	return false
 	
 func remove_item(item: ItemResource) -> bool:
+		
 	for slot in slots:
 		if slot.item == item:
-			slot.clear_item()
 			items.erase(item)
-			print(items)	
+			slot.clear_item()
+			print("Инвентарь:",items)
 			return true
 	return false
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_inventory"): 
+		var crafting_manager = get_tree().get_first_node_in_group("crafting")
+		if crafting_manager:
+			crafting_manager.check_all_craftable(items)
+			

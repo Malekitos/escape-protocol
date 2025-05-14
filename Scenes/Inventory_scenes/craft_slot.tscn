@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx5371y3ho2t2"]
+[gd_scene load_steps=9 format=3 uid="uid://dx5371y3ho2t2"]
 
+[ext_resource type="Script" uid="uid://dejo5mfnnj1eb" path="res://Scripts/Inventory_System/CraftingManager.gd" id="1_0tqa2"]
 [ext_resource type="Texture2D" uid="uid://b47wkg5ccxbtd" path="res://Assets/gui/GUI.png" id="1_out2b"]
 [ext_resource type="PackedScene" uid="uid://bejsw2k7isfcx" path="res://Scenes/Inventory_scenes/crafting_item.tscn" id="2_auip8"]
+[ext_resource type="Script" uid="uid://dlvgbsji1rhm4" path="res://Scripts/Inventory_System/item_craft.gd" id="2_gria0"]
+[ext_resource type="Resource" uid="uid://xuxfb47axbw2" path="res://Resources/items/Crafts/Torch-craft.tres" id="3_bvyov"]
+[ext_resource type="Script" uid="uid://cq6ky1318vh6l" path="res://Scenes/Inventory_scenes/recipies_list.gd" id="5_vbjjs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_out2b"]
 atlas = ExtResource("1_out2b")
@@ -15,6 +19,8 @@ shadow_color = Color(0, 0, 0, 0.509804)
 [node name="CraftSlot" type="PanelContainer"]
 offset_right = 90.0
 offset_bottom = 140.0
+script = ExtResource("1_0tqa2")
+recipes_list = Array[ExtResource("2_gria0")]([ExtResource("3_bvyov")])
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
@@ -58,6 +64,8 @@ horizontal_scroll_mode = 0
 
 [node name="Recipies_list" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/Label/ScrollContainer"]
 layout_mode = 2
+script = ExtResource("5_vbjjs")
 
 [node name="CraftingItem" parent="NinePatchRect/VBoxContainer/Label/ScrollContainer/Recipies_list" instance=ExtResource("2_auip8")]
+visible = false
 layout_mode = 2

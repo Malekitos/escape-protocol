@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://dh0pd3tbtpi6i"]
+
+[ext_resource type="Texture2D" uid="uid://c1efv1d3yopei" path="res://Assets/icons/#2 - Transparent Icons & Drop Shadow.png" id="1_838ix"]
+[ext_resource type="Script" uid="uid://jvtu1xcoge5t" path="res://Scripts/Inventory_System/item_resource.gd" id="1_prp7w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nolpk"]
+atlas = ExtResource("1_838ix")
+region = Rect2(323, 323, 27, 28)
+
+[resource]
+script = ExtResource("1_prp7w")
+item_name = "Torch"
+item_icon = SubResource("AtlasTexture_nolpk")
+item_description = "Torch"
+metadata/_custom_type_script = "uid://jvtu1xcoge5t"

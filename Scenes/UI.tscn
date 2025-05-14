@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://b17s03ll3fe53" path="res://Scripts/animateInventory.gd" id="1_hfhsn"]
 [ext_resource type="Script" uid="uid://cj8q42oa4kier" path="res://Scripts/ui.gd" id="1_qwshj"]
 [ext_resource type="Texture2D" uid="uid://b47wkg5ccxbtd" path="res://Assets/gui/GUI.png" id="1_w371h"]
-[ext_resource type="PackedScene" uid="uid://byyapcv258som" path="res://Scenes/Slot.tscn" id="2_nxvpl"]
+[ext_resource type="PackedScene" uid="uid://byyapcv258som" path="res://Scenes/Inventory_scenes/Slot.tscn" id="2_nxvpl"]
 [ext_resource type="Script" uid="uid://bfvrhl48d5j74" path="res://Scripts/Inventory_System/inventory.gd" id="3_hfhsn"]
 [ext_resource type="Script" uid="uid://chma27cccitul" path="res://Scripts/Inventory_System/hot_bar.gd" id="6_48q88"]
-[ext_resource type="PackedScene" uid="uid://dx5371y3ho2t2" path="res://Scenes/craft_slot.tscn" id="7_xjg7p"]
+[ext_resource type="PackedScene" uid="uid://dx5371y3ho2t2" path="res://Scenes/Inventory_scenes/craft_slot.tscn" id="7_xjg7p"]
 
 [sub_resource type="Animation" id="Animation_hfhsn"]
 length = 0.001

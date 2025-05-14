@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bejsw2k7isfcx"]
+[gd_scene load_steps=10 format=3 uid="uid://bejsw2k7isfcx"]
 
 [ext_resource type="Texture2D" uid="uid://c1efv1d3yopei" path="res://Assets/icons/#2 - Transparent Icons & Drop Shadow.png" id="1_aqubl"]
+[ext_resource type="Script" uid="uid://cqwj1hpew066m" path="res://Scripts/Inventory_System/RecepiesSlot.gd" id="1_k8do3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aqubl"]
 outline_size = 1
@@ -15,6 +16,9 @@ region = Rect2(5, 165, 23, 24)
 atlas = ExtResource("1_aqubl")
 region = Rect2(3, 547, 27, 28)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kg72o"]
+bg_color = Color(0.247059, 0.156863, 0.345098, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8do3"]
 bg_color = Color(0.247059, 0.156863, 0.2, 1)
 corner_radius_top_left = 4
@@ -23,7 +27,12 @@ corner_radius_bottom_right = 4
 shadow_color = Color(0, 0, 0, 0.623529)
 shadow_size = 1
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kg72o"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vyjhl"]
+bg_color = Color(0.247059, 0.156863, 0.2, 0.870588)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqubl"]
 bg_color = Color(0.247059, 0.156863, 0.196078, 1)
@@ -37,6 +46,7 @@ offset_right = 167.0
 offset_bottom = 40.0
 scale = Vector2(0.194857, 0.194857)
 size_flags_horizontal = 4
+script = ExtResource("1_k8do3")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
@@ -56,8 +66,8 @@ expand_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_bottom = 6
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -65,10 +75,12 @@ layout_mode = 2
 [node name="resource_icon1" type="TextureRect" parent="HBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_kg72o")
+expand_mode = 2
 
 [node name="resource_icon2" type="TextureRect" parent="HBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_kg72o")
+expand_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -78,7 +90,8 @@ theme_override_constants/margin_bottom = 5
 [node name="Button" type="Button" parent="HBoxContainer/MarginContainer2"]
 layout_mode = 2
 theme_override_constants/align_to_largest_stylebox = 1
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_kg72o")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k8do3")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_kg72o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vyjhl")
 theme_override_styles/normal = SubResource("StyleBoxFlat_aqubl")
 text = "Craft"
