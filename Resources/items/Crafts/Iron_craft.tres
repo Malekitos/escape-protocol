@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemCraft" load_steps=6 format=3 uid="uid://diirlcu8ea4gv"]
+
+[ext_resource type="Script" uid="uid://jvtu1xcoge5t" path="res://Scripts/Inventory_System/item_resource.gd" id="1_2jjnb"]
+[ext_resource type="Script" uid="uid://dlvgbsji1rhm4" path="res://Scripts/Inventory_System/item_craft.gd" id="2_375me"]
+[ext_resource type="Resource" uid="uid://bdchtwyfyx4ad" path="res://Resources/items/materials/coal.tres" id="2_ehkoj"]
+[ext_resource type="Resource" uid="uid://ddyq4aejwdx8b" path="res://Resources/items/materials/iron_dirty.tres" id="3_ypj2h"]
+[ext_resource type="Resource" uid="uid://bjvpql67pkujf" path="res://Resources/items/materials/iron_ingot.tres" id="4_0pjge"]
+
+[resource]
+script = ExtResource("2_375me")
+input_items = Array[ExtResource("1_2jjnb")]([ExtResource("2_ehkoj"), ExtResource("3_ypj2h")])
+output_item = ExtResource("4_0pjge")
+output_count = 2
+metadata/_custom_type_script = "uid://dlvgbsji1rhm4"

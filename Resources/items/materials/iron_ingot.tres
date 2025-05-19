@@ -9,7 +9,7 @@ region = Rect2(50, 19, 12, 11)
 
 [resource]
 script = ExtResource("2_sshyo")
-item_name = "iron_ingot"
+item_name = "Iron"
 item_icon = SubResource("AtlasTexture_ymku5")
 item_description = "desc"
 metadata/_custom_type_script = "uid://jvtu1xcoge5t"

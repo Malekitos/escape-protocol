@@ -3,7 +3,11 @@ class_name Inventory
 
 @onready var slots = get_tree().get_nodes_in_group("slot")
 
+
 var items : Array[ItemResource] = []
+
+func get_items():
+	return items
 
 func add_item(item: ItemResource) -> bool :
 	

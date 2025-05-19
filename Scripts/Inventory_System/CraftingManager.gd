@@ -33,6 +33,8 @@ func check_all_craftable(inventory_items: Array[ItemResource]) -> void:
 
 			var crafting_item = preload("res://Scenes/Inventory_scenes/crafting_item.tscn").instantiate()
 			
+			crafting_item.setup(recipe.output_item,recipe.input_items[0], recipe.input_items[1] )
+			
 			var label = crafting_item.get_node("HBoxContainer/Label")
 			var item_icon = crafting_item.get_node("HBoxContainer/item_icon")
 			var recipies1_icon = crafting_item.get_node("HBoxContainer/MarginContainer/HBoxContainer/resource_icon1")

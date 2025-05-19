@@ -87,7 +87,7 @@ layout_mode = 2
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Button" type="Button" parent="HBoxContainer/MarginContainer2"]
+[node name="craft_button" type="Button" parent="HBoxContainer/MarginContainer2"]
 layout_mode = 2
 theme_override_constants/align_to_largest_stylebox = 1
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_kg72o")
@@ -95,3 +95,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_k8do3")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vyjhl")
 theme_override_styles/normal = SubResource("StyleBoxFlat_aqubl")
 text = "Craft"
+
+[connection signal="pressed" from="HBoxContainer/MarginContainer2/craft_button" to="." method="_on_craft_button_pressed"]
