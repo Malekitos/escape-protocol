@@ -4,11 +4,13 @@ extends Node2D
 @export var noise_tree_text : NoiseTexture2D
 @onready var player: Node2D = $Player
 
+
 var noise : Noise
 var tree_noise : Noise
 
 var noise_val_arr = []
 
+var is_loaded_from_save : bool = false
 
 var fall_tiles_arr = []
 var spring_tiles_arr = []
@@ -47,7 +49,6 @@ var small_winter_stone_arr = [Vector2i(0,6),Vector2i(1,6)]
 @onready var winter_layer: TileMapLayer = $winter_layer
 
 @onready var ground_layer: TileMapLayer = $ground_layer
-@onready var enviroment_layer: TileMapLayer = $enviroment_layer
 
 
 var tree_scene = preload("res://Resources/tree/tree.tscn")
@@ -77,13 +78,11 @@ func _ready() -> void:
 	tree_noise = noise_tree_text.noise
 	noise.seed = randi()
 	#noise.seed = 100
-
-
-	generate_world()
+	if not is_loaded_from_save:
+		generate_world()
 
 
 func generate_world():
-
 
 	for x in range(width):
 		for y in range(height):
@@ -168,13 +167,16 @@ func generate_world():
 	#print("Highest: ", noise_val_arr.max())
 	#print("lowest: ", noise_val_arr.min())
 
-func spawn_tree(position: Vector2i, biome):
-	
+
+
+
+func spawn_tree(position: Vector2i, biome: String):
 	var tree = tree_scene.instantiate()
-	tree.stats = tree_types[biome]
-	
+	tree.stats = tree_types[biome] # это твой tree_stats.traes
 	tree.global_position = position
 	add_child(tree)
+	tree.owner = self
+
 
 func spawn_stone(position: Vector2i, type):
 	
@@ -183,9 +185,11 @@ func spawn_stone(position: Vector2i, type):
 	
 	stone.global_position = position
 	add_child(stone)
+	stone.owner = self
 	
 func spawn_mine(position: Vector2i):
 	pass
 	var Mineenter = mineEnter.instantiate()
 	Mineenter.global_position = position
 	add_child(Mineenter)
+	Mineenter.owner = self

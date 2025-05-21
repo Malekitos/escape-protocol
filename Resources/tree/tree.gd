@@ -11,8 +11,6 @@ var health = 20
 func _ready():
 	sprite.texture = stats.texture
 
-
-
 func damage(attack: Attack):
 	health -= attack.attack_damage
 	animation_player.play("hit_flash")

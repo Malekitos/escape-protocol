@@ -8,20 +8,44 @@ var world_place: Node
 var saved_level: Node2D
 var menu_scene: PackedScene = preload("res://Scenes/Menu_Scenes/menu.tscn")
 
-func exit_game():
-	
-	save_node_to_file(player_place, "res://saves/player_place.tscn")
-	save_node_to_file(world_place, "res://saves/world_place.tscn")
-	
-	
-	get_tree().change_scene_to_packed(menu_scene)
-
 func _ready() -> void:
 	get_tree().change_scene_to_packed(menu_scene)
 	
+
+func exit_game():
+	var player = player_place.get_children()
+	var world = world_place.get_children()
+	
+	
+	
+	save_node_to_file(player[0], "res://saves/player_place.tscn")
+	save_node_to_file(world[0], "res://saves/world_place.tscn")
+	
+	get_tree().change_scene_to_packed(menu_scene)
+
+
+func continue_game():
+
+	var new_scene = preload("res://Scenes/main.tscn").instantiate()
+	get_tree().get_root().add_child(new_scene)
+	get_tree().current_scene.queue_free()
+	get_tree().current_scene = new_scene
+
+
+	main_scene = new_scene
+	player_place = main_scene.get_node("playerPlace")
+	world_place = main_scene.get_node("worldPlace")
+
+	var saved_player = load("res://saves/player_place.tscn").instantiate()
+	var saved_world = load("res://saves/world_place.tscn").instantiate()
+
+	saved_world.is_loaded_from_save = true
+	player_place.add_child(saved_player)
+	world_place.add_child(saved_world)
+	
+	
 func create_game(world_name : String):
 	
-	delete_save_files()
 	var new_scene = preload("res://Scenes/main.tscn").instantiate()
 	get_tree().get_root().add_child(new_scene)
 	get_tree().current_scene.queue_free()
@@ -54,6 +78,7 @@ func clear_level(save : bool):
 			
 func save_node_to_file(node: Node, file_path: String) -> void:
 	var packed_scene := PackedScene.new()
+
 	if packed_scene.pack(node) != OK:
 		print("Не удалось упаковать узел:", node.name)
 		return
@@ -61,23 +86,3 @@ func save_node_to_file(node: Node, file_path: String) -> void:
 		print("Ошибка сохранения:", file_path)
 	else:
 		print("Узел сохранён:", file_path)
-
-func delete_save_files():
-	var save_dir_path = "res://saves/"
-	if not DirAccess.dir_exists_absolute(save_dir_path):
-		print("Папки нет — ничего удалять не нужно.")
-		return
-
-	var dir = DirAccess.open(save_dir_path)
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if not dir.current_is_dir():
-				var file_path = save_dir_path + file_name
-				DirAccess.remove_absolute(file_path)
-				print("Удалён файл:", file_path)
-			file_name = dir.get_next()
-		dir.list_dir_end()
-	else:
-		print("Не удалось открыть папку сохранений.")

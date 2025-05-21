@@ -10,7 +10,6 @@ func get_items():
 	return items
 
 func add_item(item: ItemResource) -> bool :
-	
 	for slot in slots:
 		if slot.item == null:
 			slot.set_item(item)

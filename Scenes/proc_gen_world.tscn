@@ -75,9 +75,3 @@ z_index = 1
 y_sort_enabled = true
 use_parent_material = true
 tile_set = ExtResource("4_ighaj")
-
-[node name="enviroment_layer" type="TileMapLayer" parent="."]
-z_index = 1
-y_sort_enabled = true
-use_parent_material = true
-tile_set = ExtResource("2_it8ja")

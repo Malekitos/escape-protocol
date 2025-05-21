@@ -15,6 +15,7 @@ func _ready() -> void:
 	add_to_group('player')
 	var ui = ui_scene.instantiate()
 	add_child(ui)
+	ui.owner = self
 	var pause = pause_scene.instantiate()
 	add_child(pause)
 	
