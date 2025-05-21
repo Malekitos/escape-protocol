@@ -1,4 +1,10 @@
 extends Control
+@onready var new_game: Button = $"NinePatchRect/VBoxContainer/New Game"
+
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	new_game.pressed.connect(_on_new_game_pressed)
+
 
 
 func _on_exit_pressed() -> void:

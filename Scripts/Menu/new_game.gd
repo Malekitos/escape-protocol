@@ -7,5 +7,6 @@ func _on_back_pressed() -> void:
 
 
 func _on_create_pressed() -> void:
-	SceneManager.create_game()
+	var world_name : String = $NinePatchRect/MarginContainer/VBoxContainer/LineEdit.text
+	SceneManager.create_game(world_name)
 	

@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var direction = null
 
 @onready var ui_scene = preload("res://Scenes/UI.tscn")
+@onready var pause_scene = preload("res://Scenes/Menu_Scenes/Pause.tscn")
 
 var in_mine : bool = false
 var player_position : Vector2i
@@ -14,6 +15,8 @@ func _ready() -> void:
 	add_to_group('player')
 	var ui = ui_scene.instantiate()
 	add_child(ui)
+	var pause = pause_scene.instantiate()
+	add_child(pause)
 	
 	
 func teleport_to_mine():

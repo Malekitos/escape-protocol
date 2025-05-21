@@ -6,9 +6,16 @@ var main_scene: Node
 var player_place: Node
 var world_place: Node
 var saved_level: Node2D
+var menu_scene: PackedScene = preload("res://Scenes/Menu_Scenes/menu.tscn")
 
+func exit_game():
+	get_tree().change_scene_to_packed(menu_scene)
 
-func create_game():
+func _ready() -> void:
+	get_tree().change_scene_to_packed(menu_scene)
+	
+func create_game(world_name : String):
+	
 	var new_scene = preload("res://Scenes/main.tscn").instantiate()
 	get_tree().get_root().add_child(new_scene)
 	get_tree().current_scene.queue_free()

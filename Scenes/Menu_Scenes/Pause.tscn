@@ -1,0 +1,186 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhin5gxpkw3gm"]
+
+[ext_resource type="Script" uid="uid://vbk258b7vu64" path="res://Scripts/pause.gd" id="1_2gw0f"]
+[ext_resource type="Theme" uid="uid://ce7xjqy03sudq" path="res://Themes/menu_theme.tres" id="1_sc7q5"]
+[ext_resource type="Script" uid="uid://d2ik7yrgqsfvt" path="res://Scripts/animatePauseMenu.gd" id="2_mm137"]
+[ext_resource type="Texture2D" uid="uid://b47wkg5ccxbtd" path="res://Assets/gui/GUI.png" id="3_jv2ls"]
+
+[sub_resource type="Animation" id="Animation_hfhsn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.227451)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/AnimationPlayer/NinePatchRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-156, 80.5)]
+}
+
+[sub_resource type="Animation" id="Animation_qwshj"]
+resource_name = "hide_pause"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.227451), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/AnimationPlayer/NinePatchRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(3, 3),
+"update": 0,
+"values": [Vector2(272, 123), Vector2(-105, 123)]
+}
+
+[sub_resource type="Animation" id="Animation_dewlx"]
+resource_name = "show_pause"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.227451)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/AnimationPlayer/NinePatchRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(3, 3),
+"update": 0,
+"values": [Vector2(-105, 123), Vector2(272, 123)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qwshj"]
+_data = {
+&"RESET": SubResource("Animation_hfhsn"),
+&"hide_pause": SubResource("Animation_qwshj"),
+&"show_pause": SubResource("Animation_dewlx")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gw0f"]
+atlas = ExtResource("3_jv2ls")
+region = Rect2(2, 34, 44, 44)
+
+[node name="Pause" type="Control"]
+process_mode = 3
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 2.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("1_sc7q5")
+script = ExtResource("1_2gw0f")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_qwshj")
+}
+script = ExtResource("2_mm137")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/AnimationPlayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -476.0
+offset_top = -99.5
+offset_right = -380.0
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_2gw0f")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/AnimationPlayer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -34.0
+offset_right = 32.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_sc7q5")
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Exit" type="Button" parent="CanvasLayer/AnimationPlayer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Exit
+"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00643, 1)
+mouse_filter = 2
+color = Color(0, 0, 0, 0.227451)
+
+[connection signal="pressed" from="CanvasLayer/AnimationPlayer/NinePatchRect/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

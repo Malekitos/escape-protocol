@@ -1,17 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cknrdqeb7yg87"]
+[gd_scene load_steps=6 format=3 uid="uid://cknrdqeb7yg87"]
 
-[ext_resource type="StyleBox" uid="uid://c84c3q25b2vo3" path="res://Themes/hover_button.tres" id="1_f0dyb"]
-[ext_resource type="StyleBox" uid="uid://blmm4ii14xlj" path="res://Themes/normal_button.tres" id="2_oax00"]
+[ext_resource type="Theme" uid="uid://ce7xjqy03sudq" path="res://Themes/menu_theme.tres" id="1_lbun8"]
 [ext_resource type="Script" uid="uid://vuqev5o0nd44" path="res://Scripts/Menu/MenuScript.gd" id="3_glkuc"]
 [ext_resource type="Texture2D" uid="uid://b47wkg5ccxbtd" path="res://Assets/gui/GUI.png" id="4_rcs3q"]
 [ext_resource type="Texture2D" uid="uid://crtr0l7r46qhp" path="res://Assets/game_menu_background.png" id="5_jfa4h"]
-
-[sub_resource type="Theme" id="Theme_1rerr"]
-Button/font_sizes/font_size = 20
-Button/styles/focus = null
-Button/styles/hover = ExtResource("1_f0dyb")
-Button/styles/normal = ExtResource("2_oax00")
-Button/styles/pressed = null
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1rerr"]
 atlas = ExtResource("4_rcs3q")
@@ -24,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_1rerr")
+theme = ExtResource("1_lbun8")
 script = ExtResource("3_glkuc")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
