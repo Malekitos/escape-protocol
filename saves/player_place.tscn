@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8t5ln2fjlnfc"]
+[gd_scene load_steps=6 format=3]
 
-[ext_resource type="Script" uid="uid://befsiiuitt7lu" path="res://Scripts/player.gd" id="1_em8fs"]
-[ext_resource type="Texture2D" uid="uid://drmw2gaxhwntn" path="res://Assets/light.png" id="2_q8211"]
-[ext_resource type="SpriteFrames" uid="uid://cwmnw0a0nrbwx" path="res://Resources/Enemys/player-animation.tres" id="3_mln51"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_em8fs"]
+[ext_resource type="Texture2D" path="res://Assets/light.png" id="2_q8211"]
+[ext_resource type="SpriteFrames" path="res://Resources/Enemys/player-animation.tres" id="3_mln51"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fniay"]
 radius = 0.115061

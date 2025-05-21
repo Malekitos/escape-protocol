@@ -16,8 +16,11 @@ func exit_game():
 	var player = player_place.get_children()
 	var world = world_place.get_children()
 	
+	var player_node = get_tree().get_nodes_in_group("player")[0]
+	var inventory = player_node.get_node('UI/CanvasLayer/AnimationPlayer/Inventory')
 	
-	
+	inventory.save_inventory()
+		
 	save_node_to_file(player[0], "res://saves/player_place.tscn")
 	save_node_to_file(world[0], "res://saves/world_place.tscn")
 	
@@ -40,12 +43,19 @@ func continue_game():
 	var saved_world = load("res://saves/world_place.tscn").instantiate()
 
 	saved_world.is_loaded_from_save = true
+	
 	player_place.add_child(saved_player)
 	world_place.add_child(saved_world)
 	
+
+	
 	
 func create_game(world_name : String):
-	
+	if FileAccess.file_exists("res://saves/inventory_data.res"):
+		var dir := DirAccess.open("res://saves")
+		if dir:
+			dir.remove("inventory_data.res")
+
 	var new_scene = preload("res://Scenes/main.tscn").instantiate()
 	get_tree().get_root().add_child(new_scene)
 	get_tree().current_scene.queue_free()
@@ -60,6 +70,7 @@ func create_game(world_name : String):
 
 	set_level(preload("res://Scenes/proc_gen_world.tscn"), false)
 
+	
 
 func set_level(world, save : bool):
 	if save:

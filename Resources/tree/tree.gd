@@ -7,15 +7,14 @@ extends Node2D
 var health = 20
 @onready var player = get_tree().get_nodes_in_group("player")[0]
 @onready var inventory = player.get_node('UI/CanvasLayer/AnimationPlayer/Inventory')
-
 func _ready():
 	sprite.texture = stats.texture
 
 func damage(attack: Attack):
+	#print(inventory.get_items())
 	health -= attack.attack_damage
 	animation_player.play("hit_flash")
 	if health < 0:
-
 		inventory.add_item(preload("res://Resources/items/materials/wood.tres"))
 		
 		queue_free()

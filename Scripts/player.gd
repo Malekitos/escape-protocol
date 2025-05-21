@@ -11,13 +11,17 @@ extends CharacterBody2D
 var in_mine : bool = false
 var player_position : Vector2i
 
+var is_loaded_from_save : bool
+
 func _ready() -> void:
 	add_to_group('player')
-	var ui = ui_scene.instantiate()
-	add_child(ui)
-	ui.owner = self
 	var pause = pause_scene.instantiate()
 	add_child(pause)
+	
+	if not is_loaded_from_save:
+		var ui = ui_scene.instantiate()
+		add_child(ui)
+		ui.owner = self
 	
 	
 func teleport_to_mine():
