@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5c842aj083un"]
+[gd_scene load_steps=7 format=3 uid="uid://b5c842aj083un"]
 
 [ext_resource type="Script" uid="uid://befsiiuitt7lu" path="res://Scripts/player.gd" id="1_larev"]
 [ext_resource type="SpriteFrames" uid="uid://cwmnw0a0nrbwx" path="res://Resources/Enemys/player-animation.tres" id="2_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://drmw2gaxhwntn" path="res://Assets/light.png" id="3_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://d3ora6nbbat3e" path="res://Scenes/healthbar/healthbar.tscn" id="4_vgqql"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fniay"]
 radius = 0.115061
@@ -47,6 +48,14 @@ offset = Vector2(0, -7.105)
 position = Vector2(0, -8)
 scale = Vector2(41.96, 10.4528)
 shape = SubResource("CapsuleShape2D_fniay")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CharacterBody2D"]
+
+[node name="Healthbar" parent="CharacterBody2D/CanvasLayer" instance=ExtResource("4_vgqql")]
+offset_left = 178.0
+offset_top = 300.0
+offset_right = 462.0
+offset_bottom = 307.0
 
 [node name="Area2D" type="Area2D" parent="."]
 

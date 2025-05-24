@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://ciay6rc32nmsl"]
+[gd_scene load_steps=10 format=3 uid="uid://ciay6rc32nmsl"]
 
 [ext_resource type="Script" uid="uid://thsu8fcd3ejl" path="res://Resources/tree/tree.gd" id="1_12b6e"]
+[ext_resource type="PackedScene" uid="uid://d3ora6nbbat3e" path="res://Scenes/healthbar/healthbar.tscn" id="3_edx2q"]
 [ext_resource type="Texture2D" uid="uid://rq8si80hkg7c" path="res://Assets/Hana Caraka - Topdown Tileset [sample]/Props/Tree.png" id="3_twf5q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_edx2q"]
@@ -78,5 +79,11 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, -40)
 shape = SubResource("CapsuleShape2D_twf5q")
+
+[node name="Healthbar" parent="." instance=ExtResource("3_edx2q")]
+offset_left = -38.0
+offset_top = -91.0
+offset_right = 38.0
+offset_bottom = -87.0
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
