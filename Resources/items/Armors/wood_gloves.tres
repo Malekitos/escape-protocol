@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=4 format=3 uid="uid://couufxm0acay3"]
+
+[ext_resource type="Texture2D" uid="uid://c1efv1d3yopei" path="res://Assets/icons/#2 - Transparent Icons & Drop Shadow.png" id="1_6mfnu"]
+[ext_resource type="Script" uid="uid://d2chav8wlcdn2" path="res://Scripts/Inventory_System/armor_resource.gd" id="1_rmgo2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyh23"]
+atlas = ExtResource("1_6mfnu")
+region = Rect2(6, 259, 24, 28)
+
+[resource]
+script = ExtResource("1_rmgo2")
+armor = 10
+item_name = "Gloves"
+item_icon = SubResource("AtlasTexture_xyh23")
+item_description = ""
+metadata/_custom_type_script = "uid://d2chav8wlcdn2"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=4 format=3 uid="uid://dpxs237vs38g3"]
+
+[ext_resource type="Texture2D" uid="uid://c1efv1d3yopei" path="res://Assets/icons/#2 - Transparent Icons & Drop Shadow.png" id="1_3rejj"]
+[ext_resource type="Script" uid="uid://d2chav8wlcdn2" path="res://Scripts/Inventory_System/armor_resource.gd" id="1_ey52r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_as2tf"]
+atlas = ExtResource("1_3rejj")
+region = Rect2(69, 228, 23, 27)
+
+[resource]
+script = ExtResource("1_ey52r")
+armor = 10
+item_name = "Helmet"
+item_icon = SubResource("AtlasTexture_as2tf")
+item_description = ""
+metadata/_custom_type_script = "uid://d2chav8wlcdn2"

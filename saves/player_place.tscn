@@ -1,12 +1,26 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=13 format=3]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_em8fs"]
-[ext_resource type="Texture2D" path="res://Assets/light.png" id="2_q8211"]
-[ext_resource type="SpriteFrames" path="res://Resources/Enemys/player-animation.tres" id="3_mln51"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_gnnf2"]
+[ext_resource type="Texture2D" path="res://Assets/shit/light.png" id="2_ajtvc"]
+[ext_resource type="SpriteFrames" path="res://Resources/Enemys/player-animation.tres" id="3_k8vyk"]
+[ext_resource type="Script" path="res://Scenes/healthbar/armor_bar.gd" id="4_e31ik"]
+[ext_resource type="PackedScene" path="res://Scenes/healthbar/healthbar.tscn" id="5_g2t5c"]
+[ext_resource type="Script" path="res://Scenes/healthbar/healthbar.gd" id="6_2t21t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fniay"]
 radius = 0.115061
 height = 1.5307
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3wgy"]
+bg_color = Color(0, 0, 0, 0.27451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3smsa"]
+bg_color = Color(0.174261, 0.323036, 0.60183, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u6a0a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ynn4"]
+bg_color = Color(0.153909, 0.615407, 0.320422, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
 radius = 12.45
@@ -15,8 +29,8 @@ radius = 12.45
 y_sort_enabled = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(91.1679, 130.5)
-script = ExtResource("1_em8fs")
+position = Vector2(322.5, 280)
+script = ExtResource("1_gnnf2")
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
 visible = false
@@ -25,11 +39,10 @@ color = Color(0.961629, 0.840553, 0.17093, 1)
 energy = 0.4
 range_z_min = -1023
 shadow_filter = 2
-texture = ExtResource("2_q8211")
+texture = ExtResource("2_ajtvc")
 offset = Vector2(-54.195, 20.075)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-zoom = Vector2(0.5, 0.5)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.05
@@ -40,15 +53,40 @@ drag_bottom_margin = 0.05
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 y_sort_enabled = true
 position = Vector2(1, 0)
-sprite_frames = ExtResource("3_mln51")
-animation = &"idle_right"
-frame_progress = 0.00334973
+sprite_frames = ExtResource("3_k8vyk")
+animation = &"idle"
+frame_progress = 0.104963
 offset = Vector2(0, -7.105)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, -8)
 scale = Vector2(41.96, 10.4528)
 shape = SubResource("CapsuleShape2D_fniay")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CharacterBody2D"]
+
+[node name="ArmorBar" type="ProgressBar" parent="CharacterBody2D/CanvasLayer"]
+offset_left = 178.0
+offset_top = 287.0
+offset_right = 462.0
+offset_bottom = 295.0
+theme_override_styles/background = SubResource("StyleBoxFlat_x3wgy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3smsa")
+value = 10.0
+show_percentage = false
+script = ExtResource("4_e31ik")
+
+[node name="Healthbar" type="ProgressBar" parent="CharacterBody2D/CanvasLayer" instance=ExtResource("5_g2t5c")]
+z_index = 1
+offset_left = 178.0
+offset_top = 300.0
+offset_right = 462.0
+offset_bottom = 307.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_u6a0a")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8ynn4")
+value = 100.0
+show_percentage = false
+script = ExtResource("6_2t21t")
 
 [node name="Area2D" type="Area2D" parent="."]
 

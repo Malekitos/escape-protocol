@@ -29,7 +29,7 @@ func check_all_craftable(inventory_items: Array[ItemResource]) -> void:
 	for recipe in recipes_list:
 		if can_craft(recipe, inventory_items):
 			var inputs := ", ".join(recipe.input_items.map(func(i): return i.item_name))
-			print("Можно создать:", recipe.output_item.item_name, "из:", inputs)
+			#print("Можно создать:", recipe.output_item.item_name, "из:", inputs)
 
 			var crafting_item = preload("res://Scenes/Inventory_scenes/crafting_item.tscn").instantiate()
 			

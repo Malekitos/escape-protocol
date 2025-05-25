@@ -15,8 +15,8 @@ func highlight_active_slot():
 	_unhighlight_all_slots()
 	var active_slot = slots[active_index]
 	active_slot.modulate = Color(0.8, 0.8, 0.8, 1)
-	if active_slot.item:
-		print("Активный предмет: ", active_slot.item.item_name)
+	#if active_slot.item:
+		#print("Активный предмет: ", active_slot.item.item_name)
 	##else:
 		###print("Активный слот пуст")
 

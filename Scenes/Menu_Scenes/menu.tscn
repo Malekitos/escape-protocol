@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://ce7xjqy03sudq" path="res://Themes/menu_theme.tres" id="1_lbun8"]
 [ext_resource type="Script" uid="uid://vuqev5o0nd44" path="res://Scripts/Menu/MenuScript.gd" id="3_glkuc"]
 [ext_resource type="Texture2D" uid="uid://b47wkg5ccxbtd" path="res://Assets/gui/GUI.png" id="4_rcs3q"]
-[ext_resource type="Texture2D" uid="uid://crtr0l7r46qhp" path="res://Assets/game_menu_background.png" id="5_jfa4h"]
+[ext_resource type="Texture2D" uid="uid://crtr0l7r46qhp" path="res://Assets/shit/game_menu_background.png" id="5_jfa4h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1rerr"]
 atlas = ExtResource("4_rcs3q")

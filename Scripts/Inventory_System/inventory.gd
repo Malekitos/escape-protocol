@@ -2,6 +2,7 @@ extends Node
 class_name Inventory
 
 @onready var slots = get_tree().get_nodes_in_group("slot")
+@onready var player = get_tree().get_first_node_in_group("player")
 
 func _ready() -> void:
 	load_inventory()
@@ -15,22 +16,26 @@ func save_inventory():
 	var inv_save := InventorySave.new()
 	inv_save.items = items
 	var result := ResourceSaver.save(inv_save, "res://saves/inventory_data.res")
-	if result != OK:
-		print("❌ Ошибка при сохранении инвентаря:", result)
-	else:
-		print("✅ Инвентарь сохранён")
+	#if result != OK:
+		#print("Ошибка при сохранении инвентаря:", result)
+	#else:
+		#print("Инвентарь сохранён")
 
 func load_inventory():
 	if ResourceLoader.exists("res://saves/inventory_data.res"):
 		var inv_save := load("res://saves/inventory_data.res") as InventorySave
 		for item in inv_save.items:
-			add_item(item)  # Это уже вызывает slot.set_item() и добавляет в массив
+			add_item(item) 
 
 func add_item(item: ItemResource) -> bool :
 	for slot in slots:
 		if slot.item == null:
 			slot.set_item(item)
 			items.append(item)
+			
+			if item.has_method("armor_item"):
+				player.armor_bar.armor += item.armor
+			
 			return true
 	return false
 	
@@ -40,7 +45,8 @@ func remove_item(item: ItemResource) -> bool:
 		if slot.item == item:
 			items.erase(item)
 			slot.clear_item()
-			print("Инвентарь:",items)
+			if item.has_method("armor_item"):
+				player.armor_bar.armor -= item.armor
 			return true
 	return false
 

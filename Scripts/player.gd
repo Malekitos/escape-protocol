@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var armor_bar: ProgressBar = $CanvasLayer/ArmorBar
 
 var health = 100
-var armor = 5
+var armor = 0 : set = _change_armor
 
 @onready var ui_scene = preload("res://Scenes/UI.tscn")
 @onready var pause_scene = preload("res://Scenes/Menu_Scenes/Pause.tscn")
@@ -18,6 +18,10 @@ var in_mine : bool = false
 var player_position : Vector2i
 
 var is_loaded_from_save : bool
+
+func _change_armor(new_armor):
+	armor = armor_bar.armor
+	print(armor)
 
 func _ready() -> void:
 	add_to_group('player')

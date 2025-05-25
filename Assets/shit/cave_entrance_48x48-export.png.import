@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt6nd4ljfpp26"
-path="res://.godot/imported/spr_tileset_sunnysideworld_16px.png-c6992d62e3170428eba7db36d054b80c.ctex"
+uid="uid://smqn2c6gur8h"
+path="res://.godot/imported/cave_entrance_48x48-export.png-cceecb9d7a78504feeed63912996bb31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/spr_tileset_sunnysideworld_16px.png"
-dest_files=["res://.godot/imported/spr_tileset_sunnysideworld_16px.png-c6992d62e3170428eba7db36d054b80c.ctex"]
+source_file="res://Assets/shit/cave_entrance_48x48-export.png"
+dest_files=["res://.godot/imported/cave_entrance_48x48-export.png-cceecb9d7a78504feeed63912996bb31.ctex"]
 
 [params]
 

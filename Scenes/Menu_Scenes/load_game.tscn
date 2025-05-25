@@ -4,7 +4,7 @@
 [ext_resource type="StyleBox" uid="uid://blmm4ii14xlj" path="res://Themes/normal_button.tres" id="2_jxxqi"]
 [ext_resource type="Script" uid="uid://cufmprlaubn0u" path="res://Scripts/Menu/load_game.gd" id="3_jxxqi"]
 [ext_resource type="Texture2D" uid="uid://b47wkg5ccxbtd" path="res://Assets/gui/GUI.png" id="3_xvqev"]
-[ext_resource type="Texture2D" uid="uid://crtr0l7r46qhp" path="res://Assets/game_menu_background.png" id="4_rwqaf"]
+[ext_resource type="Texture2D" uid="uid://crtr0l7r46qhp" path="res://Assets/shit/game_menu_background.png" id="4_rwqaf"]
 
 [sub_resource type="Theme" id="Theme_1rerr"]
 Button/font_sizes/font_size = 20
