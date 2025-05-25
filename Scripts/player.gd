@@ -5,10 +5,11 @@ extends CharacterBody2D
 @onready var camera_2d = $Camera2D
 @onready var direction = null
 
-@onready var healthbar: ProgressBar = $Healthbar
+@onready var healthbar: ProgressBar = $CanvasLayer/Healthbar
+@onready var armor_bar: ProgressBar = $CanvasLayer/ArmorBar
 
 var health = 100
-var armor = 0
+var armor = 5
 
 @onready var ui_scene = preload("res://Scenes/UI.tscn")
 @onready var pause_scene = preload("res://Scenes/Menu_Scenes/Pause.tscn")
@@ -23,6 +24,7 @@ func _ready() -> void:
 	var pause = pause_scene.instantiate()
 	add_child(pause)
 	healthbar.init_health(health)
+	armor_bar.init_armor(armor)
 	
 	if not is_loaded_from_save:
 		var ui = ui_scene.instantiate()
