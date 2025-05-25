@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dx5371y3ho2t2"]
+[gd_scene load_steps=14 format=3 uid="uid://dx5371y3ho2t2"]
 
 [ext_resource type="Script" uid="uid://dejo5mfnnj1eb" path="res://Scripts/Inventory_System/CraftingManager.gd" id="1_0tqa2"]
 [ext_resource type="Texture2D" uid="uid://b47wkg5ccxbtd" path="res://Assets/gui/GUI.png" id="1_out2b"]
@@ -8,6 +8,9 @@
 [ext_resource type="Resource" uid="uid://diirlcu8ea4gv" path="res://Resources/items/Crafts/Iron_craft.tres" id="4_1w5ee"]
 [ext_resource type="Resource" uid="uid://cnc54ov7xvw7r" path="res://Resources/items/Crafts/wood_boots_craft.tres" id="5_rwleo"]
 [ext_resource type="Script" uid="uid://cq6ky1318vh6l" path="res://Scenes/Inventory_scenes/recipies_list.gd" id="5_vbjjs"]
+[ext_resource type="Resource" uid="uid://dr8t6qtmvlpo1" path="res://Resources/items/Crafts/wood_gloves_craft.tres" id="6_01mqh"]
+[ext_resource type="Resource" uid="uid://cucxrm118oq01" path="res://Resources/items/Crafts/wood_helmet_craft.tres" id="7_gg6rw"]
+[ext_resource type="Resource" uid="uid://73tycqoxwnmj" path="res://Resources/items/Crafts/wood_suite_craft.tres" id="8_uq0lp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_out2b"]
 atlas = ExtResource("1_out2b")
@@ -22,7 +25,7 @@ shadow_color = Color(0, 0, 0, 0.509804)
 offset_right = 90.0
 offset_bottom = 140.0
 script = ExtResource("1_0tqa2")
-recipes_list = Array[ExtResource("2_gria0")]([ExtResource("3_bvyov"), ExtResource("4_1w5ee"), ExtResource("5_rwleo")])
+recipes_list = Array[ExtResource("2_gria0")]([ExtResource("4_1w5ee"), ExtResource("3_bvyov"), ExtResource("5_rwleo"), ExtResource("6_01mqh"), ExtResource("7_gg6rw"), ExtResource("8_uq0lp")])
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
@@ -55,10 +58,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
+offset_left = 3.0
 offset_top = 19.0
-offset_right = 98.0
-offset_bottom = 122.0
+offset_right = 99.0
+offset_bottom = 264.1
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.455456, 0.443102)

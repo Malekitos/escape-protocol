@@ -21,7 +21,7 @@ var is_loaded_from_save : bool
 
 func _change_armor(new_armor):
 	armor = armor_bar.armor
-	print(armor)
+	#print(armor)
 
 func _ready() -> void:
 	add_to_group('player')

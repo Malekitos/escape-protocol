@@ -45,9 +45,11 @@ func remove_item(item: ItemResource) -> bool:
 		if slot.item == item:
 			items.erase(item)
 			slot.clear_item()
+			
 			if item.has_method("armor_item"):
 				player.armor_bar.armor -= item.armor
 			return true
+			
 	return false
 
 func _process(delta: float) -> void:

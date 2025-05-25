@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=4 format=3 uid="uid://cakh5jekoi011"]
+
+[ext_resource type="Texture2D" uid="uid://c1efv1d3yopei" path="res://Assets/icons/#2 - Transparent Icons & Drop Shadow.png" id="1_1gka5"]
+[ext_resource type="Script" uid="uid://d2chav8wlcdn2" path="res://Scripts/Inventory_System/armor_resource.gd" id="1_pvy6o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4q1d"]
+atlas = ExtResource("1_1gka5")
+region = Rect2(228, 230, 25, 23)
+
+[resource]
+script = ExtResource("1_pvy6o")
+armor = 20
+item_name = "Suite"
+item_icon = SubResource("AtlasTexture_t4q1d")
+item_description = ""
+metadata/_custom_type_script = "uid://d2chav8wlcdn2"

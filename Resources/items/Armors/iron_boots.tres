@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=4 format=3 uid="uid://ba3xyff3tj0wd"]
+
+[ext_resource type="Texture2D" uid="uid://c1efv1d3yopei" path="res://Assets/icons/#2 - Transparent Icons & Drop Shadow.png" id="1_gxfcd"]
+[ext_resource type="Script" uid="uid://d2chav8wlcdn2" path="res://Scripts/Inventory_System/armor_resource.gd" id="1_nl62y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jy07"]
+atlas = ExtResource("1_gxfcd")
+region = Rect2(100, 261, 28, 24)
+
+[resource]
+script = ExtResource("1_nl62y")
+armor = 20
+item_name = "Boots"
+item_icon = SubResource("AtlasTexture_2jy07")
+item_description = ""
+metadata/_custom_type_script = "uid://d2chav8wlcdn2"
