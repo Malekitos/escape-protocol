@@ -3,6 +3,14 @@ extends CanvasModulate
 @onready var sky_gradient: GradientTexture1D = preload("res://Assets/shit/daynightcycle-gradient-texture.tres")
 @onready var time_label: Label = $CanvasLayer/MarginContainer/time_label
 
+func _ready() -> void:
+	add_to_group('time')
+	
+
+func get_time() -> String:
+	var time : String = "Day %d, %02d:%02d" % [current_day, current_hour, current_minute]
+	return time
+
 signal time_tick(day: int, hour: int, minute: int)
 
 var internal_time: float = 2.0

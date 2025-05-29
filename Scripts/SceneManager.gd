@@ -8,6 +8,8 @@ var world_place: Node
 var saved_level: Node2D
 var menu_scene: PackedScene = preload("res://Scenes/Menu_Scenes/menu.tscn")
 
+var time
+
 func _ready() -> void:
 	get_tree().change_scene_to_packed(menu_scene)
 	

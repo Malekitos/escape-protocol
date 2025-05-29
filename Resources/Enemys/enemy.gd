@@ -5,30 +5,37 @@ extends Node2D
 @onready var _animated_sprite: AnimatedSprite2D = $CharacterBody2D/AnimatedSprite2D
 
 @onready var character_body_2d: CharacterBody2D = $CharacterBody2D
+@onready var healthbar: ProgressBar = $CharacterBody2D/Healthbar
+@onready var animated_sprite_2d: AnimatedSprite2D = $CharacterBody2D/AnimatedSprite2D
+@onready var attack_timer: Timer = $CharacterBody2D/AttackArea/AttackTimer
 
 
 var enemy_name : String
 var health : int
 var speed : int
 
+var target : Node2D
 var player : Node2D 
 	
 func _ready() -> void:
 	_animated_sprite.sprite_frames = stats.texture
-	enemy.modulate = stats.modulate
+	animated_sprite_2d.modulate = stats.modulate
 	_animated_sprite.play("idle")
 	enemy.name = stats.name
 	enemy.health = stats.health
 	enemy.speed = stats.speed
 	player = get_tree().get_first_node_in_group('player')
-
+	healthbar.init_health(health)
+	healthbar.hide()
 	
 
 func damage(attack: Attack):
 	health -= attack.attack_damage
+	healthbar.show()
+	healthbar.health = health
 	var delay_timer = get_tree().create_timer(0.3)
 	
-	enemy.modulate = Color(100,100,100,100)
+	animated_sprite_2d.modulate = Color(100,100,100,100)
 	character_body_2d.speed = 0
 	
 	var dir = character_body_2d.dir
@@ -50,7 +57,7 @@ func damage(attack: Attack):
 		
 	await delay_timer.timeout
 	$CharacterBody2D.speed = stats.speed
-	enemy.modulate = stats.modulate
+	animated_sprite_2d.modulate = stats.modulate
 	
 	if health < 0:
 
@@ -69,3 +76,19 @@ func _on_damages_area_input_event(viewport: Node, event: InputEvent, shape_idx: 
 			var attack = Attack.new()
 			attack.attack_damage = player.attack_damage
 			damage(attack)
+
+
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if body.has_method("take_damage"):
+		target = body
+		attack_timer.start()
+
+
+
+func _on_attack_timer_timeout() -> void:
+	target.take_damage(20)
+
+
+func _on_attack_area_body_exited(body: Node2D) -> void:
+	if body.has_method("take_damage"):
+		attack_timer.stop()

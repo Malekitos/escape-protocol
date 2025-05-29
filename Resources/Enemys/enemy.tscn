@@ -1,14 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://eb1l82xfgdxw"]
+[gd_scene load_steps=9 format=3 uid="uid://eb1l82xfgdxw"]
 
 [ext_resource type="Script" uid="uid://r1geycq80min" path="res://Resources/Enemys/enemy.gd" id="1_ytvhh"]
 [ext_resource type="Resource" uid="uid://c8ott1sk60ukc" path="res://Resources/Enemys/red_enemy.tres" id="2_8e3lb"]
 [ext_resource type="SpriteFrames" uid="uid://cwmnw0a0nrbwx" path="res://Resources/Enemys/player-animation.tres" id="3_8e3lb"]
 [ext_resource type="Script" uid="uid://cf8nq0ykd634w" path="res://Resources/Enemys/enemy_AI.gd" id="4_7xfth"]
+[ext_resource type="PackedScene" uid="uid://d3ora6nbbat3e" path="res://Scenes/healthbar/healthbar.tscn" id="5_j3rei"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6t07o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8e3lb"]
 radius = 26.0768
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j3rei"]
+radius = 30.4138
 
 [node name="Enemy" type="Node2D"]
 z_index = 3
@@ -25,7 +29,8 @@ shape = SubResource("CircleShape2D_6t07o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = ExtResource("3_8e3lb")
-animation = &"death_front"
+animation = &"hurt_right"
+autoplay = "idle"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
 debug_enabled = true
@@ -37,9 +42,26 @@ debug_path_custom_color = Color(0.133368, 0.339029, 0.619599, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/DamagesArea"]
 shape = SubResource("CircleShape2D_8e3lb")
 
+[node name="Healthbar" parent="CharacterBody2D" instance=ExtResource("5_j3rei")]
+offset_left = -37.0
+offset_top = -17.0
+offset_right = 124.0
+offset_bottom = -14.0
+scale = Vector2(0.472229, 1.35574)
+
+[node name="AttackArea" type="Area2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/AttackArea"]
+shape = SubResource("CircleShape2D_j3rei")
+
+[node name="AttackTimer" type="Timer" parent="CharacterBody2D/AttackArea"]
+
 [node name="PathTimer" type="Timer" parent="."]
 autostart = true
 ignore_time_scale = true
 
 [connection signal="input_event" from="CharacterBody2D/DamagesArea" to="." method="_on_damages_area_input_event"]
+[connection signal="body_entered" from="CharacterBody2D/AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/AttackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="timeout" from="CharacterBody2D/AttackArea/AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="PathTimer" to="CharacterBody2D" method="_on_timer_timeout"]

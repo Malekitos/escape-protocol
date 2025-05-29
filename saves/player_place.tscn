@@ -29,7 +29,7 @@ radius = 12.45
 y_sort_enabled = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(44, 95.2899)
+position = Vector2(642.919, 380.833)
 script = ExtResource("1_gnnf2")
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
@@ -43,7 +43,7 @@ texture = ExtResource("2_ajtvc")
 offset = Vector2(-54.195, 20.075)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-zoom = Vector2(1.25, 1.25)
+zoom = Vector2(1.1, 1.1)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.05
@@ -55,8 +55,8 @@ drag_bottom_margin = 0.05
 y_sort_enabled = true
 position = Vector2(1, 0)
 sprite_frames = ExtResource("3_k8vyk")
-animation = &"idle_right"
-frame_progress = 0.55629
+animation = &"idle"
+frame_progress = 0.188409
 offset = Vector2(0, -7.105)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
@@ -73,7 +73,6 @@ offset_right = 462.0
 offset_bottom = 295.0
 theme_override_styles/background = SubResource("StyleBoxFlat_x3wgy")
 theme_override_styles/fill = SubResource("StyleBoxFlat_3smsa")
-value = 40.0
 show_percentage = false
 script = ExtResource("4_e31ik")
 
@@ -85,7 +84,8 @@ offset_right = 462.0
 offset_bottom = 307.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_u6a0a")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8ynn4")
-value = 100.0
+max_value = 30.0
+value = 30.0
 show_percentage = false
 script = ExtResource("6_2t21t")
 
