@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://4jqa1vdmqwry"]
+[gd_scene load_steps=10 format=3 uid="uid://4jqa1vdmqwry"]
 
 [ext_resource type="StyleBox" uid="uid://c84c3q25b2vo3" path="res://Themes/hover_button.tres" id="1_y53ex"]
 [ext_resource type="StyleBox" uid="uid://blmm4ii14xlj" path="res://Themes/normal_button.tres" id="2_6sksd"]
@@ -17,6 +17,11 @@ Button/styles/pressed = null
 atlas = ExtResource("4_d2m64")
 region = Rect2(2, 34, 44, 44)
 
+[sub_resource type="LabelSettings" id="LabelSettings_y53ex"]
+font_color = Color(1, 1, 0.556863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6sksd"]
+
 [node name="Records" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -34,10 +39,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -70.5
-offset_top = -99.5
-offset_right = 70.5
-offset_bottom = 99.5
+offset_left = -110.0
+offset_top = -136.0
+offset_right = 110.0
+offset_bottom = 136.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_1rerr")
@@ -55,19 +60,25 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -22.0
-offset_right = 20.0
-offset_bottom = 22.0
+offset_left = -96.0
+offset_top = -130.0
+offset_right = 94.0
+offset_bottom = 124.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 15
 alignment = 1
 
 [node name="Label" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
 text = "Records Menu"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Back
+"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
 z_index = 5
@@ -75,16 +86,20 @@ layout_mode = 2
 
 [node name="time_label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 text = "time"
+label_settings = SubResource("LabelSettings_y53ex")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="world_label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "world"
-
-[node name="Back" type="Button" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-text = "Back
-"
+label_settings = SubResource("LabelSettings_6sksd")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 light_mask = 0

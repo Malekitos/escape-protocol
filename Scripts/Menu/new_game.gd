@@ -9,7 +9,7 @@ func _on_back_pressed() -> void:
 func _on_create_pressed() -> void:
 	var world_name : String = $NinePatchRect/MarginContainer/VBoxContainer/LineEdit.text
 	if world_name == "":
-		world_name = "World: " + SceneManager.time
+		world_name = "World: Undefined"
 	SceneManager.world_name = world_name
 	SceneManager.create_game(world_name)
 	

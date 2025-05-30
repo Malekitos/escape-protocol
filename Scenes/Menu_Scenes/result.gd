@@ -14,12 +14,35 @@ func _ready() -> void:
 	result_label.text = time
 	world_label.text = world_name
 	
-	var file = FileAccess.open("res://saves/result.bin", FileAccess.WRITE)
-	file.store_var({
-		"world_name" : world_name,
-		"world_time" : time,
-		"minutes_ingame" : minutes_ingame
-	}, true)
+	#var file = FileAccess.open("res://saves/result.bin", FileAccess.WRITE)
+	#file.store_var({
+		#"world_name" : world_name,
+		#"world_time" : time,
+		#"minutes_ingame" : minutes_ingame
+	#}, true)
+	
+	var save_path = "res://saves/saveResults.json"
+	var all_results : Array
+	
+	if FileAccess.file_exists(save_path):
+		var file = FileAccess.open(save_path, FileAccess.READ)
+		var content = file.get_as_text()
+		var parsed = JSON.parse_string(content)
+		if parsed is Array:
+			all_results = parsed
+	
+	all_results.append({
+		"world_name": world_name,
+		"world_time": time,
+		"minutes_ingame": minutes_ingame
+	})
+	
+	all_results.sort_custom(func(a, b): return a["minutes_ingame"] > b["minutes_ingame"])
+	all_results = all_results.slice(0, 5)
+	
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	file.store_string(JSON.stringify(all_results, "\t"))
+	
 
 func _on_go_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Menu_Scenes/menu.tscn")
