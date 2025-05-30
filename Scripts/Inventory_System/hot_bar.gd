@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-@onready var item_drop_scene = preload("res://Scenes/Menu_Scenes/item_drop.tscn")
+@onready var item_drop_scene = preload("res://Scenes/item_drop.tscn")
 @onready var slots = $".".get_children()
 var active_index: int = 0
 

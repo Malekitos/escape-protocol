@@ -71,7 +71,9 @@ func take_damage(damage : int):
 	if health <= 0:
 		var time_node = get_tree().get_first_node_in_group("time")
 		var time = time_node.get_time()
+		var minutes_ingame = time_node.get_min()
 		SceneManager.time = time
+		SceneManager.minutes_ingame = minutes_ingame
 		get_tree().change_scene_to_file("res://Scenes/Menu_Scenes/result.tscn")
 	
 

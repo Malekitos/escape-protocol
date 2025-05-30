@@ -8,7 +8,10 @@ var world_place: Node
 var saved_level: Node2D
 var menu_scene: PackedScene = preload("res://Scenes/Menu_Scenes/menu.tscn")
 
-var time
+var time : String
+var world_name : String
+var minutes_ingame : int
+
 
 func _ready() -> void:
 	get_tree().change_scene_to_packed(menu_scene)
@@ -97,5 +100,5 @@ func save_node_to_file(node: Node, file_path: String) -> void:
 		return
 	if ResourceSaver.save(packed_scene,file_path) != OK:
 		print("Ошибка сохранения:", file_path)
-	else:
-		print("Узел сохранён:", file_path)
+	#else:
+		#print("Узел сохранён:", file_path)

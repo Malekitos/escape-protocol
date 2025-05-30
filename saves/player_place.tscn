@@ -29,7 +29,7 @@ radius = 12.45
 y_sort_enabled = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(642.919, 380.833)
+position = Vector2(762.919, 380.833)
 script = ExtResource("1_gnnf2")
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
@@ -55,8 +55,8 @@ drag_bottom_margin = 0.05
 y_sort_enabled = true
 position = Vector2(1, 0)
 sprite_frames = ExtResource("3_k8vyk")
-animation = &"idle"
-frame_progress = 0.188409
+animation = &"idle_right"
+frame_progress = 0.387471
 offset = Vector2(0, -7.105)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]

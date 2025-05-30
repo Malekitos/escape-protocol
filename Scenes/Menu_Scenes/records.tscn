@@ -1,23 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddwo8jqlws8ga"]
+[gd_scene load_steps=8 format=3 uid="uid://4jqa1vdmqwry"]
 
-[ext_resource type="StyleBox" uid="uid://c84c3q25b2vo3" path="res://Themes/hover_button.tres" id="1_wukkn"]
-[ext_resource type="StyleBox" uid="uid://blmm4ii14xlj" path="res://Themes/normal_button.tres" id="2_jxxqi"]
-[ext_resource type="Script" uid="uid://cufmprlaubn0u" path="res://Scripts/Menu/load_game.gd" id="3_jxxqi"]
-[ext_resource type="Texture2D" uid="uid://b47wkg5ccxbtd" path="res://Assets/gui/GUI.png" id="3_xvqev"]
-[ext_resource type="Texture2D" uid="uid://crtr0l7r46qhp" path="res://Assets/shit/game_menu_background.png" id="4_rwqaf"]
+[ext_resource type="StyleBox" uid="uid://c84c3q25b2vo3" path="res://Themes/hover_button.tres" id="1_y53ex"]
+[ext_resource type="StyleBox" uid="uid://blmm4ii14xlj" path="res://Themes/normal_button.tres" id="2_6sksd"]
+[ext_resource type="Script" uid="uid://cnuwug26ipd5u" path="res://Scenes/Menu_Scenes/records.gd" id="3_y53ex"]
+[ext_resource type="Texture2D" uid="uid://b47wkg5ccxbtd" path="res://Assets/gui/GUI.png" id="4_d2m64"]
+[ext_resource type="Texture2D" uid="uid://crtr0l7r46qhp" path="res://Assets/shit/game_menu_background.png" id="5_r3me4"]
 
 [sub_resource type="Theme" id="Theme_1rerr"]
 Button/font_sizes/font_size = 20
 Button/styles/focus = null
-Button/styles/hover = ExtResource("1_wukkn")
-Button/styles/normal = ExtResource("2_jxxqi")
+Button/styles/hover = ExtResource("1_y53ex")
+Button/styles/normal = ExtResource("2_6sksd")
 Button/styles/pressed = null
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1rerr"]
-atlas = ExtResource("3_xvqev")
+atlas = ExtResource("4_d2m64")
 region = Rect2(2, 34, 44, 44)
 
-[node name="Load_game" type="Control"]
+[node name="Records" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_1rerr")
-script = ExtResource("3_jxxqi")
+script = ExtResource("3_y53ex")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -66,8 +66,20 @@ alignment = 1
 
 [node name="Label" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
-text = "Load Game Menu"
+text = "Records Menu"
 horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+z_index = 5
+layout_mode = 2
+
+[node name="time_label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "time"
+
+[node name="world_label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "world"
 
 [node name="Back" type="Button" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
@@ -85,7 +97,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("4_rwqaf")
+texture = ExtResource("5_r3me4")
 expand_mode = 2
 
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/Back" to="." method="_on_back_pressed"]

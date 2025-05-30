@@ -1,10 +1,6 @@
 extends Control
 @onready var new_game: Button = $"NinePatchRect/VBoxContainer/New Game"
 
-func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	new_game.pressed.connect(_on_new_game_pressed)
-
 
 
 func _on_exit_pressed() -> void:
@@ -16,9 +12,16 @@ func _on_settings_pressed() -> void:
 
 
 func _on_load_game_pressed() -> void:
-	#get_tree().change_scene_to_file("res://Scenes/Menu_Scenes/load_game.tscn")
 	SceneManager.continue_game()
 
 
 func _on_new_game_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Menu_Scenes/new_game.tscn")
+
+
+func _on_records_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Menu_Scenes/records.tscn")
+
+
+func _on_instruction_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Menu_Scenes/instructions.tscn")

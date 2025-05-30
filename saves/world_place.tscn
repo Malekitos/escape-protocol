@@ -21,7 +21,7 @@
 [ext_resource type="Resource" path="res://Resources/tree/fall_tree.tres" id="19_wvnq2"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_acytt"]
-seed = 243845371
+seed = -1501236698
 frequency = 0.0107
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nh36c"]
