@@ -1,10 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq4cma7icy0q3"]
+[gd_scene load_steps=15 format=3 uid="uid://bq4cma7icy0q3"]
 
 [ext_resource type="StyleBox" uid="uid://c84c3q25b2vo3" path="res://Themes/hover_button.tres" id="1_3rc4d"]
 [ext_resource type="StyleBox" uid="uid://blmm4ii14xlj" path="res://Themes/normal_button.tres" id="2_kmuib"]
 [ext_resource type="Script" uid="uid://c8sl3mcs5og10" path="res://Scenes/Menu_Scenes/instructions.gd" id="3_3rc4d"]
 [ext_resource type="Texture2D" uid="uid://b47wkg5ccxbtd" path="res://Assets/gui/GUI.png" id="4_25wgi"]
+[ext_resource type="Texture2D" uid="uid://d2dqhfgn71k7r" path="res://Assets/shit/Screenshot From 2025-05-31 18-28-46.png" id="5_kmuib"]
 [ext_resource type="Texture2D" uid="uid://crtr0l7r46qhp" path="res://Assets/shit/game_menu_background.png" id="5_qt1d7"]
+[ext_resource type="Texture2D" uid="uid://x1ftbt2pu1t0" path="res://Assets/shit/Screenshot From 2025-05-31 18-28-59.png" id="6_uu7v0"]
+[ext_resource type="Texture2D" uid="uid://pqwnnbhmw56s" path="res://Assets/shit/Screenshot From 2025-05-31 18-29-16.png" id="7_5ban3"]
+[ext_resource type="Texture2D" uid="uid://bugeyvbsdxh47" path="res://Assets/shit/Screenshot From 2025-05-31 18-30-14.png" id="8_ywmkf"]
+[ext_resource type="Texture2D" uid="uid://b4mv5n11bab2g" path="res://Assets/shit/Screenshot From 2025-05-31 18-32-24.png" id="9_4imsp"]
+[ext_resource type="Texture2D" uid="uid://ccpuvexy1mn8e" path="res://Assets/shit/Screenshot From 2025-05-31 18-32-42.png" id="10_7vjxl"]
+[ext_resource type="Texture2D" uid="uid://dw8ghf0ylep0" path="res://Assets/shit/Screenshot From 2025-05-31 18-42-22.png" id="11_5r5do"]
 
 [sub_resource type="Theme" id="Theme_1rerr"]
 Button/font_sizes/font_size = 20
@@ -34,10 +41,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -70.5
-offset_top = -99.5
-offset_right = 70.5
-offset_bottom = 99.5
+offset_left = -255.5
+offset_top = -136.0
+offset_right = 255.5
+offset_bottom = 136.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_1rerr")
@@ -48,31 +55,156 @@ patch_margin_bottom = 5
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -22.0
-offset_right = 20.0
-offset_bottom = 22.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer"]
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Instructions menu"
 horizontal_alignment = 1
 
-[node name="Back" type="Button" parent="NinePatchRect/VBoxContainer"]
+[node name="Back" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Back
 "
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_kmuib")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Te tu esi — pasaulē bez resursiem, instrumentiem vai bruņām. Viss būs jāiegūst pašam!"
+autowrap_mode = 3
+
+[node name="HBoxContainer1" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer1"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Nospiežot uz resursa, sāksies tā ieguve — turpini spiest, līdz resurss tiek pilnībā savākts."
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer1"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_uu7v0")
+expand_mode = 5
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_5ban3")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Nospiežot Tab, tu redzi visus savus priekšmetus un iespējamos kraftešanas variantus. Priekšmetus var pārvietot un izmest no aktīvā slota ar G."
+autowrap_mode = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pirmā zaļā josla — tava dzīvība. Zaudēsi to — pats vainīgs, to nevar atjaunot! . Zilā josla ir bruņas — jo vairāk bruņu, jo mazāk saņemta kaitējuma."
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("8_ywmkf")
+expand_mode = 5
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("9_4imsp")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Augšā kreisajā stūrī redzams laiks. Kad iestājas nakts, parādās pretinieki — nogalini viņus, citādi nomirsi. Vienkārši spied uz tiem, lai nodarītu kaitējumu."
+autowrap_mode = 3
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("11_5r5do")
+expand_mode = 5
+
+[node name="Label2" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Neaizmirsti — tu vari doties šahtās, lai iegūtu vērtīgākus resursus."
+autowrap_mode = 3
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Kad tu nomirsti, redzams, cik ilgi izdzīvoji un pasaules nosaukums. Ja rezultāts ir ievērības vērts, to varēs redzēt rekordu lapā."
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("10_7vjxl")
+expand_mode = 5
 
 [node name="TextureRect" type="TextureRect" parent="."]
 light_mask = 0
@@ -88,4 +220,4 @@ mouse_filter = 2
 texture = ExtResource("5_qt1d7")
 expand_mode = 2
 
-[connection signal="pressed" from="NinePatchRect/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
