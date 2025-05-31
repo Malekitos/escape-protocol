@@ -17,24 +17,22 @@ Lai palaistu spēli, izpildiet šos soļus:
 
 4. Atveriet atbilstošo mapi un palaidiet tajā esošo izpildāmo failu, lai sāktu spēli.
 
+
 # 🕹️ 2D Izdzīvošanas Spēle
 
 Šajā 2D izdzīvošanas spēlē spēlētāja galvenais uzdevums ir **izdzīvot pēc iespējas ilgāk** un uzstādīt savu rekordu, ar kuru pēc tam var lepoties draugu priekšā.
 
----
 
 ## 🌍 Procedurāli Ģenerēta Pasaule
 
 Katru reizi, kad sākat spēli, tiek ģenerēta jauna pasaule, izmantojot **Perlin trokšņa algoritmu**, kas nodrošina unikālu pieredzi katrā spēlē.
 
----
 
 ## 🌞 Dienas un Nakts Cikls
 
 - **Dienā** spēlētājs vāc resursus, kas nepieciešami izdzīvošanai.  
 - **Naktī** jāaizsargājas no pretiniekiem, kuri uzbrūk spēlētājam.
 
----
 
 ## ⛏️ Šahtas
 
@@ -45,7 +43,6 @@ Katru reizi, kad sākat spēli, tiek ģenerēta jauna pasaule, izmantojot **Perl
 - Katrā šahtā ir viens vai vairāki **izejas punkti**.
 - Izejot no šahtas, spēlētājs **atgriežas virszemes pasaulē**.
 
----
 
 ## 🎒 Inventārs un Kraftešana
 
@@ -53,7 +50,25 @@ Katru reizi, kad sākat spēli, tiek ģenerēta jauna pasaule, izmantojot **Perl
 - Ja spēlētājam ir pietiekams daudzums noteiktu resursu, kļūst pieejamas **kraftešanas iespējas** — iespējams izveidot jaunus objektus no savāktajiem materiāliem.
 - Apakšējā daļā atrodas **hotbar**, kas ļauj ātri piekļūt noderīgiem priekšmetiem vai ieročiem.
 
----
+
+## ⚒️ Kraftešanas Sistēma un Priekšmetu Līmeņi
+
+- Ir iespējams izveidot dažādus **instrumentus**, piemēram:
+  - **zobeni** — paredzēti cīņai ar pretiniekiem,
+  - **kirkas** — efektīvai resursu ieguvei no akmens vai rūdām,
+  - **cirvji** — ātrākai koku ciršanai un resursu vākšanai.
+- Izveidojot atbilstošu instrumentu:
+  - tiek **palielināts iegūšanas ātrums** konkrētajam resursam,
+  - tiek **palielināts uzbrukuma spēks** pretiniekiem.
+
+### 🔼 Priekšmetu Līmeņi
+
+- Katram priekšmetam ir **vairāki uzlabojumu līmeņi**.
+- Piemēram:
+  - **Koka zobens** ir **1. līmeņa** ierocis, kas tiek kraftēts no **koka un akmens**.
+  - Lai izveidotu **akmens zobenu** (**2. līmenis**), vispirms **jāizveido koka zobens**.
+- **Nav iespējams izlaist līmeņus** — progress notiek **pakāpeniski**, soli pa solim.
+
 
 ## 🩸 Dzīvības un Bruņas Sistēma
 
@@ -65,7 +80,6 @@ Katru reizi, kad sākat spēli, tiek ģenerēta jauna pasaule, izmantojot **Perl
 - Kad tiek izgatavotas bruņas, zila josla **pakāpeniski aizpildās**.
 - Jo vairāk bruņu, **jo mazāk kaitējuma** spēlētājs saņem no ienaidniekiem.
 
----
 
 ## 💾 Automātiska Saglabāšana un Atgriešanās
 
@@ -73,13 +87,18 @@ Katru reizi, kad sākat spēli, tiek ģenerēta jauna pasaule, izmantojot **Perl
 - Pat ja spēli aizver pilnībā, nospiežot pogu **Resume Game**, jūs atgriezīsieties **tieši tajā pašā vietā**, kur pārtraucāt spēli.
 - Saglabājas ne tikai atrašanās vieta, bet arī visi jūsu **resursi, stāvokļi un progres**.
 
----
+
+## 📘 Instrukciju Sadaļa
+
+- Spēles galvenajā izvēlnē pieejama sadaļa ar **instrukcijām**, kur aprakstīts:
+  - Kā sākt spēli,
+  - Kā izdzīvot un efektīvi vākt resursus,
+  - Kā izmantot spēles sistēmas, piemēram, **inventāru, kraftešanu, cīņu** utt.
+
 
 ## 🎯 Mērķis
 
 Izdzīvot pēc iespējas ilgāk, **gudri pārvaldot resursus**, aizsargājoties no briesmām un uzstādot jaunu **personīgo rekordu**!
-
----
 
 
 ![Screenshot From 2025-05-31 18-32-42](https://github.com/user-attachments/assets/91a95fef-8ac6-437c-8093-e171e40b80de)
@@ -92,6 +111,7 @@ Izdzīvot pēc iespējas ilgāk, **gudri pārvaldot resursus**, aizsargājoties 
 ![Screenshot From 2025-05-31 18-28-09](https://github.com/user-attachments/assets/079563a2-beeb-48d7-9f17-97e8443b2199)
 ![Screenshot From 2025-05-31 18-27-35](https://github.com/user-attachments/assets/1badf228-66d7-4dfd-a5ae-af4fd1c146ae)
 ![Screenshot From 2025-05-31 18-27-30](https://github.com/user-attachments/assets/008b6f09-c1c9-4b7b-adb7-4b4f65361146)
+![Screenshot From 2025-05-31 18-42-22](https://github.com/user-attachments/assets/2c66ae8e-6c8d-42a3-a0dd-cbc100faf4af)
 
 
 
