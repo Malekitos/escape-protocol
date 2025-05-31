@@ -82,9 +82,16 @@ Izdzīvot pēc iespējas ilgāk, **gudri pārvaldot resursus**, aizsargājoties 
 ---
 
 
-![Screenshot From 2025-05-16 19-06-48](https://github.com/user-attachments/assets/f9f476b9-6f35-4c1c-9b5e-88b074e7293a)
-![Screenshot From 2025-05-25 17-20-06](https://github.com/user-attachments/assets/634e4f71-0630-4e99-bef0-f5c6aee03550)
-![Screenshot From 2025-05-25 17-19-54](https://github.com/user-attachments/assets/75efcc9d-767c-4b22-8cca-7a2970a6f3ad)
-![Screenshot From 2025-05-16 18-32-24](https://github.com/user-attachments/assets/d0d86ffc-03de-411a-811d-4b91d560ddee)
+![Screenshot From 2025-05-31 18-32-42](https://github.com/user-attachments/assets/91a95fef-8ac6-437c-8093-e171e40b80de)
+![Screenshot From 2025-05-31 18-32-24](https://github.com/user-attachments/assets/20eb11d6-bfb6-403f-a312-5aaec3c95ce0)
+![Screenshot From 2025-05-31 18-30-14](https://github.com/user-attachments/assets/a1769b8d-b05c-488a-8e2e-47a96a4a19f7)
+![Screenshot From 2025-05-31 18-29-16](https://github.com/user-attachments/assets/9abb83b1-c100-4486-be20-1193aeecd8ee)
+![Screenshot From 2025-05-31 18-28-59](https://github.com/user-attachments/assets/bc91394c-867f-4a0b-9b11-6d94683cfcf7)
+![Screenshot From 2025-05-31 18-28-46](https://github.com/user-attachments/assets/d20f4ee5-bd19-4d03-ac1d-b3e17d2dba35)
+![Screenshot From 2025-05-31 18-28-23](https://github.com/user-attachments/assets/02d73223-21d9-419f-b7f9-37b32407e179)
+![Screenshot From 2025-05-31 18-28-09](https://github.com/user-attachments/assets/079563a2-beeb-48d7-9f17-97e8443b2199)
+![Screenshot From 2025-05-31 18-27-35](https://github.com/user-attachments/assets/1badf228-66d7-4dfd-a5ae-af4fd1c146ae)
+![Screenshot From 2025-05-31 18-27-30](https://github.com/user-attachments/assets/008b6f09-c1c9-4b7b-adb7-4b4f65361146)
+
 
 
