@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneManager="*res://Scripts/SceneManager.gd"
+MusicManager="*res://Scenes/music_manager.tscn"
+GlobalSFX="*res://Scripts/GlobalSFX.gd"
 
 [debug]
 
