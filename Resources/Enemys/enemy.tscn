@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://eb1l82xfgdxw"]
+[gd_scene load_steps=10 format=3 uid="uid://eb1l82xfgdxw"]
 
 [ext_resource type="Script" uid="uid://r1geycq80min" path="res://Resources/Enemys/enemy.gd" id="1_ytvhh"]
 [ext_resource type="Resource" uid="uid://c8ott1sk60ukc" path="res://Resources/Enemys/red_enemy.tres" id="2_8e3lb"]
 [ext_resource type="SpriteFrames" uid="uid://cwmnw0a0nrbwx" path="res://Resources/Enemys/player-animation.tres" id="3_8e3lb"]
 [ext_resource type="Script" uid="uid://cf8nq0ykd634w" path="res://Resources/Enemys/enemy_AI.gd" id="4_7xfth"]
 [ext_resource type="PackedScene" uid="uid://d3ora6nbbat3e" path="res://Scenes/healthbar/healthbar.tscn" id="5_j3rei"]
+[ext_resource type="AudioStream" uid="uid://b6ca53y3jpnuq" path="res://sounds/hit.wav" id="6_7jjb2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6t07o"]
 
@@ -33,7 +34,6 @@ animation = &"hurt_right"
 autoplay = "idle"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
-debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0.133368, 0.339029, 0.619599, 1)
 
@@ -59,6 +59,9 @@ shape = SubResource("CircleShape2D_j3rei")
 [node name="PathTimer" type="Timer" parent="."]
 autostart = true
 ignore_time_scale = true
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_7jjb2")
 
 [connection signal="input_event" from="CharacterBody2D/DamagesArea" to="." method="_on_damages_area_input_event"]
 [connection signal="body_entered" from="CharacterBody2D/AttackArea" to="." method="_on_attack_area_body_entered"]

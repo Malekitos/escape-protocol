@@ -5,3 +5,6 @@ class_name WeaponResource
 
 @export_enum("AXE", "SWORD", "PICKAXE")
 var type: String
+
+func weapon() -> void:
+	pass

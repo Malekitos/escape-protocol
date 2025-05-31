@@ -9,6 +9,8 @@ extends Node2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $CharacterBody2D/AnimatedSprite2D
 @onready var attack_timer: Timer = $CharacterBody2D/AttackArea/AttackTimer
 
+@onready var hit_sound: AudioStreamPlayer2D = $HitSound
+
 
 var enemy_name : String
 var health : int
@@ -18,6 +20,9 @@ var target : Node2D
 var player : Node2D 
 	
 func _ready() -> void:
+	
+	GlobalSFX.apply_volume(hit_sound)
+	
 	_animated_sprite.sprite_frames = stats.texture
 	animated_sprite_2d.modulate = stats.modulate
 	_animated_sprite.play("idle")
@@ -29,8 +34,11 @@ func _ready() -> void:
 	healthbar.hide()
 	
 
-func damage(attack: Attack):
-	health -= attack.attack_damage
+func damage(attack_damage : int):
+	
+	hit_sound.play()
+		
+	health -= attack_damage
 	healthbar.show()
 	healthbar.health = health
 	var delay_timer = get_tree().create_timer(0.3)
@@ -73,14 +81,13 @@ func damage(attack: Attack):
 func _on_damages_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			var attack = Attack.new()
-			attack.attack_damage = player.attack_damage
-			damage(attack)
+			damage(player.attack_damage_enemy)
 
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):
 		target = body
+		target.take_damage(20)
 		attack_timer.start()
 
 

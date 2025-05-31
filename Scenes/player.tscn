@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5c842aj083un"]
+[gd_scene load_steps=12 format=3 uid="uid://b5c842aj083un"]
 
 [ext_resource type="Script" uid="uid://befsiiuitt7lu" path="res://Scripts/player.gd" id="1_larev"]
 [ext_resource type="SpriteFrames" uid="uid://cwmnw0a0nrbwx" path="res://Resources/Enemys/player-animation.tres" id="2_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://drmw2gaxhwntn" path="res://Assets/shit/light.png" id="3_6t5aa"]
 [ext_resource type="Script" uid="uid://c4id2vo4d10o3" path="res://Scenes/healthbar/armor_bar.gd" id="4_fkybt"]
 [ext_resource type="PackedScene" uid="uid://d3ora6nbbat3e" path="res://Scenes/healthbar/healthbar.tscn" id="4_vgqql"]
+[ext_resource type="AudioStream" uid="uid://cvqee1ehsg2xr" path="res://sounds/player_take_damage.wav" id="6_x3wgy"]
+[ext_resource type="AudioStream" uid="uid://dwhkxr3t3xu6q" path="res://sounds/death.wav" id="7_3smsa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fniay"]
 radius = 0.115061
@@ -48,7 +50,7 @@ drag_bottom_margin = 0.05
 y_sort_enabled = true
 position = Vector2(1, 0)
 sprite_frames = ExtResource("2_cvnsp")
-animation = &"idle"
+animation = &"death_front"
 offset = Vector2(0, -7.105)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
@@ -74,6 +76,12 @@ offset_left = 178.0
 offset_top = 300.0
 offset_right = 462.0
 offset_bottom = 307.0
+
+[node name="DamageSound" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("6_x3wgy")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("7_3smsa")
 
 [node name="Area2D" type="Area2D" parent="."]
 

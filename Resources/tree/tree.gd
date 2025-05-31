@@ -5,6 +5,7 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var healthbar: ProgressBar = $Healthbar
+@onready var hit_sound: AudioStreamPlayer2D = $HitSound
 
 
 var health = 20
@@ -16,10 +17,12 @@ func _ready():
 	sprite.texture = stats.texture
 	healthbar.init_health(health)
 	healthbar.hide()
+	GlobalSFX.apply_volume(hit_sound)
 
-func damage(attack: Attack):
+func damage(attack_damage : int):
+	hit_sound.play()
 	healthbar.show()
-	health -= attack.attack_damage
+	health -= attack_damage
 	healthbar.health = health
 	animation_player.play("hit_flash")
 	if health < 0:
@@ -35,7 +38,5 @@ func damage(attack: Attack):
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			var attack = Attack.new()
-			attack.attack_damage = player.attack_damage
-			damage(attack)
+			damage(player.attack_damage_tree)
 			

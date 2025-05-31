@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemCraft" load_steps=6 format=3 uid="uid://cjmpinbhl6h0d"]
+
+[ext_resource type="Script" uid="uid://jvtu1xcoge5t" path="res://Scripts/Inventory_System/item_resource.gd" id="1_75w02"]
+[ext_resource type="Resource" uid="uid://ctndptqtjndxa" path="res://Resources/items/materials/wood.tres" id="2_vb7f3"]
+[ext_resource type="Resource" uid="uid://j7nhj7yp5o5p" path="res://Resources/items/materials/stone.tres" id="3_vb7f3"]
+[ext_resource type="Resource" uid="uid://2fj7isw1b73p" path="res://Resources/items/tools/stone_pickaxe.tres" id="4_m5i5n"]
+[ext_resource type="Script" uid="uid://dlvgbsji1rhm4" path="res://Scripts/Inventory_System/item_craft.gd" id="4_tq0hu"]
+
+[resource]
+script = ExtResource("4_tq0hu")
+input_items = Array[ExtResource("1_75w02")]([ExtResource("2_vb7f3"), ExtResource("3_vb7f3")])
+output_item = ExtResource("4_m5i5n")
+output_count = 1
+metadata/_custom_type_script = "uid://dlvgbsji1rhm4"

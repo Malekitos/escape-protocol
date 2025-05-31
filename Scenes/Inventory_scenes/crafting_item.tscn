@@ -56,16 +56,19 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Sword"
 label_settings = SubResource("LabelSettings_aqubl")
 
 [node name="item_icon" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_k8do3")
 expand_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_bottom = 5
 
@@ -74,11 +77,13 @@ layout_mode = 2
 
 [node name="resource_icon1" type="TextureRect" parent="HBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_kg72o")
 expand_mode = 2
 
 [node name="resource_icon2" type="TextureRect" parent="HBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_kg72o")
 expand_mode = 2
 

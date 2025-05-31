@@ -11,14 +11,20 @@ func set_volume(db: float):
 	volume_db = db
 	save_volume()
 
-func apply_volume(player: AudioStreamPlayer):
-	if player:
-		player.volume_db = volume_db
-
-func apply_volume_2d(player: AudioStreamPlayer2D):
+func apply_volume(player):
 	if player:
 		player.volume_db = volume_db
 
 func save_volume():
 	var f = FileAccess.open("user://volume_sfx.txt", FileAccess.WRITE)
 	f.store_float(volume_db)
+
+
+func play(stream: AudioStream):
+	var p = AudioStreamPlayer.new()
+	p.stream = stream
+	GlobalSFX.apply_volume(p)
+	add_child(p)
+	p.play()
+	await p.finished
+	p.queue_free()

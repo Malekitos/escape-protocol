@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=4 format=3 uid="uid://dgtiyjcqj0fn1"]
+
+[ext_resource type="Texture2D" uid="uid://c1efv1d3yopei" path="res://Assets/icons/#2 - Transparent Icons & Drop Shadow.png" id="1_k40xy"]
+[ext_resource type="Script" uid="uid://c51ukwska8nc4" path="res://Scripts/Inventory_System/weapon_resource.gd" id="1_rltsw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i871i"]
+atlas = ExtResource("1_k40xy")
+region = Rect2(35, 323, 27, 28)
+
+[resource]
+script = ExtResource("1_rltsw")
+damage = 5
+type = "AXE"
+item_name = "Axe"
+item_icon = SubResource("AtlasTexture_i871i")
+item_description = ""
+metadata/_custom_type_script = "uid://c51ukwska8nc4"

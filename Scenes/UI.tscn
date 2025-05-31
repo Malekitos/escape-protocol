@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bf7llj7g65pjw"]
+[gd_scene load_steps=24 format=3 uid="uid://bf7llj7g65pjw"]
 
 [ext_resource type="Script" uid="uid://b17s03ll3fe53" path="res://Scripts/animateInventory.gd" id="1_hfhsn"]
 [ext_resource type="Script" uid="uid://cj8q42oa4kier" path="res://Scripts/ui.gd" id="1_qwshj"]
@@ -7,6 +7,16 @@
 [ext_resource type="Script" uid="uid://bfvrhl48d5j74" path="res://Scripts/Inventory_System/inventory.gd" id="3_hfhsn"]
 [ext_resource type="Script" uid="uid://chma27cccitul" path="res://Scripts/Inventory_System/hot_bar.gd" id="6_48q88"]
 [ext_resource type="PackedScene" uid="uid://dx5371y3ho2t2" path="res://Scenes/Inventory_scenes/craft_slot.tscn" id="7_xjg7p"]
+[ext_resource type="Script" uid="uid://dlvgbsji1rhm4" path="res://Scripts/Inventory_System/item_craft.gd" id="8_5q4fb"]
+[ext_resource type="Resource" uid="uid://diirlcu8ea4gv" path="res://Resources/items/Crafts/Iron_craft.tres" id="9_mqm5i"]
+[ext_resource type="Resource" uid="uid://xuxfb47axbw2" path="res://Resources/items/Crafts/Torch-craft.tres" id="10_jnovg"]
+[ext_resource type="Resource" uid="uid://cnc54ov7xvw7r" path="res://Resources/items/Crafts/wood_boots_craft.tres" id="11_13dyv"]
+[ext_resource type="Resource" uid="uid://dr8t6qtmvlpo1" path="res://Resources/items/Crafts/wood_gloves_craft.tres" id="12_r71lk"]
+[ext_resource type="Resource" uid="uid://cucxrm118oq01" path="res://Resources/items/Crafts/wood_helmet_craft.tres" id="13_d1ul7"]
+[ext_resource type="Resource" uid="uid://73tycqoxwnmj" path="res://Resources/items/Crafts/wood_suite_craft.tres" id="14_pinj1"]
+[ext_resource type="Resource" uid="uid://dl4y031jug0kt" path="res://Resources/items/Crafts/wood_sword.tres" id="15_68ajo"]
+[ext_resource type="Resource" uid="uid://b0utc11t0totn" path="res://Resources/items/Crafts/stone_axe.tres" id="16_jnovg"]
+[ext_resource type="Resource" uid="uid://cjmpinbhl6h0d" path="res://Resources/items/Crafts/stone_pickaxe.tres" id="17_13dyv"]
 
 [sub_resource type="Animation" id="Animation_hfhsn"]
 length = 0.001
@@ -288,6 +298,7 @@ offset_top = 9.0
 offset_right = 267.0
 offset_bottom = 149.0
 scale = Vector2(1.29737, 1.29737)
+recipes_list = Array[ExtResource("8_5q4fb")]([ExtResource("9_mqm5i"), ExtResource("10_jnovg"), ExtResource("11_13dyv"), ExtResource("12_r71lk"), ExtResource("13_d1ul7"), ExtResource("14_pinj1"), ExtResource("15_68ajo"), ExtResource("16_jnovg"), ExtResource("17_13dyv")])
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15

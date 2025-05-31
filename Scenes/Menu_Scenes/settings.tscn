@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://qyjtv61leavu"]
+[gd_scene load_steps=9 format=3 uid="uid://qyjtv61leavu"]
 
 [ext_resource type="StyleBox" uid="uid://c84c3q25b2vo3" path="res://Themes/hover_button.tres" id="1_jbbcl"]
 [ext_resource type="StyleBox" uid="uid://blmm4ii14xlj" path="res://Themes/normal_button.tres" id="2_g55ac"]
 [ext_resource type="Script" uid="uid://4j0ftvv0s2ly" path="res://Scripts/Menu/settings.gd" id="3_jbbcl"]
 [ext_resource type="Texture2D" uid="uid://b47wkg5ccxbtd" path="res://Assets/gui/GUI.png" id="4_54e1n"]
+[ext_resource type="Theme" uid="uid://ce7xjqy03sudq" path="res://Themes/menu_theme.tres" id="5_g55ac"]
 [ext_resource type="Texture2D" uid="uid://crtr0l7r46qhp" path="res://Assets/shit/game_menu_background.png" id="5_n5eio"]
 
 [sub_resource type="Theme" id="Theme_1rerr"]
@@ -61,6 +62,7 @@ offset_right = 60.5
 offset_bottom = 92.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("5_g55ac")
 theme_override_constants/separation = 20
 alignment = 1
 
@@ -76,15 +78,17 @@ text = "Back
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("5_g55ac")
 
 [node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Music"
 
 [node name="music_slider" type="HSlider" parent="NinePatchRect/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-min_value = -80.0
+min_value = -60.0
 max_value = 0.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
@@ -92,12 +96,13 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Sounds"
 
 [node name="volume_slider" type="HSlider" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-min_value = -80.0
+min_value = -60.0
 max_value = 0.0
 
 [node name="TextureRect" type="TextureRect" parent="."]

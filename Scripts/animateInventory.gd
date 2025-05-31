@@ -20,12 +20,12 @@ func toggle():
 func open():
 	is_open = true
 	color_rect.show()
-	get_tree().paused = true
+	#get_tree().paused = true
 	animation_player.play("show_inventory")
 
 func close():
 	is_open = false
-	get_tree().paused = false
+	#get_tree().paused = false
 	animation_player.play("hide_inventory")
 	await animation_player.animation_finished
 	#inventory.hide()w

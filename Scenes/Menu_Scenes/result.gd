@@ -45,4 +45,6 @@ func _ready() -> void:
 	
 
 func _on_go_menu_pressed() -> void:
+	const BUTTON = preload("res://sounds/button.mp3")
+	GlobalSFX.play(BUTTON)
 	get_tree().change_scene_to_file("res://Scenes/Menu_Scenes/menu.tscn")

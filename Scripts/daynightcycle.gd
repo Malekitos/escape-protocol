@@ -19,7 +19,7 @@ func get_min() -> int:
 
 signal time_tick(day: int, hour: int, minute: int)
 
-var internal_time: float = 2.0
+var internal_time: float = 20.0
 var last_checked_minute: int = -1
 
 var current_day: int = 0

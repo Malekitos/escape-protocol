@@ -8,11 +8,18 @@ extends CharacterBody2D
 @onready var healthbar: ProgressBar = $CanvasLayer/Healthbar
 @onready var armor_bar: ProgressBar = $CanvasLayer/ArmorBar
 
+@onready var damage_sound: AudioStreamPlayer = $DamageSound
+const DEATH = preload("res://sounds/death.wav")
+
 var is_hurt : bool = false
 
 var health = 30
 var armor : float = 0 : set = _change_armor
 var armor_effect : float
+
+var attack_damage_enemy : int = 5
+var attack_damage_tree : int = 1
+var attack_damage_rock : int = 1
 
 @onready var ui_scene = preload("res://Scenes/UI.tscn")
 @onready var pause_scene = preload("res://Scenes/Menu_Scenes/Pause.tscn")
@@ -44,12 +51,16 @@ func _ready() -> void:
 		add_child(ui)
 		ui.owner = self
 	
+	GlobalSFX.apply_volume(damage_sound)
+	
 
 func take_damage(damage : int):
 	
+	damage_sound.play()
+	
 	if is_hurt: return
 	is_hurt = true
-
+	
 	match direction:
 		"down":
 			_animated_sprite.play("hurt_front")
@@ -64,11 +75,14 @@ func take_damage(damage : int):
 	
 	health -= damage * armor_effect
 	healthbar.health = health
-	#print(health)
 	await _animated_sprite.animation_finished  
 	is_hurt = false
 	
 	if health <= 0:
+		
+		GlobalSFX.play(DEATH)
+
+		
 		var time_node = get_tree().get_first_node_in_group("time")
 		var time = time_node.get_time()
 		var minutes_ingame = time_node.get_min()
@@ -89,7 +103,7 @@ func teleport_to_mine():
 		SceneManager.set_level(preload("res://Scenes/proc_gen_world.tscn"), true)
 		in_mine = false
 	
-var attack_damage : int = 5
+
 
 func get_input():
 	var input_direction = Input.get_vector("left","right","up","down")
