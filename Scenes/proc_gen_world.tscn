@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpm7b71cq8boh"]
+[gd_scene load_steps=12 format=3 uid="uid://bpm7b71cq8boh"]
 
 [ext_resource type="Script" uid="uid://c1oo5qwt35wci" path="res://Scripts/Generation_System/proc_gen_world.gd" id="1_ys06r"]
 [ext_resource type="Script" uid="uid://1sveywpi2txs" path="res://Scripts/daynightcycle.gd" id="2_ighaj"]
 [ext_resource type="TileSet" uid="uid://vod85kyfro86" path="res://tileSets/world.tres" id="2_it8ja"]
 [ext_resource type="TileSet" uid="uid://bpehb7vl424hv" path="res://tileSets/props.tres" id="4_ighaj"]
+[ext_resource type="TileSet" uid="uid://dp3ydm5a5g1cl" path="res://Scenes/MineTile_set.tres" id="5_h011p"]
 [ext_resource type="PackedScene" uid="uid://eb1l82xfgdxw" path="res://Resources/Enemys/enemy.tscn" id="5_p1hu2"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_acytt"]
@@ -76,6 +77,9 @@ z_index = 1
 y_sort_enabled = true
 use_parent_material = true
 tile_set = ExtResource("4_ighaj")
+
+[node name="upMine" type="TileMapLayer" parent="."]
+tile_set = ExtResource("5_h011p")
 
 [node name="Enemy" parent="." instance=ExtResource("5_p1hu2")]
 position = Vector2(239, 177)

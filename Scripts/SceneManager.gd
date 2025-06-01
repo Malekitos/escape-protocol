@@ -12,7 +12,6 @@ var time : String
 var world_name : String
 var minutes_ingame : int
 
-
 func _ready() -> void:
 	get_tree().change_scene_to_packed(menu_scene)
 	
@@ -52,7 +51,16 @@ func continue_game():
 	player_place.add_child(saved_player)
 	world_place.add_child(saved_world)
 	
-
+	var player_data = get_tree().get_first_node_in_group("player")
+	var time_data = get_tree().get_first_node_in_group("time")
+	
+	var WorldData = load("res://saves/world_data.tres")
+		
+	time_data.internal_time = WorldData.internal_time
+	print("Saved health : ", WorldData.player_health)
+	player_data.health = WorldData.player_health
+	print("Player health : ", player_data.health)
+	world_name = WorldData.world_name
 	
 	
 func create_game(world_name : String):
@@ -95,6 +103,9 @@ func clear_level(save : bool):
 func save_node_to_file(node: Node, file_path: String) -> void:
 	var packed_scene := PackedScene.new()
 
+	var player_data = get_tree().get_first_node_in_group("player")
+	var time_data = get_tree().get_first_node_in_group("time")
+	
 	if packed_scene.pack(node) != OK:
 		print("Не удалось упаковать узел:", node.name)
 		return
@@ -102,3 +113,11 @@ func save_node_to_file(node: Node, file_path: String) -> void:
 		print("Ошибка сохранения:", file_path)
 	#else:
 		#print("Узел сохранён:", file_path)
+	
+	var WorldData = world_data.new()
+	WorldData.internal_time = time_data.internal_time
+	WorldData.player_health = player_data.health
+	WorldData.world_name = world_name
+	
+	var WorldDataPath = "res://saves/world_data.tres"
+	ResourceSaver.save(WorldData, WorldDataPath)

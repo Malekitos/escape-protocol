@@ -13,7 +13,7 @@ const DEATH = preload("res://sounds/death.wav")
 
 var is_hurt : bool = false
 
-var health = 30
+@onready var health : int = 30 : set = _change_health
 var armor : float = 0 : set = _change_armor
 var armor_effect : float
 
@@ -31,11 +31,13 @@ var player_position : Vector2i
 
 var is_loaded_from_save : bool
 
+func _change_health(new_health):
+	health = new_health
+	healthbar.health = health
+
 func _change_armor(new_armor):
 	armor = armor_bar.armor
 	armor_effect = 1 - (armor/100 * 0.8)
-	#print(armor)
-	#print("EFF - ", armor_effect)
 
 func _ready() -> void:
 	add_to_group('player')
@@ -74,7 +76,6 @@ func take_damage(damage : int):
 			_animated_sprite.flip_h = false
 	
 	health -= damage * armor_effect
-	healthbar.health = health
 	await _animated_sprite.animation_finished  
 	is_hurt = false
 	

@@ -10,16 +10,13 @@ extends Control
 func _ready() -> void:
 	var time : String = SceneManager.time
 	var world_name : String = SceneManager.world_name
+	
+	if world_name == "":
+		world_name = "World: Undefined"
+	
 	var minutes_ingame : int = SceneManager.minutes_ingame
 	result_label.text = time
 	world_label.text = world_name
-	
-	#var file = FileAccess.open("res://saves/result.bin", FileAccess.WRITE)
-	#file.store_var({
-		#"world_name" : world_name,
-		#"world_time" : time,
-		#"minutes_ingame" : minutes_ingame
-	#}, true)
 	
 	var save_path = "res://saves/saveResults.json"
 	var all_results : Array

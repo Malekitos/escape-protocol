@@ -3,7 +3,7 @@ extends CanvasModulate
 @onready var sky_gradient: GradientTexture1D = preload("res://Assets/shit/daynightcycle-gradient-texture.tres")
 @onready var time_label: Label = $CanvasLayer/MarginContainer/time_label
 
-var total_ingame_minutes : int
+@onready var total_ingame_minutes : int
 
 func _ready() -> void:
 	add_to_group('time')
@@ -19,7 +19,7 @@ func get_min() -> int:
 
 signal time_tick(day: int, hour: int, minute: int)
 
-var internal_time: float = 20.0
+var internal_time: float = 1
 var last_checked_minute: int = -1
 
 var current_day: int = 0
@@ -31,6 +31,8 @@ const HOUR_MINUTES = 60
 const TIME_SCALE = TAU / DAY_MINUTES  
 
 func _process(delta: float) -> void:
+	internal_time += delta / 8  # ← скорость смены времени, можно настраивать
+	#internal_time = fmod(internal_time, TAU)
 	var normalized_time = (sin(internal_time - PI / 2.0) + 1.0) * 0.5
 	self.color = sky_gradient.gradient.sample(normalized_time)
 	_update_clock()
