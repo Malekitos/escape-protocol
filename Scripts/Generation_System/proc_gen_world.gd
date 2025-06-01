@@ -70,8 +70,8 @@ var rock_types = {
 
 var mineEnter = preload("res://Scenes/entry_mine.tscn")
 
-var width = 100
-var height = 100
+var width = 120
+var height = 120
 
 var Tile_Size = 16 
 
@@ -79,9 +79,13 @@ func _ready() -> void:
 	
 	add_to_group("proc_gen_world")
 	
+	var player = get_tree().get_first_node_in_group("player")
+	player.global_position = Vector2(50*16 , 50*16)
+	
 	noise = noise_height_text.noise
 	tree_noise = noise_tree_text.noise
 	noise.seed = randi()
+	tree_noise.seed = randi()
 	#noise.seed = 100
 	if not is_loaded_from_save:
 		generate_world()
@@ -169,7 +173,7 @@ func generate_world():
 	spring_layer.set_cells_terrain_connect(spring_tiles_arr, 0, 2)
 	winter_layer.set_cells_terrain_connect(winter_tiles_arr, 0, 3)
 
-
+	create_inner_barrier(Vector2(120*16, 120*16), Vector2(85*16, 85*16))
 
 	#print("Highest: ", noise_val_arr.max())
 	#print("lowest: ", noise_val_arr.min())
@@ -200,3 +204,37 @@ func spawn_mine(position: Vector2i):
 	Mineenter.global_position = position
 	add_child(Mineenter)
 	Mineenter.owner = self
+
+func create_inner_barrier(world_size: Vector2, barrier_size: Vector2, wall_thickness := 64):
+	var offset = (world_size - barrier_size) / 2
+	var x = offset.x
+	var y = offset.y
+	var w = barrier_size.x
+	var h = barrier_size.y
+
+	var barrier_container = Node2D.new()
+	barrier_container.name = "InnerBarriers"
+
+	# Верхняя стена
+	barrier_container.add_child(_make_wall(Rect2(x, y - wall_thickness, w, wall_thickness)))
+	# Нижняя стена
+	barrier_container.add_child(_make_wall(Rect2(x, y + h, w, wall_thickness)))
+	# Левая стena
+	barrier_container.add_child(_make_wall(Rect2(x - wall_thickness, y, wall_thickness, h)))
+	# Правая стena
+	barrier_container.add_child(_make_wall(Rect2(x + w, y, wall_thickness, h)))
+
+	add_child(barrier_container)
+	
+func _make_wall(rect: Rect2) -> StaticBody2D:
+	var wall = StaticBody2D.new()
+	wall.position = rect.position
+
+	var shape = CollisionShape2D.new()
+	var box = RectangleShape2D.new()
+	box.extents = rect.size / 2
+	shape.shape = box
+	shape.position = box.extents
+
+	wall.add_child(shape)
+	return wall

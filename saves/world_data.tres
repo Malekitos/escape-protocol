@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_vgtgu")
-internal_time = 22.5506
+internal_time = 4.58918
 player_health = 30
 world_name = "World: Undefined"
