@@ -35,8 +35,9 @@ animation = &"hurt_right"
 autoplay = "idle"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
+debug_enabled = true
 debug_use_custom = true
-debug_path_custom_color = Color(0.133368, 0.339029, 0.619599, 1)
+debug_path_custom_color = Color(0.239216, 0.431373, 0.698039, 0.14902)
 
 [node name="DamagesArea" type="Area2D" parent="CharacterBody2D"]
 

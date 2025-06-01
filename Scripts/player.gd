@@ -93,7 +93,9 @@ func take_damage(damage : int):
 	
 
 func teleport_to_mine():
+	
 	if !in_mine:
+		SceneManager.clear_enemy()
 		player_position = (global_position + Vector2(80,0))
 		SceneManager.clear_level(true)
 		SceneManager.set_level(preload("res://Scenes/mine.tscn"), false)

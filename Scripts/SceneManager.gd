@@ -130,9 +130,8 @@ func save_node_to_file(node: Node, file_path: String) -> void:
 
 
 func spawn_enemy(value) -> void:
+	
 	var proc_gen_world = world_place.get_child(0)
-	
-	
 	
 	player_place = main_scene.get_node("playerPlace")
 	
@@ -143,4 +142,7 @@ func spawn_enemy(value) -> void:
 		player_place.add_child(enemy)
 		print("Spawned")
 	
-	
+func clear_enemy() -> void:
+	player_place = main_scene.get_node("playerPlace")
+	for i in player_place.get_children().slice(1):
+		i.queue_free()
