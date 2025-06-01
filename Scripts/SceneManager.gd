@@ -29,8 +29,6 @@ func exit_game():
 	var player = player_place.get_children()
 	var world = world_place.get_children()
 	
-	print(world[0])
-	
 	var player_node = get_tree().get_nodes_in_group("player")[0]
 	var inventory = player_node.get_node('UI/CanvasLayer/AnimationPlayer/Inventory')
 	
@@ -38,8 +36,6 @@ func exit_game():
 		
 	save_node_to_file(player[0], "res://saves/player_place.tscn")
 	save_node_to_file(world[0], "res://saves/world_place.tscn")
-	
-	print(world[0])
 	
 	get_tree().change_scene_to_packed(menu_scene)
 
@@ -131,3 +127,18 @@ func save_node_to_file(node: Node, file_path: String) -> void:
 	
 	var WorldDataPath = "res://saves/world_data.tres"
 	ResourceSaver.save(WorldData, WorldDataPath)
+
+
+func spawn_enemy(value) -> void:
+	var proc_gen_world = world_place.get_child(0)
+	var enemy = preload("res://Resources/Enemys/enemy.tscn").instantiate()
+	
+	if proc_gen_world.enemy_spawnpoints.pick_random():
+		enemy.global_position = (proc_gen_world.enemy_spawnpoints.pick_random())
+	
+	player_place = main_scene.get_node("playerPlace")
+	
+	for i in value:
+		player_place.add_child(enemy)
+	
+	

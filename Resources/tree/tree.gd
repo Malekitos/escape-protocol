@@ -20,7 +20,9 @@ func _ready():
 	GlobalSFX.apply_volume(hit_sound)
 
 func damage(attack_damage : int):
+	
 	hit_sound.play()
+	
 	healthbar.show()
 	health -= attack_damage
 	healthbar.health = health

@@ -5,6 +5,8 @@ extends CanvasModulate
 
 @onready var total_ingame_minutes : int
 
+var spawned_day : int
+
 func _ready() -> void:
 	add_to_group('time')
 	
@@ -46,7 +48,12 @@ func _update_clock() -> void:
 	current_hour = minutes_today / HOUR_MINUTES
 	current_minute = minutes_today % HOUR_MINUTES
 
+
 	if last_checked_minute != current_minute:
 		last_checked_minute = current_minute
 		time_tick.emit(current_day, current_hour, current_minute)
 		time_label.text = "Day %d, %02d:%02d" % [current_day, current_hour, current_minute]
+		
+		if current_hour == 2 and current_day!= spawned_day:
+			spawned_day = current_day
+			SceneManager.spawn_enemy(int(ceil(spawned_day * 1.5)))
