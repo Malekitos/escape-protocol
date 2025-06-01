@@ -17,11 +17,11 @@ func get_items():
 func save_inventory():
 	var inv_save := InventorySave.new()
 	inv_save.items = items
-	var result := ResourceSaver.save(inv_save, "res://saves/inventory_data.res")
+	var result := ResourceSaver.save(inv_save, "user://inventory_data.res")
 
 func load_inventory():
-	if ResourceLoader.exists("res://saves/inventory_data.res"):
-		var inv_save := load("res://saves/inventory_data.res") as InventorySave
+	if ResourceLoader.exists("user://inventory_data.res"):
+		var inv_save := load("user://inventory_data.res") as InventorySave
 		for item in inv_save.items:
 			add_item(item) 
 

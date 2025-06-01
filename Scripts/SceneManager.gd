@@ -34,8 +34,8 @@ func exit_game():
 	
 	inventory.save_inventory()
 		
-	save_node_to_file(player[0], "res://saves/player_place.tscn")
-	save_node_to_file(world[0], "res://saves/world_place.tscn")
+	save_node_to_file(player[0], "user://player_place.tscn")
+	save_node_to_file(world[0], "user://world_place.tscn")
 	
 	get_tree().change_scene_to_packed(menu_scene)
 
@@ -52,8 +52,8 @@ func continue_game():
 	player_place = main_scene.get_node("playerPlace")
 	world_place = main_scene.get_node("worldPlace")
 
-	var saved_player = load("res://saves/player_place.tscn").instantiate()
-	var saved_world = load("res://saves/world_place.tscn").instantiate()
+	var saved_player = load("user://player_place.tscn").instantiate()
+	var saved_world = load("user://world_place.tscn").instantiate()
 
 	saved_world.is_loaded_from_save = true
 	
@@ -63,7 +63,7 @@ func continue_game():
 	var player_data = get_tree().get_first_node_in_group("player")
 	var time_data = get_tree().get_first_node_in_group("time")
 	
-	var WorldData = load("res://saves/world_data.tres")
+	var WorldData = load("user://world_data.tres")
 		
 	time_data.internal_time = WorldData.internal_time
 	player_data.health = WorldData.player_health
@@ -71,8 +71,8 @@ func continue_game():
 	
 	
 func create_game(world_name : String):
-	if FileAccess.file_exists("res://saves/inventory_data.res"):
-		var dir := DirAccess.open("res://saves")
+	if FileAccess.file_exists("user://inventory_data.res"):
+		var dir := DirAccess.open("user://")
 		if dir:
 			dir.remove("inventory_data.res")
 
@@ -125,7 +125,7 @@ func save_node_to_file(node: Node, file_path: String) -> void:
 	WorldData.player_health = player_data.health
 	WorldData.world_name = world_name
 	
-	var WorldDataPath = "res://saves/world_data.tres"
+	var WorldDataPath = "user://world_data.tres"
 	ResourceSaver.save(WorldData, WorldDataPath)
 
 

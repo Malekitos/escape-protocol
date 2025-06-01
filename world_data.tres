@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="world_data" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://saves/save_data.gd" id="1_8jjhk"]
+
+[resource]
+script = ExtResource("1_8jjhk")
+internal_time = 1.11719
+player_health = 30
+world_name = "World: Undefined"
