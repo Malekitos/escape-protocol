@@ -10,6 +10,11 @@
 		"world_time": "Day 8, 03:58"
 	},
 	{
+		"minutes_ingame": 9137,
+		"world_name": "A@ds",
+		"world_time": "Day 6, 08:17"
+	},
+	{
 		"minutes_ingame": 8631.0,
 		"world_name": "DWA",
 		"world_time": "Day 5, 23:51"
@@ -17,11 +22,6 @@
 	{
 		"minutes_ingame": 4583.0,
 		"world_name": "",
-		"world_time": "Day 3, 04:23"
-	},
-	{
-		"minutes_ingame": 4583.0,
-		"world_name": "My World",
 		"world_time": "Day 3, 04:23"
 	}
 ]

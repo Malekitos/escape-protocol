@@ -98,6 +98,7 @@ func generate_world():
 			var noise_val = noise.get_noise_2d(x,y)
 			var tree_noise_val = tree_noise.get_noise_2d(x,y)
 			
+			enemy_spawnpoints.append(Vector2i(x,y))
 			var normalized = remap(noise_val, -1.0, 1.0, 0.0, 1.0)
 		
 			if normalized >= 0 and normalized <= 0.45:
@@ -161,7 +162,6 @@ func generate_world():
 					ground_layer.set_cell(Vector2i(x,y), 0, winter_bush_arr.pick_random())
 				if tree_noise_val > 0.87 and tree_noise_val < 0.89:
 					ground_layer.set_cell(Vector2i(x,y), 0, small_winter_stone_arr.pick_random())
-					enemy_spawnpoints.append(Vector2i(x * 16,y * 16))
 				if tree_noise_val > 0.89 and tree_noise_val < 0.90:
 					spawn_stone(Vector2i(x * Tile_Size ,y * Tile_Size), "winter_stone")
 				if tree_noise_val > 0.503 and tree_noise_val < 0.505:
@@ -172,8 +172,6 @@ func generate_world():
 	summer_layer.set_cells_terrain_connect(summer_tiles_arr, 0, 1)
 	spring_layer.set_cells_terrain_connect(spring_tiles_arr, 0, 2)
 	winter_layer.set_cells_terrain_connect(winter_tiles_arr, 0, 3)
-
-	create_inner_barrier(Vector2(120*16, 120*16), Vector2(85*16, 85*16))
 
 	#print("Highest: ", noise_val_arr.max())
 	#print("lowest: ", noise_val_arr.min())
@@ -205,36 +203,4 @@ func spawn_mine(position: Vector2i):
 	add_child(Mineenter)
 	Mineenter.owner = self
 
-func create_inner_barrier(world_size: Vector2, barrier_size: Vector2, wall_thickness := 64):
-	var offset = (world_size - barrier_size) / 2
-	var x = offset.x
-	var y = offset.y
-	var w = barrier_size.x
-	var h = barrier_size.y
-
-	var barrier_container = Node2D.new()
-	barrier_container.name = "InnerBarriers"
-
-	# Верхняя стена
-	barrier_container.add_child(_make_wall(Rect2(x, y - wall_thickness, w, wall_thickness)))
-	# Нижняя стена
-	barrier_container.add_child(_make_wall(Rect2(x, y + h, w, wall_thickness)))
-	# Левая стena
-	barrier_container.add_child(_make_wall(Rect2(x - wall_thickness, y, wall_thickness, h)))
-	# Правая стena
-	barrier_container.add_child(_make_wall(Rect2(x + w, y, wall_thickness, h)))
-
-	add_child(barrier_container)
 	
-func _make_wall(rect: Rect2) -> StaticBody2D:
-	var wall = StaticBody2D.new()
-	wall.position = rect.position
-
-	var shape = CollisionShape2D.new()
-	var box = RectangleShape2D.new()
-	box.extents = rect.size / 2
-	shape.shape = box
-	shape.position = box.extents
-
-	wall.add_child(shape)
-	return wall

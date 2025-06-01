@@ -131,14 +131,16 @@ func save_node_to_file(node: Node, file_path: String) -> void:
 
 func spawn_enemy(value) -> void:
 	var proc_gen_world = world_place.get_child(0)
-	var enemy = preload("res://Resources/Enemys/enemy.tscn").instantiate()
 	
-	if proc_gen_world.enemy_spawnpoints.pick_random():
-		enemy.global_position = (proc_gen_world.enemy_spawnpoints.pick_random())
+	
 	
 	player_place = main_scene.get_node("playerPlace")
 	
 	for i in value:
+		var enemy = preload("res://Resources/Enemys/enemy.tscn").instantiate()
+		if proc_gen_world.enemy_spawnpoints.pick_random():
+			enemy.global_position = (proc_gen_world.enemy_spawnpoints.pick_random())
 		player_place.add_child(enemy)
+		print("Spawned")
 	
 	

@@ -33,8 +33,7 @@ const HOUR_MINUTES = 60
 const TIME_SCALE = TAU / DAY_MINUTES  
 
 func _process(delta: float) -> void:
-	internal_time += delta / 8  # ← скорость смены времени, можно настраивать
-	#internal_time = fmod(internal_time, TAU)
+	#internal_time += delta / 6  
 	var normalized_time = (sin(internal_time - PI / 2.0) + 1.0) * 0.5
 	self.color = sky_gradient.gradient.sample(normalized_time)
 	_update_clock()
@@ -56,4 +55,4 @@ func _update_clock() -> void:
 		
 		if current_hour == 2 and current_day!= spawned_day:
 			spawned_day = current_day
-			SceneManager.spawn_enemy(int(ceil(spawned_day * 1.5)))
+			SceneManager.spawn_enemy(int(ceil(spawned_day * 2)))

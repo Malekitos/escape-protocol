@@ -18,7 +18,7 @@ func _ready() -> void:
 	result_label.text = time
 	world_label.text = world_name
 	
-	var save_path = "res://saves/saveResults.json"
+	var save_path = "user://saveResults.json"
 	var all_results : Array
 	
 	if FileAccess.file_exists(save_path):

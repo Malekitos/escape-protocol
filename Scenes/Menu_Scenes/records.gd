@@ -20,7 +20,7 @@ func _ready() -> void:
 	#h_box_container.hide()
 	
 func load_records():
-	var save_path = "user://saves/saveResults.json"
+	var save_path = "user://saveResults.json"
 	var result : Array
 	
 	if FileAccess.file_exists(save_path):
