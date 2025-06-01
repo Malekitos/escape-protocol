@@ -31,7 +31,7 @@ radius = 12.45
 y_sort_enabled = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(609.094, 216.063)
+position = Vector2(455.446, 217.015)
 script = ExtResource("1_k8vyk")
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
@@ -56,8 +56,8 @@ drag_bottom_margin = 0.05
 y_sort_enabled = true
 position = Vector2(1, 0)
 sprite_frames = ExtResource("3_g2t5c")
-animation = &"idle_back"
-frame_progress = 0.430095
+animation = &"hurt_right"
+frame_progress = 0.767655
 offset = Vector2(0, -7.105)
 flip_h = true
 

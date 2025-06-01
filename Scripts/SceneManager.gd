@@ -12,13 +12,24 @@ var time : String
 var world_name : String
 var minutes_ingame : int
 
+
 func _ready() -> void:
 	get_tree().change_scene_to_packed(menu_scene)
 	
 
 func exit_game():
+	var player_data = get_tree().get_first_node_in_group("player")
+	
+	if player_data.in_mine:
+		player_data.global_position = player_data.player_position
+		clear_level(false)
+		set_level(preload("res://Scenes/proc_gen_world.tscn"), true)
+		player_data.in_mine = false
+	
 	var player = player_place.get_children()
 	var world = world_place.get_children()
+	
+	print(world[0])
 	
 	var player_node = get_tree().get_nodes_in_group("player")[0]
 	var inventory = player_node.get_node('UI/CanvasLayer/AnimationPlayer/Inventory')
@@ -27,6 +38,8 @@ func exit_game():
 		
 	save_node_to_file(player[0], "res://saves/player_place.tscn")
 	save_node_to_file(world[0], "res://saves/world_place.tscn")
+	
+	print(world[0])
 	
 	get_tree().change_scene_to_packed(menu_scene)
 
@@ -57,9 +70,7 @@ func continue_game():
 	var WorldData = load("res://saves/world_data.tres")
 		
 	time_data.internal_time = WorldData.internal_time
-	print("Saved health : ", WorldData.player_health)
 	player_data.health = WorldData.player_health
-	print("Player health : ", player_data.health)
 	world_name = WorldData.world_name
 	
 	
@@ -105,15 +116,14 @@ func save_node_to_file(node: Node, file_path: String) -> void:
 
 	var player_data = get_tree().get_first_node_in_group("player")
 	var time_data = get_tree().get_first_node_in_group("time")
+
 	
 	if packed_scene.pack(node) != OK:
 		print("Не удалось упаковать узел:", node.name)
 		return
 	if ResourceSaver.save(packed_scene,file_path) != OK:
 		print("Ошибка сохранения:", file_path)
-	#else:
-		#print("Узел сохранён:", file_path)
-	
+
 	var WorldData = world_data.new()
 	WorldData.internal_time = time_data.internal_time
 	WorldData.player_health = player_data.health
