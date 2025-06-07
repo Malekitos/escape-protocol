@@ -104,6 +104,7 @@ Izdzīvot pēc iespējas ilgāk, **gudri pārvaldot resursus**, aizsargājoties 
 ![Screenshot From 2025-05-31 18-32-42](https://github.com/user-attachments/assets/91a95fef-8ac6-437c-8093-e171e40b80de)
 ![Screenshot From 2025-05-31 18-32-24](https://github.com/user-attachments/assets/20eb11d6-bfb6-403f-a312-5aaec3c95ce0)
 ![Screenshot From 2025-05-31 18-30-14](https://github.com/user-attachments/assets/a1769b8d-b05c-488a-8e2e-47a96a4a19f7)
+![image](https://github.com/user-attachments/assets/c12ced67-96fa-479b-aab6-a323f31920ee)
 ![Screenshot From 2025-05-31 18-29-16](https://github.com/user-attachments/assets/9abb83b1-c100-4486-be20-1193aeecd8ee)
 ![Screenshot From 2025-05-31 18-28-59](https://github.com/user-attachments/assets/bc91394c-867f-4a0b-9b11-6d94683cfcf7)
 ![Screenshot From 2025-05-31 18-28-46](https://github.com/user-attachments/assets/d20f4ee5-bd19-4d03-ac1d-b3e17d2dba35)
