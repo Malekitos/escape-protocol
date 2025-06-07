@@ -177,18 +177,18 @@ autowrap_mode = 3
 [node name="HBoxContainer6" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer6"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("11_5r5do")
-expand_mode = 5
-
 [node name="Label2" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer6"]
 custom_minimum_size = Vector2(230, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Neaizmirsti — tu vari doties šahtās, lai iegūtu vērtīgākus resursus."
 autowrap_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("11_5r5do")
+expand_mode = 5
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
