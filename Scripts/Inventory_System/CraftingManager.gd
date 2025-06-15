@@ -1,29 +1,34 @@
 extends PanelContainer
 
 class_name CraftingManager
-
-var craft_items: Array[ItemCraft] = []
+	
 
 @onready var recepies_list = get_tree().get_first_node_in_group("recepies_list")
 # UI list
 @onready var crafting_item = preload("res://Scenes/Inventory_scenes/crafting_item.tscn").instantiate()
 
-func load_all_recipes():
-	var dir = DirAccess.open("res://Resources/items/Crafts/")
-	if dir:
-		dir.list_dir_begin()
-		while true:
-			var file_name = dir.get_next()
-			if file_name == "":
-				break
-			if file_name.ends_with(".tres"):
-				var recipe = load("res://Resources/items/Crafts/" + file_name)
-				if recipe is ItemCraft:
-					craft_items.append(recipe)
+@export var craft_items: Array[ItemCraft] = [
+	preload("res://Resources/items/Crafts/cooper_craft.tres"),
+	preload("res://Resources/items/Crafts/iron_boots_craft.tres"),
+	preload("res://Resources/items/Crafts/Iron_craft.tres"),
+ 	preload("res://Resources/items/Crafts/iron_gloves_craft.tres"),
+	preload("res://Resources/items/Crafts/iron_helmet_craft.tres"),
+	preload("res://Resources/items/Crafts/iron_suite_craft.tres"),
+	preload("res://Resources/items/Crafts/iron_sword_craft.tres"),
+	preload("res://Resources/items/Crafts/stone_axe.tres"),
+	preload("res://Resources/items/Crafts/stone_pickaxe.tres"),
+	preload("res://Resources/items/Crafts/Torch-craft.tres"),
+	preload("res://Resources/items/Crafts/wood_boots_craft.tres"),
+	preload("res://Resources/items/Crafts/wood_gloves_craft.tres"),
+	preload("res://Resources/items/Crafts/wood_helmet_craft.tres"),
+	preload("res://Resources/items/Crafts/wood_suite_craft.tres"),
+	preload("res://Resources/items/Crafts/wood_sword_craft.tres")
+]
 
 func _ready():
 	add_to_group("crafting")
-	load_all_recipes()
+
+
 
 func can_craft(recipe: ItemCraft, inventory_items: Array[ItemResource]) -> bool:
 	var temp_inventory := inventory_items.duplicate()
