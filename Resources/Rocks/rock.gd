@@ -7,7 +7,7 @@ extends Node2D
 @onready var healthbar: ProgressBar = $Healthbar
 
 var health = 20
-@onready var player = get_tree().get_nodes_in_group("player")[0]
+@onready var player = get_tree().get_first_node_in_group("player")
 @onready var inventory = player.get_node('UI/CanvasLayer/AnimationPlayer/Inventory')
 @onready var hit_sound: AudioStreamPlayer2D = $HitSound
 

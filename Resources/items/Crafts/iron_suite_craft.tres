@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemCraft" load_steps=6 format=3 uid="uid://cx505cehdabr4"]
+
+[ext_resource type="Script" uid="uid://jvtu1xcoge5t" path="res://Scripts/Inventory_System/item_resource.gd" id="1_hg6qo"]
+[ext_resource type="Resource" uid="uid://bjvpql67pkujf" path="res://Resources/items/materials/iron_ingot.tres" id="2_66tga"]
+[ext_resource type="Resource" uid="uid://old3tdgoo7ue" path="res://Resources/items/Armors/wood_suite.tres" id="3_hg6qo"]
+[ext_resource type="Resource" uid="uid://cakh5jekoi011" path="res://Resources/items/Armors/iron_suite.tres" id="4_66tga"]
+[ext_resource type="Script" uid="uid://dlvgbsji1rhm4" path="res://Scripts/Inventory_System/item_craft.gd" id="5_rwm8i"]
+
+[resource]
+script = ExtResource("5_rwm8i")
+input_items = Array[ExtResource("1_hg6qo")]([ExtResource("2_66tga"), ExtResource("3_hg6qo")])
+output_item = ExtResource("4_66tga")
+output_count = 1
+metadata/_custom_type_script = "uid://dlvgbsji1rhm4"

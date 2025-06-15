@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemCraft" load_steps=5 format=3 uid="uid://wnx1kgj616dx"]
+
+[ext_resource type="Script" uid="uid://jvtu1xcoge5t" path="res://Scripts/Inventory_System/item_resource.gd" id="1_joac7"]
+[ext_resource type="Resource" uid="uid://bjvpql67pkujf" path="res://Resources/items/materials/iron_ingot.tres" id="2_khbou"]
+[ext_resource type="Resource" uid="uid://ctn7o54mvqeaw" path="res://Resources/items/Armors/iron_gloves.tres" id="3_bo5nj"]
+[ext_resource type="Script" uid="uid://dlvgbsji1rhm4" path="res://Scripts/Inventory_System/item_craft.gd" id="5_bx5et"]
+
+[resource]
+script = ExtResource("5_bx5et")
+input_items = Array[ExtResource("1_joac7")]([ExtResource("2_khbou"), ExtResource("3_bo5nj")])
+output_item = ExtResource("3_bo5nj")
+output_count = 1
+metadata/_custom_type_script = "uid://dlvgbsji1rhm4"

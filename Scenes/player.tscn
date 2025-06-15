@@ -29,14 +29,12 @@ position = Vector2(320, 180)
 script = ExtResource("1_larev")
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
-visible = false
 position = Vector2(1, -6)
 color = Color(0.961629, 0.840553, 0.17093, 1)
 energy = 0.4
 range_z_min = -1023
 shadow_filter = 2
 texture = ExtResource("3_6t5aa")
-offset = Vector2(-54.195, 20.075)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 drag_horizontal_enabled = true

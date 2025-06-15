@@ -4,6 +4,9 @@ extends HBoxContainer
 @onready var slots = $".".get_children()
 var active_index: int = 0
 
+@onready var player = get_tree().get_first_node_in_group("player")
+@onready var light = player.get_node("PointLight2D")
+
 func _ready():
 	highlight_active_slot()
 
@@ -15,10 +18,12 @@ func highlight_active_slot():
 	_unhighlight_all_slots()
 	var active_slot = slots[active_index]
 	active_slot.modulate = Color(0.8, 0.8, 0.8, 1)
-	#if active_slot.item:
-		#print("Активный предмет: ", active_slot.item.item_name)
-	##else:
-		###print("Активный слот пуст")
+	
+	if active_slot.item != null and active_slot.item.item_name == "Torch":
+		light.enabled = true
+	else:
+		light.enabled = false
+
 
 func _input(event):
 	if event is InputEventMouseButton:
