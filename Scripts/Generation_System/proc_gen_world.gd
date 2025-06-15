@@ -76,7 +76,6 @@ var height = 120
 var Tile_Size = 16 
 
 func _ready() -> void:
-	
 	add_to_group("proc_gen_world")
 	
 	var player = get_tree().get_first_node_in_group("player")
@@ -98,7 +97,7 @@ func generate_world():
 			var noise_val = noise.get_noise_2d(x,y)
 			var tree_noise_val = tree_noise.get_noise_2d(x,y)
 			
-			if x > 10 and y > 10:
+			if x > 32 and y > 32:
 				enemy_spawnpoints.append(Vector2i(x * 16,y * 16))
 			
 			var normalized = remap(noise_val, -1.0, 1.0, 0.0, 1.0)

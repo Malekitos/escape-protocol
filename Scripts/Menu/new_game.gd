@@ -14,5 +14,6 @@ func _on_create_pressed() -> void:
 	if world_name == "":
 		world_name = "World: Undefined"
 	SceneManager.world_name = world_name
-	SceneManager.create_game(world_name)
+	get_tree().change_scene_to_file("res://Scenes/Menu_Scenes/loading_screen.tscn")
+	#SceneManager.create_game(world_name)
 	

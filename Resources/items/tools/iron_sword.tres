@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=4 format=3 uid="uid://8e8i8lujjlxi"]
+
+[ext_resource type="Script" uid="uid://c51ukwska8nc4" path="res://Scripts/Inventory_System/weapon_resource.gd" id="1_5bx8d"]
+[ext_resource type="Texture2D" uid="uid://c1efv1d3yopei" path="res://Assets/icons/#2 - Transparent Icons & Drop Shadow.png" id="1_sxef2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhsxv"]
+atlas = ExtResource("1_sxef2")
+region = Rect2(35, 164, 26, 27)
+
+[resource]
+script = ExtResource("1_5bx8d")
+damage = 10
+type = "SWORD"
+item_name = "Sword"
+item_icon = SubResource("AtlasTexture_jhsxv")
+item_description = ""
+metadata/_custom_type_script = "uid://c51ukwska8nc4"

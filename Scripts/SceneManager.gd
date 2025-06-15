@@ -70,7 +70,7 @@ func continue_game():
 	world_name = WorldData.world_name
 	
 	
-func create_game(world_name : String):
+func create_game(proc_gen_world : PackedScene):
 	if FileAccess.file_exists("user://inventory_data.res"):
 		var dir := DirAccess.open("user://")
 		if dir:
@@ -88,7 +88,7 @@ func create_game(world_name : String):
 	player = player_scene.instantiate()
 	player_place.add_child(player)
 
-	set_level(preload("res://Scenes/proc_gen_world.tscn"), false)
+	set_level(proc_gen_world, false)
 
 	
 
@@ -140,7 +140,7 @@ func spawn_enemy(value) -> void:
 		if proc_gen_world.enemy_spawnpoints.pick_random():
 			enemy.global_position = (proc_gen_world.enemy_spawnpoints.pick_random())
 		player_place.add_child(enemy)
-		print("Spawned")
+		#print("Spawned")
 	
 func clear_enemy() -> void:
 	player_place = main_scene.get_node("playerPlace")

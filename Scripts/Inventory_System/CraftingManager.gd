@@ -5,6 +5,7 @@ class_name CraftingManager
 @export var recipes_list: Array[ItemCraft] = []
 
 @onready var recepies_list = get_tree().get_first_node_in_group("recepies_list")
+# UI list
 #@onready var crafting_item = get_tree().get_first_node_in_group("crafting_item")
 @onready var crafting_item = preload("res://Scenes/Inventory_scenes/crafting_item.tscn").instantiate()
 
@@ -27,9 +28,10 @@ func check_all_craftable(inventory_items: Array[ItemResource]) -> void:
 		child.queue_free()
 	
 	for recipe in recipes_list:
+		print(recipe.output_item.item_name)
 		if can_craft(recipe, inventory_items):
 			var inputs := ", ".join(recipe.input_items.map(func(i): return i.item_name))
-			#print("Можно создать:", recipe.output_item.item_name, "из:", inputs)
+			print("Можно создать:", recipe.output_item.item_name, "из:", inputs)
 
 			var crafting_item = preload("res://Scenes/Inventory_scenes/crafting_item.tscn").instantiate()
 			
